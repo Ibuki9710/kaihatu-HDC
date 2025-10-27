@@ -1,0 +1,235 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+header{
+    margin: 0; 
+    padding: 0;
+    background-color: rgb(215, 220, 255);
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.menu-checkbox {
+    display: none;
+}
+
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+    left: 5px; /* 右上に配置 */
+    top: 50px;
+    z-index: 100;
+}
+
+.menu {
+    position: fixed;
+    top: 0px; /* ヘッダーの高さからスタート */
+    left: -250%; /* 画面左側に完全に隠す */
+    width: 200px;
+    height: 100vh; /* 画面の残りいっぱい */
+    background: #888888;
+    transition: left 0.4s ease; /* スライドアニメーション */
+    z-index: 99;
+    background-color: aliceblue;
+    top:50px;
+    padding:0;
+    margin:0;
+}
+
+.menu-button .bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #7d7d7d;
+    transition: all 0.4s;
+}
+
+#menu-toggle-checkbox:checked ~ .menu {
+    left: 0; /* 画面内にスライドインして表示 */
+}
+
+#menu-toggle-checkbox:checked ~ .menu-button .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+#menu-toggle-checkbox:checked ~ .menu-button .bar:nth-child(2) {
+    opacity: 0; /* 真ん中の線を非表示 */
+}
+
+#menu-toggle-checkbox:checked ~ .menu-button .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+.nav{
+    width: 100%;
+    height: 100%;
+}
+
+.navIcon:hover{
+    background-color: rgb(175, 183, 240);
+    border-radius: 5px;
+}
+
+.ul{
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    height: 100%;
+    width: 100%;
+}
+
+
+li a{
+    text-decoration: none;
+    color: black;
+    height: 100%;
+}
+
+.navIcon{
+    font-size: 10px;
+    margin-left: 15px;
+    height: 100%;
+    align-items: center;
+}
+
+.navLink{
+    height: 100%;
+    margin-top: 3px;
+}
+
+h3{
+    max-width: 100%;
+    height: auto;
+}
+
+.navImage{
+    width: 20px;
+    display: block;
+    margin: auto;
+    margin-top:5px
+}
+
+.searchList{
+    width: 52%;
+    align-items: center;
+    height: 100%;
+    margin:0;
+    padding:0;
+}
+
+.search-inner {
+    display: block;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+
+.search-inner form {
+    display: block;
+    position: relative;
+    height: 20px;
+}
+
+.search-inner form input {
+    border-radius: 15px;
+    border: solid 1px rgb(132, 132, 132);
+    width: 100%;
+    display: block;
+    position: relative;
+    height: 100%;
+    line-height: 1;
+    font-size: 10px;
+    padding: 0 10px;
+    line-height: 1;
+    box-sizing: border-box;
+    margin-top:15px;
+    outline: none;
+    margin-left: 5px;
+}
+
+.search-inner form input::placeholder {
+    position: relative;
+    font-size: 9px;
+}
+
+.search-inner form button{
+    position: absolute;
+    top: 50%;
+    font-size: 15px;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    box-shadow: none;
+    outline: none;
+    right: 5px;
+    background-color: transparent;
+}
+
+.searchIcon{
+    width: 20px;
+    padding: 0;
+}
+
+.RightLi{
+    width: 48%;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.footer{
+    background-color: rgb(197, 197, 197);
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    margin:0;
+    padding:0;
+}
+
+@media screen and (max-width: 700px) {
+    .navImage{
+        width: 15px;
+    }
+    header{
+        height: 35px;
+    }
+
+    .navIcon{
+        font-size: 7px;
+        margin-left: 8px;
+    }
+    
+    .searchIcon{
+        width: 15px;
+    }
+
+    .search-inner form {
+        height: 15px;
+    }
+    
+    .search-inner form input {
+        margin-top: 10px;
+    }
+
+    .menu{
+        top:35px;
+        width: 100px;
+        font-size:small;
+    }
+
+    .menu-button {
+    top: 35px;
+}
+}
