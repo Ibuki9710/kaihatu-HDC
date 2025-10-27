@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HDC ショッピングサイト</title>
-<link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<header>
-        <h2><a href="main.php">icon</a></h2>
+        <h2><a href="home.php">icon</a></h2>
         <nav class="nav">
-            <ul class="ul">
+            <ul class="nav-ul">
                 <li class="searchList">
                     <div class="search-inner">
-                    <form action="search.php" method="post">
-                        <input type="text" class="search" placeholder="検索"> 
+                    <form action="../back/item.php" method="post">
+                        <input type="text" class="search" placeholder="検索" name="search"> 
                         <button type="submit"><img src="image/search.png" class="searchIcon"></button>
                     </form>
                     </div>
@@ -29,4 +29,4 @@
             </ul>
         </nav>
     </header>
-    
+<body>

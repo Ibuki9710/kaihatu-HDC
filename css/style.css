@@ -4,69 +4,14 @@ body{
     width: 100%;
 }
 
+/*グローバルナビゲーションバー*/
 header{
     margin: 0; 
     padding: 0;
     background-color: rgb(215, 220, 255);
-    display: flex;
-    align-items: center;
+    display: flex;/*横並びに*/
+    align-items: center;/*縦中央そろえ*/
     height: 50px;
-}
-
-.menu-checkbox {
-    display: none;
-}
-
-.menu-button {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-    position: absolute;
-    left: 5px; /* 右上に配置 */
-    top: 50px;
-    z-index: 100;
-}
-
-.menu {
-    position: fixed;
-    top: 0px; /* ヘッダーの高さからスタート */
-    left: -250%; /* 画面左側に完全に隠す */
-    width: 200px;
-    height: 100vh; /* 画面の残りいっぱい */
-    background: #888888;
-    transition: left 0.4s ease; /* スライドアニメーション */
-    z-index: 99;
-    background-color: aliceblue;
-    top:50px;
-    padding:0;
-    margin:0;
-}
-
-.menu-button .bar {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: #7d7d7d;
-    transition: all 0.4s;
-}
-
-#menu-toggle-checkbox:checked ~ .menu {
-    left: 0; /* 画面内にスライドインして表示 */
-}
-
-#menu-toggle-checkbox:checked ~ .menu-button .bar:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 6px);
-}
-
-#menu-toggle-checkbox:checked ~ .menu-button .bar:nth-child(2) {
-    opacity: 0; /* 真ん中の線を非表示 */
-}
-
-#menu-toggle-checkbox:checked ~ .menu-button .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -6px);
 }
 
 .nav{
@@ -74,42 +19,30 @@ header{
     height: 100%;
 }
 
-.navIcon:hover{
-    background-color: rgb(175, 183, 240);
-    border-radius: 5px;
-}
-
-.ul{
+.nav-ul{
     display: flex;
     padding: 0;
     margin: 0;
-    list-style: none;
+    list-style: none;/*liタグの・をなくす*/
     height: 100%;
     width: 100%;
 }
 
-
-li a{
-    text-decoration: none;
-    color: black;
-    height: 100%;
-}
-
+/*アイコンの設定*/
 .navIcon{
-    font-size: 10px;
+    font-size: 14px;
     margin-left: 15px;
     height: 100%;
     align-items: center;
 }
 
-.navLink{
-    height: 100%;
-    margin-top: 3px;
+.navIcon:hover{
+    background-color: rgb(175, 183, 240);
+    border-radius: 5px;
 }
 
-h3{
-    max-width: 100%;
-    height: auto;
+.navLink{
+    margin-top: 3px;
 }
 
 .navImage{
@@ -119,9 +52,32 @@ h3{
     margin-top:5px
 }
 
+/*アイコンの右寄せ*/
+.RightLi{
+    width: 48%;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+/*リンクの設定*/
+li a{
+    text-decoration: none;/*リンクの下線をなくす*/
+    color: black;/*liタグの文字色を黒に*/
+    height: 100%;
+}
+
+/*ロゴの設定*/
+h3{
+    max-width: 100%;
+    height: auto;
+}
+
+/*検索バーの設定*/
 .searchList{
     width: 52%;
-    align-items: center;
     height: 100%;
     margin:0;
     padding:0;
@@ -158,13 +114,13 @@ h3{
 
 .search-inner form input::placeholder {
     position: relative;
-    font-size: 9px;
+    font-size: 10px;
 }
 
 .search-inner form button{
     position: absolute;
     top: 50%;
-    font-size: 15px;
+    font-size: 16px;
     transform: translateY(-50%);
     border: none;
     background: none;
@@ -179,14 +135,80 @@ h3{
     padding: 0;
 }
 
-.RightLi{
-    width: 48%;
-    justify-content: flex-end;
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 0;
+/*ハンバーガーメニューの設定*/
+.menu-checkbox {
+    display: none;
 }
+
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;/*余白を均等にする*/
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+    left: 5px; /* 右上に配置 */
+    top: 50px;
+    z-index: 100;
+}
+
+.menu {
+    position: fixed;
+    top: 0px; /* ヘッダーの高さからスタート */
+    left: -250%; /* 画面左側に完全に隠す */
+    width: 200px;
+    height: 100vh; /* 画面の残りいっぱい */
+    background: #888888;
+    transition: left 0.4s ease; /* スライドアニメーション */
+    z-index: 99;
+    background-color: rgb(245, 245, 245);/* メニューバー背景色*/
+    top:50px;
+    padding:0;
+    margin:0;
+}
+
+.menu-button .bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 3px;
+    background: #7d7d7d;
+    transition: all 0.4s;
+}
+
+#menu-toggle-checkbox:checked ~ .menu {
+    left: 0; /* 画面内にスライドインして表示 */
+}
+
+#menu-toggle-checkbox:checked ~ .menu-button .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+#menu-toggle-checkbox:checked ~ .menu-button .bar:nth-child(2) {
+    opacity: 0; /* 真ん中の線を非表示 */
+}
+
+#menu-toggle-checkbox:checked ~ .menu-button .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+.menu-ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+
+.menu-ul li{
+    font-size: 17px;
+}
+
+.menu-hover:hover{
+    color:rgba(72, 83, 232, 0.929)
+}
+
 
 .footer{
     background-color: rgb(197, 197, 197);
@@ -198,7 +220,49 @@ h3{
     padding:0;
 }
 
-@media screen and (max-width: 700px) {
+/*画面サイズが800pxの設定*/
+@media screen and (max-width: 800px) {
+    .navImage{
+        width: 20px;
+    }
+    header{
+        height: 40px;
+    }
+
+    .navIcon{
+        font-size: 12px;
+        margin-left: 8px;
+    }
+
+    .navImage{
+        margin-top: 2px;
+    }
+    
+    .searchIcon{
+        width: 20px;
+    }
+
+    .search-inner form {
+        height: 20px;
+    }
+    
+    .search-inner form input {
+        margin-top: 10px;
+    }
+
+    .menu{
+        top:40px;
+        width: 100px;
+        font-size:small;
+    }
+
+    .menu-button {
+    top: 40px;
+    }
+}
+
+/*画面サイズが*/
+@media screen and (max-width: 610px) {
     .navImage{
         width: 15px;
     }
@@ -207,20 +271,24 @@ h3{
     }
 
     .navIcon{
-        font-size: 7px;
-        margin-left: 8px;
+        font-size: 9px;
+        margin-left: 3px;
+    }
+
+    .navImage{
+        margin-top: 2px;
     }
     
     .searchIcon{
-        width: 15px;
+        width: 18px;
     }
 
     .search-inner form {
-        height: 15px;
+        height: 18px;
     }
     
     .search-inner form input {
-        margin-top: 10px;
+        margin-top: 9px;
     }
 
     .menu{
@@ -231,5 +299,5 @@ h3{
 
     .menu-button {
     top: 35px;
-}
+    }
 }
