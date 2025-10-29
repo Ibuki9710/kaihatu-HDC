@@ -231,7 +231,7 @@ h3{
 
 .menu-btn {
     background-color: rgb(98, 126, 197);
-    color: rgb(231, 231, 231);
+    color: rgb(253, 253, 253);
     border: none; 
     margin-top: 3px;
     border-radius: 2px;
@@ -296,7 +296,7 @@ h3{
     }
 }
 
-/*画面サイズが*/
+/*画面サイズが610px以下*/
 @media screen and (max-width: 610px) {
     .navImage{
         width: 15px;
