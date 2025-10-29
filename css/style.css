@@ -31,18 +31,38 @@ header{
 /*アイコンの設定*/
 .navIcon{
     font-size: 14px;
-    margin-left: 15px;
+    margin-left: 8px;
     height: 100%;
     align-items: center;
 }
 
 .navIcon:hover{
-    background-color: rgb(175, 183, 240);
-    border-radius: 5px;
+    background-color: rgb(202, 208, 255);
+    border-radius: 2px;
+}
+
+.navLink::after {
+position: absolute;
+left: 0;
+content: '';
+background:rgb(71, 69, 121);
+width: 100%;
+height: 2px;
+bottom: -5px;       /*アンダーラインが開始する位置*/
+opacity: 0;
+visibility: hidden; /*ホバー前に、アンダーラインを可視化しない*/
+transition: 0.3s;
+}
+
+.navLink:hover::after {
+visibility: visible; /*ホバー後、アンダーラインを可視化する*/
+bottom: 0px; /*下線が引く位置*/
+opacity: 1;
 }
 
 .navLink{
     margin-top: 3px;
+    position: relative;
 }
 
 .navImage{
@@ -155,15 +175,13 @@ h3{
 
 .menu {
     position: fixed;
-    top: 0px; /* ヘッダーの高さからスタート */
     left: -250%; /* 画面左側に完全に隠す */
     width: 200px;
     height: 100vh; /* 画面の残りいっぱい */
-    background: #888888;
     transition: left 0.4s ease; /* スライドアニメーション */
     z-index: 99;
     background-color: rgb(245, 245, 245);/* メニューバー背景色*/
-    top:50px;
+    top: 50px;/* ナビゲーションバーの高さからスタート */
     padding:0;
     margin:0;
 }
@@ -206,9 +224,22 @@ h3{
 }
 
 .menu-hover:hover{
-    color:rgba(72, 83, 232, 0.929)
+    color:rgba(72, 83, 232, 0.929);
+    text-decoration:underline; /*下線を引く*/
+    text-decoration-color: rgb(113, 110, 191);
 }
 
+.menu-btn {
+    background-color: rgb(98, 126, 197);
+    color: rgb(231, 231, 231);
+    border: none; 
+    margin-top: 3px;
+    border-radius: 2px;
+    height: 25px;
+    margin-left: 3px;
+    /*ボタンのデフォルト装飾を削除*/
+    box-shadow: none; 
+}
 
 .footer{
     background-color: rgb(197, 197, 197);
@@ -252,7 +283,11 @@ h3{
 
     .menu{
         top:40px;
-        width: 100px;
+        width: 120px;
+        
+    }
+
+    .menu li{
         font-size:small;
     }
 
@@ -271,7 +306,7 @@ h3{
     }
 
     .navIcon{
-        font-size: 9px;
+        font-size: 8px;
         margin-left: 3px;
     }
 
@@ -294,7 +329,11 @@ h3{
     .menu{
         top:35px;
         width: 100px;
-        font-size:small;
+        
+    }
+
+    .menu li{
+        font-size:11px;
     }
 
     .menu-button {

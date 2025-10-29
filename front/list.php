@@ -8,6 +8,7 @@
 
 <nav class="menu">
     <br>
+    <p></p>
     <strong>並び替え</strong><br>
     <ul class="menu-ul">
         <li><a href="#" name="order" id="#" class="menu-hover">新着順</a></li>
@@ -20,6 +21,7 @@
         <form action="../back/item.php" method="post">
             <li>縦　<input tyep="text" name="heiht" size="3" min="0">cm</li>
             <li>横　<input type="text" name="width" size="3" min="0">cm</li>
+            <button type="submit" class="menu-btn">検索</button>
         </form>
     </ul>
     <strong>品質</strong><br>
