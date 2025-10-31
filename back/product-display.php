@@ -9,7 +9,7 @@
     }else{
         $sql=$pdo->query('select image from item');
     }
-    echo '<h1>検索結果</h1>';
+    echo '<h1>検索結果1</h1>';
     foreach($sql as $row){
         $id=$row['item_id'];
         echo $row['image'];
