@@ -1,5 +1,5 @@
 <?php
     require 'header.html';
-    require 'list.html';
+    echo $_POST['search'];
     require 'footer.html';
 ?>
