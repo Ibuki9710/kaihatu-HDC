@@ -1,0 +1,40 @@
+<?php
+    require 'header2.html';
+?>
+<div class="form-container">
+    <div class="center-content">
+        <h2>会員登録</h2>
+    </div>
+    <form action="login.php" method="post" class="form-container">
+        <p class="input">
+            <label>メールアドレスまたは電話番号<font color="red">（必須）</font></label>
+            <input type="text" name=""  id="email" class="customer-text" placeholder="メールアドレス（電話番号）"> 
+        </p>
+        <p class="input">
+            <label>パスワード<font color="red">（必須）</font></label>
+            <input type="password" name=""  id="pass" class="customer-text" placeholder="パスワード"> 
+        </p>
+        <p class="input">
+            <label>氏名<font color="red">（必須）</font></label>
+            <input type="text" name=""  id="name1" class="customer-text" placeholder="氏名"> 
+        </p>
+        <p class="input">
+            <label>フリガナ<font color="red">（必須）</font></label>
+            <input type="text" name=""  id="name2" class="customer-text" placeholder="氏名（フリガナ）"> 
+        </p>
+        <p class="input">
+            <label>生年月日<font color="red">（必須）</font></label>
+            <select name="barth-year" class="min-text" id="barth-year"></select>年
+            <select name="barth-month"class="min-text" id="barth-month"></select>月
+            <select name="barth-day" class="min-text" id="barth-day"></select>日
+        </p>
+        <p id="errorMsg"></p>
+        <div class="center">
+            <button type="submit" class="greenBtn btn-base btn-wrapper">登録確認画面へ</button>
+        </div>
+    </form>
+</div>
+
+<?php
+    require 'footer.html';
+?>

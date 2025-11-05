@@ -1,0 +1,549 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main{
+    flex-grow: 1;
+}
+
+/*グローバルナビゲーションバー*/
+header{
+    margin: 0; 
+    padding: 0;
+    background-color: rgb(215, 220, 255);
+    display: flex;/*横並びに*/
+    align-items: center;/*縦中央そろえ*/
+    height: 60px;
+}
+
+.nav{
+    width: 100%;
+    height: 100%;
+}
+
+.nav ul{
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;/*liタグの・をなくす*/
+    height: 100%;
+    width: 100%;
+}
+
+/*アイコンの設定*/
+.navIcon{
+    font-size: 15px;
+    margin-left: 8px;
+    height: 100%;
+    align-items: center;
+}
+
+.navIcon:hover{
+    background-color: rgb(202, 208, 255);
+    border-radius: 2px;
+}
+
+.navLink::after {
+position: absolute;
+left: 0;
+content: '';
+background:rgb(71, 69, 121);
+width: 100%;
+height: 2px;
+bottom: -5px;       /*アンダーラインが開始する位置*/
+opacity: 0;
+visibility: hidden; /*ホバー前に、アンダーラインを可視化しない*/
+transition: 0.3s;
+}
+
+.navLink:hover::after {
+visibility: visible; /*ホバー後、アンダーラインを可視化する*/
+bottom: 0px; /*下線が引く位置*/
+opacity: 1;
+}
+
+.navLink{
+    margin-top: 5px;
+    position: relative;
+}
+
+.navImage{
+    width: 20px;
+    display: block;
+    margin: auto;
+    margin-top:7px
+}
+
+/*アイコンの右寄せ*/
+.RightLi{
+    width: 48%;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+/*リンクの設定*/
+a{
+    text-decoration: none;/*リンクの下線をなくす*/
+    color: black;/*liタグの文字色を黒に*/
+    height: 100%;
+}
+
+/*ロゴの設定*/
+h3{
+    max-width: 100%;
+    height: auto;
+}
+
+/*検索バーの設定*/
+.searchList{
+    width: 52%;
+    height: 100%;
+    margin:0;
+    padding:0;
+}
+
+.search-inner {
+    display: block;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+
+.search-inner form {
+    display: block;
+    position: relative;
+    height: 25px;
+}
+
+.search-inner form input {
+    border-radius: 15px;
+    border: solid 1px rgb(132, 132, 132);
+    width: 100%;
+    display: block;
+    position: relative;
+    height: 100%;
+    line-height: 1;
+    font-size: 12px;
+    padding: 0 10px;
+    line-height: 1;
+    box-sizing: border-box;
+    margin-top:18px;
+    outline: none;
+    margin-left: 5px;
+}
+
+.search-inner form input::placeholder {
+    position: relative;
+    font-size: 12px;
+}
+
+.search-inner form button{
+    position: absolute;
+    top: 50%;
+    font-size: 16px;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    box-shadow: none;
+    outline: none;
+    right: 5px;
+    background-color: transparent;
+}
+
+.searchIcon{
+    width: 20px;
+    padding: 0;
+}
+
+/*ハンバーガーメニューの設定*/
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;/*余白を均等にする*/
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    left: 3px; /* 右上に配置 */
+    top: 60px;
+    z-index: 100;
+    background: none;
+    border: none;
+}
+
+.menu {
+    position: fixed;
+    left: -250%; /* 画面左側に完全に隠す */
+    width: 160px;
+    height: 100vh; /* 画面の残りいっぱい */
+    transition: left 0.4s ease; /* スライドアニメーション */
+    z-index: 99;
+    background-color: rgb(245, 245, 245);/* メニューバー背景色*/
+    top: 50px;/* ナビゲーションバーの高さからスタート */
+    padding:0;
+    margin:0;
+}
+
+.menu-item{
+    margin-top: 28px;
+    margin-left: 3px;
+}
+
+.menu-button .bar {
+    display: block;
+    width: 30px;
+    height: 2px;
+    border-radius: 3px;
+    background: #7d7d7d;
+    transition: all 0.4s;
+}
+
+.menu.is-open {
+    left: 0; /* 画面内にスライドイン */
+}
+
+/* アイコンがアクティブな時 (X印への変形) */
+.menu-button.is-active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 7.5px); 
+}
+.menu-button.is-active .bar:nth-child(2) {
+    opacity: 0; /* 真ん中の線を消す */
+}
+.menu-button.is-active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -7.5px); 
+}
+
+.menu-ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+
+.menu-ul li{
+    font-size: 17px;
+}
+
+.menu-hover:hover{
+    color:rgba(72, 83, 232, 0.929);
+    text-decoration:underline; /*下線を引く*/
+    text-decoration-color: rgb(113, 110, 191);
+}
+
+.menu-btn {
+    right: 10px;
+    background-color: rgb(98, 126, 197);
+    color: rgb(253, 253, 253);
+    border: none; 
+    margin-top: 3px;
+    border-radius: 2px;
+    height: 25px;
+    margin-left: 110px;
+    box-shadow: none;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.size{
+    width: 60px;
+    height: 20px;
+    border: 1px solid #7d7d7d;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.footer{
+    background-color: rgb(197, 197, 197);
+    position:static;
+    width: 100%;
+    height: 150px;
+    margin:0;
+    padding:0;
+    margin-top: 10px;
+}
+
+/*入力関係*/
+.input label{
+    font-weight: bold;
+    width: auto; 
+    min-width: auto;
+    display: block; 
+    margin-bottom: 2px;
+}
+
+.input{
+    text-align: left;
+    margin-bottom: 15px;
+    padding-left: 0;
+}
+
+/*ログイン画面*/
+.login{
+    margin: 0 auto;
+    border: 1px solid #7d7d7d;
+    background-color: #f9f9f9;
+    width: 500px;
+    height: 650px;
+    margin-bottom: 30px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 15px;
+
+}
+
+.login-header{
+    background-color: #64beef;
+    border: 1px solid #7d7d7d;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.login-container{
+    background-color: #f1f1f1;
+    border: 1px solid #7d7d7d;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/*見出しと入力欄のスタイル */
+.center-content h2{
+    text-align: left; 
+    margin: 0 0 10px 0; 
+
+    max-width: none;
+    padding-left: 0;
+}
+
+.form-container{
+    width:100%;
+    max-width: 500px;
+    margin:0 auto; /* フォーム全体を中央揃え */
+
+    padding: 20px 20px;
+    box-sizing: border-box;
+}
+
+.form-container label{
+    text-align: left;
+    padding-left: 5px;
+}
+
+/*テキストボックス*/
+.customer-text{
+    width:100%;
+    padding: 8px;
+    height: 40px;
+    border-radius: 5px;
+    border: solid 1px rgb(132, 132, 132);
+    box-sizing: border-box;
+}
+
+.min-text{
+    width: 100px;
+    padding: 8px;
+    border-radius: 3px;
+    border: solid 1px rgb(106, 106, 106);
+    border-radius: 5px;
+}
+
+/*カードの設定*/
+.container{
+    border-radius: 5px;
+    width: 100%;
+    height: 90px;
+    margin-bottom: 5px;
+    text-align: center;
+    margin:0;
+    padding:0;
+    margin-bottom: 5px;;
+}
+
+.center a{
+    width: 100%;
+    height: 100%;
+    text-align: left;
+}
+
+.container h4{
+    text-align: left;
+    margin-left: 5px;
+}
+
+/*色*/
+.grey{
+    background-color: #eae9e9;
+    border: solid 2px #bfbfbf;
+}
+
+.greenBtn{
+    background-color: rgb(85, 187, 148);
+}
+
+.blueBtn{
+    background-color: rgb(101, 152, 206);
+}
+
+.redBtn{
+    background-color: rgb(226, 95, 95);
+}
+
+.thinblue{
+    background-color: rgb(210, 218, 255);
+    border: solid 1px rgb(145, 157, 213);
+}
+
+.blue-text{
+    color: #5db8e9
+}
+
+
+
+/*ボタンの設定*/
+.btn-base{
+    border: none;
+    color: white;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.button-group{
+    display: flex;
+    justify-content: center;
+    gap: 20px;/*ボタン間の隙間*/
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+
+.button-group a{
+    display: flex;
+    align-items: center;
+}
+
+.btn-wrapper{
+    display: inline-block;
+}
+
+.center{
+    text-align: center;
+}
+
+.login-btn{
+    text-align: center;
+    width: 80%;
+    height: 60px;
+    font:bold;
+}
+
+/*画面サイズが800pxの設定*/
+@media screen and (max-width: 800px) {
+    .navImage{
+        width: 20px;
+    }
+    header{
+        height: 46px;
+    }
+
+    .navIcon{
+        font-size: 12px;
+        margin-left: 8px;
+    }
+
+    .navImage{
+        margin-top: 3px;
+    }
+    
+    .searchIcon{
+        width: 20px;
+    }
+
+    .search-inner form {
+        height: 22px;
+    }
+    
+    .search-inner form input {
+        margin-top: 11px;
+    }
+
+    .menu{
+        top:46px;
+        width: 120px;
+        
+    }
+
+    .menu li{
+        font-size:14px;
+    }
+
+    .menu-button {
+    top: 46px;
+    }
+
+    .menu-btn{
+        margin-left: 75px;
+    }
+}
+
+/*画面サイズが610px以下*/
+@media screen and (max-width: 610px) {
+    .navImage{
+        width: 16px;
+    }
+    header{
+        height: 40px;
+    }
+
+    .navIcon{
+        font-size: 8px;
+        margin-left: 3px;
+    }
+
+    .navImage{
+        margin-top: 6px;
+    }
+    
+    .searchIcon{
+        width: 18px;
+    }
+
+    .search-inner form {
+        height: 20px;
+    }
+    
+    .search-inner form input {
+        margin-top: 10px;
+    }
+
+    .menu{
+        top:40px;
+        width: 110px;
+        
+    }
+
+    .menu li{
+        font-size:13px;
+    }
+
+    .menu-button {
+    top: 40px;
+    }
+
+    .menu-btn{
+        margin-left: 67px;
+    }
+
+    .login{
+        width: 350px;
+        font-size: 10px;
+    }
+}
