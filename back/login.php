@@ -1,5 +1,4 @@
-  
-  <?php session_start();?>
+<?php session_start();?>
     <?php require './front/header.php';?>
     <?php require 'db_connect.php';?>
     <?php
@@ -20,4 +19,4 @@
         echo 'ログイン名またはパスワードが違います';
     }
     ?>
-    <?php require './footer.php';?>
+    <?php require './front/footer.php';?>
