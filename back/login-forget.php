@@ -1,3 +1,5 @@
 <?php session_start();?>
-<?php require 'header.php'; ?>
-
+<?php require './front/header.php'; ?>
+<?php require 'db_connect.php'; ?>
+<?php
+    ?>

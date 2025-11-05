@@ -1,5 +1,4 @@
-  
-  <?php session_start();?>
+<?php session_start();?>
     <?php require './front/header.php';?>
     <?php require 'db_connect.php';?>
     <?php
@@ -13,11 +12,11 @@
             'id'=> $row['id'],'name'=>$row['name'],'address'=>$row['address'],'login'=>$row['login'],
             'password'=>$row['password']];
     }
-    echo '<a href=""'
+   // echo '<a href="login-forget.php">パスワードをお忘れの方はこちら</a><br>';
     if(isset($_SESSION['customer'])){
         echo 'いらっしゃいませ、',$_SESSION['customer']['name'],'さん。';
     }else{
         echo 'ログイン名またはパスワードが違います';
     }
     ?>
-    <?php require './footer.php';?>
+    <?php require './front/footer.php';?>

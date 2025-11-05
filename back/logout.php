@@ -1,9 +1,9 @@
 <?php session_start();?>
-<?php require 'header.php';?>
+<?php require './front/header.php';?>
 <?php require 'db_connect.php';?>
 <?php
  unset($_SESSION['customer']);
-    $pdo=new PDO('mysql:host=mysql320.phy.lolipop.lan;dbname=LAA1607635-php;charset=utf8',"LAA1607635","pass1003");
+     $pdo=new PDO($connect,USER,PASS);
     $sql=$pdo->prepare('select * from customer where login=? and password=?');
     $sql->execute([$_POST['login'],$_POST['password']]);
     
@@ -18,4 +18,4 @@
         echo 'ログイン名またはパスワードが違います';
     }
     ?>
-    <?php require './footer.php';?>
+    <?php require './front/footer.php';?>
