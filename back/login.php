@@ -13,7 +13,7 @@
             'id'=> $row['id'],'name'=>$row['name'],'address'=>$row['address'],'login'=>$row['login'],
             'password'=>$row['password']];
     }
-    echo '<a href=""'
+   // echo '<a href="login-forget.php">パスワードをお忘れの方はこちら</a><br>';
     if(isset($_SESSION['customer'])){
         echo 'いらっしゃいませ、',$_SESSION['customer']['name'],'さん。';
     }else{
