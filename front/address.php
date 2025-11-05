@@ -1,6 +1,8 @@
 <?php
     require 'header.html';
 ?>
+<br>
+<br>
     <h2 class="h2">お届け先</h2>
 
 
@@ -24,7 +26,7 @@
                 <label>番地<font color="red">（必須）</font></label><br>
                 <input type="text" name="" class="customer-text" placeholder="番地"> 
             </p>
-            <div class="btn-center">
+            <div class="center">
                 <div class="button-group">
                     <button  type="submit" class="greenBtn btn-base">保存</button>
         </form>
