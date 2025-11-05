@@ -13,10 +13,11 @@
             'id'=> $row['id'],'name'=>$row['name'],'address'=>$row['address'],'login'=>$row['login'],
             'password'=>$row['password']];
     }
+    echo '<a href=""'
     if(isset($_SESSION['customer'])){
         echo 'いらっしゃいませ、',$_SESSION['customer']['name'],'さん。';
     }else{
         echo 'ログイン名またはパスワードが違います';
     }
     ?>
-    <?php require 'footer.php';?>
+    <?php require './footer.php';?>

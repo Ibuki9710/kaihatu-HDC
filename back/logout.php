@@ -18,4 +18,4 @@
         echo 'ログイン名またはパスワードが違います';
     }
     ?>
-    <?php require 'footer.php';?>
+    <?php require './footer.php';?>
