@@ -14,6 +14,13 @@
                     <button type="submit" class="login-btn thinblue">ログイン</button>
                 </div>
             </form>
+              <?php
+      session_start();
+      if (!empty($_SESSION['login_error'])) {
+          echo '<p style="color:red;">' . $_SESSION['login_error'] . '</p>';
+          unset($_SESSION['login_error']); // 1回表示したら消す
+      }
+      ?>
         <p><a href="password.php" class="blue-text">→パスワードを忘れた場合はこちら</a></p>
         </div>
     </div>
