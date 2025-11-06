@@ -1,5 +1,4 @@
-<?php session_start();
-require_once './home.php';?>
+
 <?php
     require 'header.html';
     require 'list.html';
