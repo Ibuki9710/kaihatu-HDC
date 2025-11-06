@@ -1,6 +1,8 @@
-<?php session_start(); ?>
-<?php require 'header.php'; ?>
 <?php
+    require 'header.html';
+    require 'list.html';
+    require 'footer.html';
+?>
     
 ?>
 <?php require 'footer.php'; ?>
