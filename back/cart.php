@@ -25,7 +25,7 @@ if (isset($_POST['add_cart'])) {
 
     if (!$found) $_SESSION['cart'][] = $item;
 
-    header('Location: ../frontend/cart.php');
+    header('Location: ../front/cart.php');
     exit;
 }
 

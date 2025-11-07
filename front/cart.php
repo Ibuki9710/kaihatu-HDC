@@ -1,7 +1,7 @@
 <?php 
 session_start();
-require 'hedder.php';
-require_once '../back/cart.php';
+require 'header.php';
+require '../back/cart.php';
 
 ?>
 <!DOCTYPE html>
