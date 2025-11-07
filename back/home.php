@@ -15,7 +15,7 @@ try {
     $_SESSION['items'] = $items;
 
     // home.phpに遷移
-    header('Location: ./front/home.php');
+    header('Location: ../front/home.php');
     exit;
 
 } catch (PDOException $e) {
