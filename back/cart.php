@@ -38,6 +38,6 @@ if (isset($_POST['remove'])) {
         }
     }
     $_SESSION['cart'] = array_values($_SESSION['cart']);
-    header('Location: ../frontend/cart.php');
+    header('Location: ../front/cart.php');
     exit;
 }

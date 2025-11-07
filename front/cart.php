@@ -1,8 +1,8 @@
 <?php 
 session_start();
 require 'hedder.php';
-require_once './cart.php';
-require 'footer.php';
+require_once '../back/cart.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -16,3 +16,6 @@ require 'footer.php';
     
 </body>
 </html>
+<?php
+require 'footer.php';
+?>
