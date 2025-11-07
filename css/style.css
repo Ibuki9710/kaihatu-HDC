@@ -103,9 +103,10 @@ h3{
 
 /*検索バーの設定*/
 .searchList{
-    width: 52%;
+    width: 33%;
     height: 100%;
     margin:0;
+    margin-left: 50px;
     padding:0;
 }
 
