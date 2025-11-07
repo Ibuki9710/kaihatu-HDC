@@ -10,12 +10,12 @@
                 <h4>会員情報の確認・変更</h4>
             </div>
         </a>
-        <a href="customer.php" class="black">
+        <a href="address.php" class="black">
             <div class="container btn-wrapper grey">
                 <h4>注文履歴照会</h4>
             </div>
         </a>
-        <a href="customer.php" class="black">
+        <a href="address.php" class="black">
             <div class="container btn-wrapper grey">               
                 <h4>住所追加・変更</h4>
             </div>

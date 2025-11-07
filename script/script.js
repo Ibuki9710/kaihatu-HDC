@@ -33,12 +33,11 @@ if(daySelect){
 }
 
 //メニュー開閉の設定
-const menu = document.getElementById("menu-toggle");
+const menuToggle = document.getElementById("menu-toggle");
 
-if(menu){
+if(menuToggle){
     document.addEventListener('DOMContentLoaded', () => {
         // IDで要素を取得
-        const menuToggle = document.getElementById('menu-toggle');
         const sideMenu = document.getElementById('side-menu');
 
         // クリックイベントリスナーを設定

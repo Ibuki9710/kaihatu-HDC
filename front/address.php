@@ -1,13 +1,15 @@
 <?php
     require 'header.html';
 ?>
-<br>
-<br>
-    <h2 class="h2">お届け先</h2>
-
-
-    <h2 class="h2">追加</h2>
+<div class="center">
+    <div class="center-content">
+        <h2 class="h2">お届け先</h2>
+    </div>
+    
     <div class="form-container">
+        <div class="center-content">
+            <h2 class="h2">追加</h2>
+        </div>
         <form action="address.php" method="post">
             <p class="input">
                 <label>郵便番号<font color="red"></font></label><br>

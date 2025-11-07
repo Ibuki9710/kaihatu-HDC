@@ -44,9 +44,13 @@ header{
 /*アイコンの設定*/
 .navIcon{
     font-size: 15px;
-    margin-left: 8px;
     height: 100%;
     align-items: center;
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .navIcon:hover{
@@ -60,7 +64,7 @@ left: 0;
 content: '';
 background:rgb(71, 69, 121);
 width: 100%;
-height: 2px;
+height: 1px;
 bottom: -5px;       /*アンダーラインが開始する位置*/
 opacity: 0;
 visibility: hidden; /*ホバー前に、アンダーラインを可視化しない*/
@@ -74,15 +78,22 @@ opacity: 1;
 }
 
 .navLink{
-    margin-top: 5px;
+    height: 100%;
+    width: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     position: relative;
+    text-align: center;
 }
 
 .navImage{
-    width: 20px;
     display: block;
-    margin: auto;
-    margin-top:7px
+    margin-top:7px;
+    text-align: center;
+    width: 75px;
 }
 
 /*アイコンの右寄せ*/
@@ -116,10 +127,9 @@ h3{
 
 /*検索バーの設定*/
 .searchList{
-    width: 33%;
+    width: 52%;
     height: 100%;
     margin:0;
-    margin-left: 50px;
     padding:0;
 }
 
@@ -472,22 +482,22 @@ h3{
     font:bold;
 }
 
-/*画面サイズが800pxの設定*/
-@media screen and (max-width: 800px) {
+/*画面サイズが750pxの設定*/
+@media screen and (max-width: 900px) {
     .navImage{
-        width: 20px;
+        margin-top: 3px;
     }
+
     header{
         height: 46px;
     }
 
     .navIcon{
-        font-size: 12px;
-        margin-left: 8px;
+        font-size: 11px;
     }
 
-    .navImage{
-        margin-top: 3px;
+    .navLink{
+        width: 55px;
     }
     
     .searchIcon{
@@ -531,19 +541,19 @@ h3{
 /*画面サイズが610px以下*/
 @media screen and (max-width: 610px) {
     .navImage{
-        width: 16px;
+        margin-top: 6px;
     }
+
+    .navLink{
+        width: 40px;
+    }
+
     header{
         height: 40px;
     }
 
     .navIcon{
         font-size: 8px;
-        margin-left: 3px;
-    }
-
-    .navImage{
-        margin-top: 6px;
     }
     
     .searchIcon{
