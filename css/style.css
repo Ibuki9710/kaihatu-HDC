@@ -34,6 +34,13 @@ header{
     width: 100%;
 }
 
+.icon{
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    box-sizing: border-box;
+}
+
 /*アイコンの設定*/
 .navIcon{
     font-size: 15px;
@@ -86,13 +93,19 @@ opacity: 1;
     align-items: center;
     box-sizing: border-box;
     padding: 0;
+    right:0;
+    margin-left:auto;
+    margin-right:0;
 }
 
 /*リンクの設定*/
 a{
     text-decoration: none;/*リンクの下線をなくす*/
-    color: black;/*liタグの文字色を黒に*/
     height: 100%;
+}
+
+li a{
+    color: black;/*liタグの文字色を黒に*/
 }
 
 /*ロゴの設定*/
@@ -185,7 +198,7 @@ h3{
     transition: left 0.4s ease; /* スライドアニメーション */
     z-index: 99;
     background-color: rgb(245, 245, 245);/* メニューバー背景色*/
-    top: 50px;/* ナビゲーションバーの高さからスタート */
+    top: 60px;/* ナビゲーションバーの高さからスタート */
     padding:0;
     margin:0;
 }
@@ -313,7 +326,8 @@ h3{
 }
 
 /*見出しと入力欄のスタイル */
-.center-content h2{
+.center-content  h2,
+.center-content h3{
     text-align: left; 
     margin: 0 0 10px 0; 
 
@@ -357,16 +371,16 @@ h3{
 .container{
     border-radius: 5px;
     width: 100%;
-    height: 90px;
+    height: 80px;
     margin-bottom: 5px;
     text-align: center;
     margin:0;
     padding:0;
-    margin-bottom: 5px;;
+    margin-bottom: 6px;
 }
 
 .center a{
-    width: 100%;
+    width: 140px;
     height: 100%;
     text-align: left;
 }
@@ -394,6 +408,10 @@ h3{
     background-color: rgb(226, 95, 95);
 }
 
+.yellowBtn{
+    background-color: #ffff97;
+}
+
 .thinblue{
     background-color: rgb(210, 218, 255);
     border: solid 1px rgb(145, 157, 213);
@@ -403,31 +421,38 @@ h3{
     color: #5db8e9
 }
 
-
+.black{
+    color: black;
+}
 
 /*ボタンの設定*/
 .btn-base{
     border: none;
     color: white;
-    width: 150px;
+    width: 140px;
     height: 40px;
+    line-height: 40px;
     border-radius: 5px;
     font-size: 15px;
     cursor: pointer;
     box-shadow: none;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
-.button-group{
+.btn-group{
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;/*ボタン間の隙間*/
     margin-top: 30px;
     padding-bottom: 20px;
+    width: 100%;
 }
 
-.button-group a{
-    display: flex;
+.btn-group a{
     align-items: center;
+    width: 150px;
 }
 
 .btn-wrapper{
@@ -436,6 +461,7 @@ h3{
 
 .center{
     text-align: center;
+    margin-top: 30px;
 }
 
 .login-btn{
@@ -492,6 +518,13 @@ h3{
     .menu-btn{
         margin-left: 75px;
     }
+
+    .icon{
+        width: 40px;
+        height: 40px;
+        margin: 3px;
+        box-sizing: border-box;
+    }
 }
 
 /*画面サイズが610px以下*/
@@ -538,12 +571,14 @@ h3{
     top: 40px;
     }
 
-    .menu-btn{
-        margin-left: 67px;
-    }
-
     .login{
         width: 350px;
         font-size: 10px;
+    }
+
+    .icon{
+        width: 35px;
+        height: 35px;
+        margin: 3px;
     }
 }

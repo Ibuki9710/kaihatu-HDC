@@ -5,46 +5,46 @@
         <h2>会員メニュー</h2>
     </div>
     <div class="center">
-        <a href="customer.php">
+        <a href="customer-update.php" class="black">
             <div class="container btn-wrapper grey">
                 <h4>会員情報の確認・変更</h4>
             </div>
         </a>
-        <a href="customer.php">
+        <a href="customer.php" class="black">
             <div class="container btn-wrapper grey">
                 <h4>注文履歴照会</h4>
             </div>
         </a>
-        <a href="customer.php">
+        <a href="customer.php" class="black">
             <div class="container btn-wrapper grey">               
                 <h4>住所追加・変更</h4>
             </div>
         </a>
-        <a href="customer.php">
+        <a href="customer.php" class="black">
             <div class="container btn-wrapper grey">
                 <h4>お知らせ</h4>
             </div>
         </a>
-        <a href="customer.php">
+        <a href="help.php" class="black">
             <div class="container btn-wrapper grey">
                 <h4>よくある質問</h4>
             </div>
         </a>
-        <a href="customer.php">
+        <a href="login.php" class="black">
             <div class="container btn-wrapper grey">
-                <h4>よくある質問</h4>
+                <h4>ログアウト</h4>
             </div>
         </a>
-        <a href="customer.php">
+        <a href="delete.php" class="black">
             <div class="container btn-wrapper grey">
                 <h4>退会</h4>
             </div>
         </a>
-        <a href="home.php">
-            <div class="center">
-                <p><button type="submit" class="blueBtn btn-base btn-wrapper">戻る</button></p>
-            </div>           
-        </a>
+        <div class="center">
+            <a href="home.php">
+                <p><button type="submit" class="blueBtn btn-base btn-wrapper">戻る</button></p>          
+            </a>
+        </div> 
     </div>
 </div>
     

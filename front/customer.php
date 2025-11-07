@@ -5,10 +5,10 @@
     <div class="center-content">
         <h2>会員登録</h2>
     </div>
-    <form action="login.php" method="post" class="form-container">
+    <form action="login.php" method="post">
         <p class="input">
-            <label>メールアドレスまたは電話番号<font color="red">（必須）</font></label>
-            <input type="text" name=""  id="email" class="customer-text" placeholder="メールアドレス（電話番号）"> 
+            <label>メールアドレス<font color="red">（必須）</font></label>
+            <input type="email" name=""  id="email" class="customer-text" placeholder="メールアドレス（電話番号）"> 
         </p>
         <p class="input">
             <label>パスワード<font color="red">（必須）</font></label>
