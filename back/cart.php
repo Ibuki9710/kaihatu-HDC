@@ -3,7 +3,7 @@ session_start();
 //var_dump($_POST);
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-require_once 'db_connect.php';
+require 'db_connect.php';
 
 // カートに追加
 if (isset($_POST['add_cart'])) {

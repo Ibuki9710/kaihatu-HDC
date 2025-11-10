@@ -1,5 +1,16 @@
 <?php 
 session_start();
+require 'back/db_connect.php';
+if (empty($_SESSION['cart'])) {
+    $cart_items = [];
+} else {
+    $ids = array_column($_SESSION['cart'], 'item_id');
+    $placeholders = implode(',', array_fill(0, count($ids), '?'));
+    $sql = "SELECT * FROM items WHERE id IN ($placeholders)";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute($ids);
+    $cart_items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -18,44 +29,37 @@ session_start();
 <h1>カート一覧</h1>
 
 <div class="cart-list">
-    <section class="cart-item">
-        <button class="remove-btn" aria-label="商品を削除">×</button>
-        <img src="https://cdn.pixabay.com/photo/2016/06/14/08/31/refrigerator-1453513_1280.jpg" alt="冷蔵庫" />
-        <div class="info">
-            <strong>冷蔵庫</strong>
-            <div>販売元</div>
-            <div>価格　5900円</div>
-            <div>送料　無料</div>
-            <div>数量</div>
-            <a href="#" class="order-link">商品注文画面へ</a>
-        </div>
-    </section>
+<?php if (empty($cart_items)): ?>
+    <p>カートに商品がありません。</p>
+<?php else: ?>
+    <?php foreach ($cart_items as $item): ?>
+        <section class="cart-item">
+            <form action="../back/cart.php" method="post">
+                <input type="hidden" name="item_id" value="<?= htmlspecialchars($item['id']) ?>">
+                <button type="submit" name="remove" class="remove-btn">×</button>
+            </form>
 
-    <section class="cart-item">
-        <button class="remove-btn" aria-label="商品を削除">×</button>
-        <div class="info">
-            <strong>商品名</strong>
-            <div>販売元</div>
-            <div>価格</div>
-            <div>送料</div>
-            <div>数量</div>
-            <a href="#" class="order-link">商品注文画面へ</a>
-        </div>
-    </section>
-
-    <section class="cart-item">
-        <button class="remove-btn" aria-label="商品を削除">×</button>
-        <div class="info">
-            <strong>商品名</strong>
-            <div>販売元</div>
-            <div>価格</div>
-            <div>送料</div>
-            <div>数量</div>
-            <a href="#" class="order-link">商品注文画面へ</a>
-        </div>
-    </section>
+            <img src="<?= htmlspecialchars($item['img_path'] ?? 'noimage.jpg') ?>" 
+                 alt="<?= htmlspecialchars($item['name']) ?>" />
+            <div class="info">
+                <strong><?= htmlspecialchars($item['name']) ?></strong>
+                <div>価格：<?= htmlspecialchars($item['price']) ?>円</div>
+                <div>数量：
+                    <?php
+                        foreach ($_SESSION['cart'] as $c) {
+                            if ($c['item_id'] == $item['id']) {
+                                echo (int)$c['quantity'];
+                                break;
+                            }
+                        }
+                    ?>
+                </div>
+                <a href="order.php?item_id=<?= $item['id'] ?>" class="order-link">商品注文画面へ</a>
+            </div>
+        </section>
+    <?php endforeach; ?>
+<?php endif; ?>
 </div>
-
 <div class="button-area">
     <button class="btn-back">戻る</button>
     <button class="btn-order">注文</button>
