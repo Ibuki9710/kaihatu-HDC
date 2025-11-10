@@ -11,8 +11,7 @@ session_start();
     
 </head>
 <body>
-    <h1>カート一覧</h1>
-
+    
     
 </header>
 
