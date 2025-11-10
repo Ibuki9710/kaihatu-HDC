@@ -52,3 +52,12 @@ if(menuToggle){
             });
     });
 }
+
+//セレクトのリンク設定
+function navigateToUrl(selectElement) {
+    const url = selectElement.value; 
+
+    if (url) { 
+        window.location.href = url;
+    }
+}
