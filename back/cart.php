@@ -1,5 +1,8 @@
 <?php
 session_start();
+var_dump($_POST);
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 require_once 'db_connect.php';
 
 // カートに追加
@@ -8,7 +11,7 @@ if (isset($_POST['add_cart'])) {
         'item_id' => $_POST['item_id'],
         'item_name' => $_POST['item_name'],
         'price' => $_POST['price'],
-        'img_path' => $_POST['img_path'],
+      //  'img_path' => $_POST['img_path'],
         'quantity' => 1
     ];
 

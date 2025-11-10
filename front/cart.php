@@ -1,8 +1,5 @@
 <?php 
 session_start();
-require 'header.php';
-require '../back/cart.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -13,6 +10,12 @@ require '../back/cart.php';
 </head>
 <body>
     <h1>カート一覧</h1>
+    <form action="../back/cart.php" method="post">
+  <input type="hidden" name="item_id" value="1">
+  <input type="hidden" name="item_name" value="サンプル商品">
+  <input type="hidden" name="price" value="500">
+  <button type="submit" name="add_cart">カートに追加</button>
+</form>
     
 </body>
 </html>
