@@ -1,7 +1,5 @@
 <?php 
 session_start();
-require 'hedder.php';
-require_once '../back/cart.php';
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -13,16 +11,8 @@ require_once '../back/cart.php';
     
 </head>
 <body>
+    <h1>カート一覧</h1>
 
-<header>
-    <div class="logo" aria-label="チーム立山">チーム立山</div>
-    <div class="search-box">
-        <input type="search" placeholder="検索" aria-label="検索" />
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="11" cy="11" r="7" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-        </svg>
-    </div>
     
 </header>
 
@@ -66,7 +56,6 @@ require_once '../back/cart.php';
         </div>
     </section>
 </div>
-
 <div class="button-area">
     <button class="btn-back">戻る</button>
     <button class="btn-order">注文</button>

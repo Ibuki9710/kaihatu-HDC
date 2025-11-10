@@ -1,3 +1,4 @@
+<?php require '../back/re_password.php'; ?>
 <?php require 'header2.html'; ?>
 <br>
 <div class="login">

@@ -1,6 +1,9 @@
 <?php
 session_start();
-require_once 'db_connect.php';
+//var_dump($_POST);
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+require 'db_connect.php';
 
 // カートに追加
 if (isset($_POST['add_cart'])) {
@@ -8,7 +11,7 @@ if (isset($_POST['add_cart'])) {
         'item_id' => $_POST['item_id'],
         'item_name' => $_POST['item_name'],
         'price' => $_POST['price'],
-        'img_path' => $_POST['img_path'],
+      //  'img_path' => $_POST['img_path'],
         'quantity' => 1
     ];
 
@@ -25,7 +28,7 @@ if (isset($_POST['add_cart'])) {
 
     if (!$found) $_SESSION['cart'][] = $item;
 
-    header('Location: ../frontend/cart.php');
+    header('Location: ../front/cart.php');
     exit;
 }
 

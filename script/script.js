@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sideMenu = document.getElementById('side-menu');
 
     // クリックイベントリスナーを設定
-    menuToggle.addEventListener('click', () => {
+   menuToggle.addEventListener('click', () => {
         // メニューとボタンにCSSクラスをトグル
         sideMenu.classList.toggle('is-open');
         menuToggle.classList.toggle('is-active');
