@@ -1,16 +1,18 @@
 <?php
 session_start();
-require_once 'db_connect.php';
+require 'db_connect.php';
 
 try {
     $pdo = new PDO($connect, USER, PASS, [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ]);
 
-    $stmt = $pdo->query("SELECT * FROM items ORDER BY created_at DESC LIMIT 20");
-    $_SESSION['home_items'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt = $pdo->query('SELECT item_id, item_name, price, image FROM item WHERE item_stock > 0');
+    $_SESSION['items'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    header('Location: ../front/home.php');
+    exit;
 
 } catch (PDOException $e) {
-    echo "DBエラー: " . $e->getMessage();
-    exit;
+    echo "データ取得エラー: " . $e->getMessage();
 }
