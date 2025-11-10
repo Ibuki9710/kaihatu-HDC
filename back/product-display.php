@@ -1,16 +1,52 @@
 <?php session_start(); ?>
 <?php require 'db_connect.php'; ?>
 <?php
-    $keyword = $_POST['keyword'];
+    $keyword = $_POST['keyword'] ?? '';
+    $height = $_POST['height'] ?? null;
+    $width = $_POST['width'] ?? null;
+    $quality = $_POST['quality'] ?? null;
+    $genre = $_POST['genre'] ?? null;
     $pdo=new PDO($connect, USER, PASS);
-    if(isset($keyword)){
-        $sql=$pdo->prepare('select * from item where item_name like ?');
-        $sql->execute(['%'.$keyword.'%']);
-    }else{
-        $sql=$pdo->query('select * from item');
+
+    $sql = "SELECT * FROM item WHERE 1=1";
+    $params = [];
+
+    // キーワード検索
+    if (!empty($keyword)) {
+        $sql .= " AND item_name LIKE ?";
+        $params[] = '%' . $keyword . '%';
     }
+
+    // サイズ検索（高さ）
+    if (!empty($height)) {
+        $sql .= " AND height >= ?";
+        $params[] = $height;
+    }
+
+    // サイズ検索（幅）
+    if (!empty($width)) {
+        $sql .= " AND width >= ?";
+        $params[] = $width;
+    }
+
+    // 品質フィルター
+    if (!empty($quality)) {
+        $sql .= " AND quality = ?";
+        $params[] = $quality;
+    }
+
+    //ジャンル
+    if (!empty($genre)) {
+        $sql .= " AND genre = ?";
+        $params[] = $genre;
+    }
+
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
+    $_SESSION['products'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo '<h1>検索結果1</h1>';
-    foreach($sql as $row){
+    foreach($stmt as $row){
         $id=$row['item_id'];
         echo '<a href="">';
         echo '<img src="', $row['image'], '">';
