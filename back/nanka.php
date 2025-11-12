@@ -1,7 +1,15 @@
 <?php session_start(); ?>
 <?php require 'db_connect.php'; ?>
 <?php
-    $pdo=new PDO($connect, USER, PASS);
+try {
+    $pdo = new PDO($connect, USER, PASS);
+} catch (PDOException $e) {
+    // 接続エラーを捕捉して処理を終了
+    die("データベース接続エラー: " . $e->getMessage());
+}
+?>
+<?php
+
     $sql = $pdo->prepare("select * from product where brand = '大型製品'");
     $sql->execute();
     
@@ -42,7 +50,7 @@
 <?php
 
 try {
-    $pdo=new PDO($connect, USER, PASS);
+
     // 2. ユーザー入力の取得とバリデーション
     // 'height'と'width'のフォーム名が正しいと仮定し、isset/null合体演算子で安全に取得
     $target_height = filter_input(INPUT_POST, 'height', FILTER_VALIDATE_INT);
