@@ -2,7 +2,7 @@
 <?php require 'db_connect.php'; ?>
 <?php
     $pdo=new PDO($connect, USER, PASS);
-    $sql = $pdo->query("select * from product where brand = '大型製品'");
+    $sql = $pdo->prepare("select * from product where brand = '大型製品'");
 
     echo '<h1>検索結果1</h1>';
     foreach($sql as $row){
@@ -18,7 +18,7 @@
 
 <?php
     $pdo=new PDO($connect, USER, PASS);
-    $sql = $pdo->query("select * from product where brand = '小型製品'");
+    $sql = $pdo->prepare("select * from product where brand = '小型製品'");
 
     echo '<h1>検索結果1</h1>';
     foreach($sql as $row){
@@ -35,7 +35,6 @@
 
 
 <?php
-// ★ 1. DB接続情報は、外部ファイルで定数として定義されていると仮定
 
 try {
     $pdo = new PDO($connect, USER, PASS);
@@ -83,10 +82,6 @@ try {
         // 5. 結果の取得
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    } else {
-        // 検索条件が一つも入力されていない場合
-        $results = []; 
-        echo "<p>縦または横のサイズを入力してください。</p>";
     }
 
     // 6. 結果の表示
