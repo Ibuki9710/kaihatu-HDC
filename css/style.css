@@ -5,7 +5,14 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font: bold;
 }
+
+
+* {
+    box-sizing: border-box; /* 全ての要素に適用 */
+}
+
 main{
     flex-grow: 1;
 }
@@ -38,7 +45,6 @@ header{
     width: 50px;
     height: 50px;
     margin: 5px;
-    box-sizing: border-box;
 }
 
 /*アイコンの設定*/
@@ -50,7 +56,6 @@ header{
     display: flex;
     justify-content: center;
     text-align: center;
-    box-sizing: border-box;
 }
 
 .navIcon:hover{
@@ -98,11 +103,10 @@ opacity: 1;
 
 /*アイコンの右寄せ*/
 .RightLi{
-    width: 48%;
+    width: 50%;
     justify-content: flex-end;
     display: flex;
     align-items: center;
-    box-sizing: border-box;
     padding: 0;
     right:0;
     margin-left:auto;
@@ -136,7 +140,6 @@ h3{
 .search-inner {
     display: block;
     padding: 0 5px;
-    box-sizing: border-box;
 }
 
 .search-inner form {
@@ -156,7 +159,6 @@ h3{
     font-size: 12px;
     padding: 0 10px;
     line-height: 1;
-    box-sizing: border-box;
     margin-top:18px;
     outline: none;
     margin-left: 5px;
@@ -249,6 +251,7 @@ h3{
     list-style: none;
     margin-bottom: 5px;
     width: 100%;
+    margin-top: 0;
 }
 
 .menu-ul li{
@@ -271,7 +274,6 @@ h3{
     height: 25px;
     margin-left: 110px;
     box-shadow: none;
-    box-sizing: border-box;
     text-align: center;
 }
 
@@ -279,7 +281,6 @@ h3{
     width: 60px;
     height: 20px;
     border: 1px solid #7d7d7d;
-    box-sizing: border-box;
     border-radius: 3px;
 }
 
@@ -323,7 +324,7 @@ h3{
 }
 
 .login-header{
-    background-color: #64beef;
+    background-color: #68a7ea;
     border: 1px solid #7d7d7d;
     margin:0;
     box-sizing: border-box;
@@ -333,7 +334,6 @@ h3{
     background-color: #f1f1f1;
     border: 1px solid #7d7d7d;
     padding: 10px;
-    box-sizing: border-box;
 }
 
 /*見出しと入力欄のスタイル */
@@ -352,7 +352,6 @@ h3{
     margin:0 auto; /* フォーム全体を中央揃え */
 
     padding: 20px 20px;
-    box-sizing: border-box;
 }
 
 .form-container label{
@@ -367,7 +366,6 @@ h3{
     height: 40px;
     border-radius: 5px;
     border: solid 1px rgb(132, 132, 132);
-    box-sizing: border-box;
 }
 
 .min-text{
@@ -375,7 +373,6 @@ h3{
     padding: 8px;
     border-radius: 3px;
     border: solid 1px rgb(106, 106, 106);
-    border-radius: 5px;
 }
 
 /*カードの設定*/
@@ -448,7 +445,6 @@ h3{
     cursor: pointer;
     box-shadow: none;
     padding: 0 20px;
-    box-sizing: border-box;
 }
 
 .btn-group{
@@ -514,8 +510,7 @@ h3{
 
     .menu{
         top:46px;
-        width: 120px;
-        
+        width: 120px;        
     }
 
     .menu li{
@@ -557,7 +552,7 @@ h3{
     }
     
     .searchIcon{
-        width: 18px;
+        width: 17px;
     }
 
     .search-inner form {
@@ -575,7 +570,7 @@ h3{
     }
 
     .menu li{
-        font-size:13px;
+        font-size:12px;
     }
 
     .menu-button {

@@ -40,11 +40,9 @@
                 <h4>退会</h4>
             </div>
         </a>
-        <div class="center">
-            <a href="home.php">
-                <p><button type="submit" class="blueBtn btn-base btn-wrapper">戻る</button></p>          
-            </a>
-        </div> 
+        <a href="home.php">
+            <button type="submit" class="blueBtn btn-base btn-wrapper">戻る</button  
+        </a>
     </div>
 </div>
     
