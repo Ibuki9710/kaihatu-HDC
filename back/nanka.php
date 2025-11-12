@@ -32,47 +32,7 @@
     }
 ?>
 
-<?php
-    $pdo=new PDO($connect, USER, PASS);
-    $height = $_POST['heiht'];
-    $width = $_POST['width'];
-    $hmax = $height + 50;
-    $hsmall = max(0, $height - 50);
-    $wmax = $width + 50;
-    $wsmall = $width - 50;
-    
-    if(isset($height,$width)){
-        $sql = "SELECT * FROM items WHERE height = ? AND width = ?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([
-            $hsmall<$hmax,
-            $wsmall<$wmax
-        ]);
-    }else if(isset($height)){
-        $sql = "SELECT * FROM items WHERE height = ?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([
-            $hsmall<$hmax
-        ]);
-    }else if(isset($width)){
-        $sql = "SELECT * FROM items WHERE width = ?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([
-            $wsmall<$wmax
-        ]);
-    }
 
-    echo '<h1>検索結果1</h1>';
-    foreach($sql as $row){
-        $id=$row['item_id'];
-        echo '<a href="">';
-        echo '<img src="', $row['image'], '">';
-        echo $row['item_name'];
-        echo $row['width'];
-        echo $row['height'];
-        echo '</a>';
-    }
-?>
 
 <?php
 // ★ 1. DB接続情報は、外部ファイルで定数として定義されていると仮定
