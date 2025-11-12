@@ -30,7 +30,7 @@
                 <h4>よくある質問</h4>
             </div>
         </a>
-        <a href="login.php" class="black">
+        <a href="login.php">
             <div class="container btn-wrapper grey">
                 <h4>ログアウト</h4>
             </div>

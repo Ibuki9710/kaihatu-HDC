@@ -34,12 +34,10 @@ if(daySelect){
 
 //メニュー開閉の設定
 const menuToggle = document.getElementById("menu-toggle");
-
 if(menuToggle){
     document.addEventListener('DOMContentLoaded', () => {
         // IDで要素を取得
         const sideMenu = document.getElementById('side-menu');
-
         // クリックイベントリスナーを設定
         menuToggle.addEventListener('click', () => {
             // メニューとボタンにCSSクラスをトグル
