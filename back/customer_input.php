@@ -5,7 +5,7 @@ require_once 'db_connect.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         $pdo = new PDO($connect, USER, PASS);
-        $stmt = $pdo->prepare("INSERT INTO customers(name, email, password) VALUES(?, ?, ?)");
+        $stmt = $pdo->prepare("INSERT INTO customer(name, member_email, password) VALUES(?, ?, ?)");
         $stmt->execute([
             $_POST['name'],
             $_POST['email'],
@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ]);
 
         $_SESSION['register_success'] = true;
-        header('Location: ../frontend/customer_output.php');
+        header('Location: ../front/customer_output.php');
         exit;
 
     } catch (PDOException $e) {
