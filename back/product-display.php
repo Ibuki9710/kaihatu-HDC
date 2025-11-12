@@ -44,11 +44,12 @@
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
-    $_SESSION['products'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    echo '<h1>検索結果1</h1>';
-    foreach($stmt as $row){
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $_SESSION['product'] = $products;
+    echo '<h1>検索結果</h1>';
+    foreach($products as $row){
         $id=$row['item_id'];
-        echo '<a href="">';
+        echo '<a href="./front/detail.php?id=', $id, '">';
         echo '<img src="', $row['image'], '">';
         echo $row['item_name'];
         echo $row['width'];
