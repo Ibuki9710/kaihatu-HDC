@@ -37,12 +37,17 @@
     $height = $_POST['heiht'];
     $width = $_POST['width'];
     $hmax = $height + 50;
-    $hsmall = $height - 50;
-    $wsmall = $width + 50;
+    $hsmall = max(0, $height - 50);
+    $wmax = $width + 50;
     $wsmall = $width - 50;
     
     if(isset($height,$width)){
-
+        $sql = "SELECT * FROM items WHERE height = ? AND width = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            $hsmall<$hmax,
+            $wsmall<$wmax
+        ]);
     }else if(isset($height)){
         $sql = "SELECT * FROM items WHERE height = ?";
         $stmt = $pdo->prepare($sql);
@@ -50,7 +55,11 @@
             $hsmall<$hmax
         ]);
     }else if(isset($width)){
-
+        $sql = "SELECT * FROM items WHERE width = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            $wsmall<$wmax
+        ]);
     }
 
     echo '<h1>検索結果1</h1>';
@@ -63,5 +72,82 @@
         echo $row['height'];
         echo '</a>';
     }
+?>
+
+<?php
+// ★ 1. DB接続情報は、外部ファイルで定数として定義されていると仮定
+
+try {
+    $pdo = new PDO($connect, USER, PASS);
+
+    // 2. ユーザー入力の取得とバリデーション
+    // 'height'と'width'のフォーム名が正しいと仮定し、isset/null合体演算子で安全に取得
+    $target_height = filter_input(INPUT_POST, 'height', FILTER_VALIDATE_INT);
+    $target_width = filter_input(INPUT_POST, 'width', FILTER_VALIDATE_INT);
+    
+    // 3. 検索条件とパラメータの初期設定
+    $where_clauses = [];
+    $execute_params = [];
+    $is_valid_search = false;
+
+    // --- 縦の検索条件設定 ---
+    if ($target_height !== null && $target_height !== false) {
+        // ±50cmの範囲を計算（最小値は0で制限）
+        $h_small = max(0, $target_height - 50);
+        $h_max = $target_height + 50;
+        
+        $where_clauses[] = "height BETWEEN ? AND ?";
+        $execute_params[] = $h_small;
+        $execute_params[] = $h_max;
+        $is_valid_search = true;
+    }
+
+    // --- 横の検索条件設定 ---
+    if ($target_width !== null && $target_width !== false) {
+        $w_small = max(0, $target_width - 50);
+        $w_max = $target_width + 50;
+        
+        $where_clauses[] = "width BETWEEN ? AND ?";
+        $execute_params[] = $w_small;
+        $execute_params[] = $w_max;
+        $is_valid_search = true;
+    }
+
+    // 4. SQLの構築と実行
+    if ($is_valid_search) {
+        $sql = "SELECT * FROM items WHERE " . implode(" AND ", $where_clauses);
+        
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($execute_params);
+        
+        // 5. 結果の取得
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    } else {
+        // 検索条件が一つも入力されていない場合
+        $results = []; 
+        echo "<p>縦または横のサイズを入力してください。</p>";
+    }
+
+    // 6. 結果の表示
+    echo '<h1>検索結果1</h1>';
+    
+    if (!empty($results)) {
+        foreach($results as $row){
+            echo '<a href="">';
+            echo '<img src="', htmlspecialchars($row['image']), '">';
+            echo htmlspecialchars($row['item_name']);
+            echo ' (横: ', htmlspecialchars($row['width']), 'cm, 縦: ', htmlspecialchars($row['height']), 'cm)';
+            echo '</a><br>';
+        }
+    } else if ($is_valid_search) {
+         echo "<p>該当する商品が見つかりませんでした。</p>";
+    }
+
+} catch (PDOException $e) {
+    // データベース接続/実行エラー時の処理
+    error_log("DBエラー: " . $e->getMessage());
+    echo "<p>システムエラーが発生しました。</p>";
+}
 ?>
 
