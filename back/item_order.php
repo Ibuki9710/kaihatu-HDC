@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
-    header('Location: ../frontend/cart.php');
+    header('Location: ../front/cart.php');
     exit;
 }
 
