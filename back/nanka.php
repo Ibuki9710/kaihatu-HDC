@@ -8,7 +8,7 @@
     $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
     echo '<h1>検索結果1</h1>';
-    foreach($sql as $row){
+    foreach($results as $row){
         $id=$row['item_id'];
         echo '<a href="">';
         echo '<img src="', $row['image'], '">';
@@ -26,7 +26,7 @@
     $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
     echo '<h1>検索結果1</h1>';
-    foreach($sql as $row){
+    foreach($results as $row){
         $id=$row['item_id'];
         echo '<a href="">';
         echo '<img src="', $row['image'], '">';
@@ -42,7 +42,7 @@
 <?php
 
 try {
-
+    $pdo=new PDO($connect, USER, PASS);
     // 2. ユーザー入力の取得とバリデーション
     // 'height'と'width'のフォーム名が正しいと仮定し、isset/null合体演算子で安全に取得
     $target_height = filter_input(INPUT_POST, 'height', FILTER_VALIDATE_INT);
