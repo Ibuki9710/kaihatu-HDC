@@ -11,7 +11,7 @@ if (isset($_POST['add_cart'])) {
         'item_id' => $_POST['item_id'],
         'item_name' => $_POST['item_name'],
         'price' => $_POST['price'],
-      //  'img_path' => $_POST['img_path'],
+        'img_path' => $_POST['img_path'],
         'quantity' => 1
     ];
 

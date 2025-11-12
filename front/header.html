@@ -1,55 +1,34 @@
-<header style="background-color:#dbe4fd; padding:10px 16px; display:flex; align-items:center; gap:20px;">
-  <!-- ロゴのみ表示 -->
-   <a href="home.php">
-  <div style="background:#6fa0db; padding:8px 12px; border-radius:4px; display:flex; align-items:center; user-select:none; flex-shrink:0;">
-    <img src="icon.png" alt="HDCロゴ" style="width:48px; height:48px; object-fit:contain; display:block;" />
-  </div>
-  </a>
-
-  <!-- 検索ボックス -->
-  <div style="position:relative; flex-grow:1; max-width:400px;">
-    <input type="search" placeholder="検索" aria-label="検索" style="width:100%; padding:6px 40px 6px 12px; border-radius:20px; border:1px solid #333; font-size:14px; outline:none;" />
-    <svg viewBox="0 0 24 24" aria-hidden="true" style="position:absolute; right:12px; top:50%; width:20px; height:20px; stroke:#333; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; fill:none; transform:translateY(-50%); pointer-events:none;">
-      <circle cx="11" cy="11" r="7"></circle>
-      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-    </svg>
-  </div>
-
-  <!-- ナビゲーション -->
-  <nav aria-label="メインナビゲーション" style="display:flex; gap:16px; user-select:none;">
-    <a href="#" title="出品" style="color:#000; font-size:12px; text-decoration:none; display:flex; flex-direction:column; align-items:center; gap:4px; cursor:pointer; min-width:46px;">
-      <svg viewBox="0 0 24 24" aria-hidden="true" style="width:24px; height:24px; stroke:#000; stroke-width:1.8; fill:none; stroke-linecap:round; stroke-linejoin:round;">
-        <path d="M12 3v9M6 12h12M12 21l9-9-9-9-9 9 9 9z"/>
-      </svg>
-      出品
-    </a>
-    <a href="#" title="お知らせ" style="color:#000; font-size:12px; text-decoration:none; display:flex; flex-direction:column; align-items:center; gap:4px; cursor:pointer; min-width:46px;">
-      <svg viewBox="0 0 24 24" aria-hidden="true" style="width:24px; height:24px; stroke:#000; stroke-width:1.8; fill:none; stroke-linecap:round; stroke-linejoin:round;">
-        <path d="M12 22c1.104-.933 2-2 2-4H10c0 2 1 3 2 4z"/>
-        <path d="M18 16V9a6 6 0 10-12 0v7l-2 2v1h16v-1l-2-2z"/>
-      </svg>
-      お知らせ
-    </a>
-    <a href="#" title="お気に入り" style="color:#000; font-size:12px; text-decoration:none; display:flex; flex-direction:column; align-items:center; gap:4px; cursor:pointer; min-width:46px;">
-      <svg viewBox="0 0 24 24" aria-hidden="true" style="width:24px; height:24px; stroke:#000; stroke-width:1.8; fill:none; stroke-linecap:round; stroke-linejoin:round;">
-        <path d="M12 21l-1-1C5 15 3 12 3 9a6 6 0 1112 0c0 3-2 6-8 11l-1 1z"/>
-      </svg>
-      お気に入り
-    </a>
-    <a href="cart.php" title="カート" style="color:#000; font-size:12px; text-decoration:none; display:flex; flex-direction:column; align-items:center; gap:4px; cursor:pointer; min-width:46px;">
-      <svg viewBox="0 0 24 24" aria-hidden="true" style="width:24px; height:24px; stroke:#000; stroke-width:1.8; fill:none; stroke-linecap:round; stroke-linejoin:round;">
-        <circle cx="9" cy="21" r="1"/>
-        <circle cx="20" cy="21" r="1"/>
-        <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.99-1.80l1.38-7.20H6"/>
-      </svg>
-      カート
-    </a>
-    <a href="customer-menu.php" title="アカウント" style="color:#000; font-size:12px; text-decoration:none; display:flex; flex-direction:column; align-items:center; gap:4px; cursor:pointer; min-width:46px;">
-      <svg viewBox="0 0 24 24" aria-hidden="true" style="width:24px; height:24px; stroke:#000; stroke-width:1.8; fill:none; stroke-linecap:round; stroke-linejoin:round;">
-        <circle cx="12" cy="7" r="4"/>
-        <path d="M5.5 21a7.5 7.5 0 0113 0"/>
-      </svg>
-      アカウント
-    </a>
-  </nav>
 </header>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDC</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<header>
+        <h2><img src="icon.png"><a href="home.php">icon</a></h2>
+        <nav class="nav">
+            <ul class="ul">
+                <li class="searchList">
+                    <div class="search-inner">
+                    <form action="search.php" method="post">
+                        <input type="text" class="search" placeholder="検索"> 
+                        <button type="submit"><img src="image/search.png" class="searchIcon"></button>
+                    </form>
+                    </div>
+                </li>
+                <div class="RightLi">
+                    <li class="navIcon"><a href="#" class="navLink">出品</a></li>
+                    <li class="navIcon"><a href="#" class="navLink">お知らせ</a></li>
+                    <li class="navIcon"><a href="#" class="navLink"><img src="image/star.png" class="navImage" alt="star">お気に入り</a></li>
+                    <li class="navIcon"><a href="#" class="navLink">カート</a></li>
+                    <li class="navIcon"><a href="customer-menu.php" class="navLink">アカウント</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+<body>
+    <main>
