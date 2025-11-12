@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($user && password_verify($_POST['password'], $user['password'])) {
             $_SESSION['member_id'] = $user['member_id'];
-            header('Location: ../front/customer_menu.php');
+            header('Location: ../front/customer-menu.php');
             exit;
         } else {
             $_SESSION['login_error'] = 'メールアドレスまたはパスワードが違います';
