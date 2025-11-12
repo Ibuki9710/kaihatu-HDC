@@ -17,7 +17,6 @@
 ?>
 
 <?php
-    $pdo=new PDO($connect, USER, PASS);
     $sql = $pdo->prepare("select * from product where brand = '小型製品'");
 
     echo '<h1>検索結果1</h1>';
@@ -37,7 +36,6 @@
 <?php
 
 try {
-    $pdo = new PDO($connect, USER, PASS);
 
     // 2. ユーザー入力の取得とバリデーション
     // 'height'と'width'のフォーム名が正しいと仮定し、isset/null合体演算子で安全に取得
