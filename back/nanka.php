@@ -9,7 +9,10 @@ try {
 }
 ?>
 <?php
-
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $order_by = $_POST['order'] ?? '';
+}
+if($order_by === '大型商品'){
     $sql = $pdo->prepare("select * from product where brand = '大型製品'");
     $sql->execute();
     
@@ -25,9 +28,7 @@ try {
         echo $row['height'];
         echo '</a>';
     }
-?>
-
-<?php
+}else if($order_by === '小型商品'){
     $sql = $pdo->prepare("select * from product where brand = '小型製品'");
     $sql->execute();
     
@@ -43,6 +44,9 @@ try {
         echo $row['height'];
         echo '</a>';
     }
+}
+
+    
 ?>
 
 
