@@ -49,8 +49,8 @@
     echo '<h1>検索結果</h1>';
     foreach($products as $row){
         $id=$row['item_id'];
-        echo '<a href="./front/detail.php?id=', $id, '">';
-        echo '<img src="', $row['image'], '">';
+        echo '<a href="../front/detail.php?id=', $id, '">';
+        echo '<img src="../image/', $id, '.png">';
         echo $row['item_name'];
         echo $row['width'];
         echo $row['height'];

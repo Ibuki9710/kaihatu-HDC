@@ -5,7 +5,14 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font: bold;
 }
+
+
+* {
+    box-sizing: border-box; /* 全ての要素に適用 */
+}
+
 main{
     flex-grow: 1;
 }
@@ -34,12 +41,21 @@ header{
     width: 100%;
 }
 
+.icon{
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
 /*アイコンの設定*/
 .navIcon{
     font-size: 15px;
-    margin-left: 8px;
     height: 100%;
     align-items: center;
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .navIcon:hover{
@@ -53,7 +69,7 @@ left: 0;
 content: '';
 background:rgb(71, 69, 121);
 width: 100%;
-height: 2px;
+height: 1px;
 bottom: -5px;       /*アンダーラインが開始する位置*/
 opacity: 0;
 visibility: hidden; /*ホバー前に、アンダーラインを可視化しない*/
@@ -67,32 +83,44 @@ opacity: 1;
 }
 
 .navLink{
-    margin-top: 5px;
+    height: 100%;
+    width: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     position: relative;
+    text-align: center;
 }
 
 .navImage{
-    width: 20px;
     display: block;
-    margin: auto;
-    margin-top:7px
+    margin-top:7px;
+    text-align: center;
+    width: 75px;
 }
 
 /*アイコンの右寄せ*/
 .RightLi{
-    width: 48%;
+    width: 50%;
     justify-content: flex-end;
     display: flex;
     align-items: center;
-    box-sizing: border-box;
     padding: 0;
+    right:0;
+    margin-left:auto;
+    margin-right:0;
 }
 
 /*リンクの設定*/
 a{
     text-decoration: none;/*リンクの下線をなくす*/
-    color: black;/*liタグの文字色を黒に*/
     height: 100%;
+}
+
+li a{
+    color: black;/*liタグの文字色を黒に*/
 }
 
 /*ロゴの設定*/
@@ -103,17 +131,15 @@ h3{
 
 /*検索バーの設定*/
 .searchList{
-    width: 33%;
+    width: 52%;
     height: 100%;
     margin:0;
-    margin-left: 50px;
     padding:0;
 }
 
 .search-inner {
     display: block;
     padding: 0 5px;
-    box-sizing: border-box;
 }
 
 .search-inner form {
@@ -133,7 +159,6 @@ h3{
     font-size: 12px;
     padding: 0 10px;
     line-height: 1;
-    box-sizing: border-box;
     margin-top:18px;
     outline: none;
     margin-left: 5px;
@@ -185,8 +210,8 @@ h3{
     height: 100vh; /* 画面の残りいっぱい */
     transition: left 0.4s ease; /* スライドアニメーション */
     z-index: 99;
-    background-color: rgb(245, 245, 245);/* メニューバー背景色*/
-    top: 50px;/* ナビゲーションバーの高さからスタート */
+    background-color: rgb(249, 249, 249);/* メニューバー背景色*/
+    top: 60px;/* ナビゲーションバーの高さからスタート */
     padding:0;
     margin:0;
 }
@@ -224,8 +249,9 @@ h3{
     padding: 0;
     margin: 0;
     list-style: none;
-    margin-top:5px;
     margin-bottom: 5px;
+    width: 100%;
+    margin-top: 0;
 }
 
 .menu-ul li{
@@ -248,7 +274,6 @@ h3{
     height: 25px;
     margin-left: 110px;
     box-shadow: none;
-    box-sizing: border-box;
     text-align: center;
 }
 
@@ -256,7 +281,6 @@ h3{
     width: 60px;
     height: 20px;
     border: 1px solid #7d7d7d;
-    box-sizing: border-box;
     border-radius: 3px;
 }
 
@@ -300,7 +324,7 @@ h3{
 }
 
 .login-header{
-    background-color: #64beef;
+    background-color: #68a7ea;
     border: 1px solid #7d7d7d;
     margin:0;
     box-sizing: border-box;
@@ -310,11 +334,11 @@ h3{
     background-color: #f1f1f1;
     border: 1px solid #7d7d7d;
     padding: 10px;
-    box-sizing: border-box;
 }
 
 /*見出しと入力欄のスタイル */
-.center-content h2{
+.center-content  h2,
+.center-content h3{
     text-align: left; 
     margin: 0 0 10px 0; 
 
@@ -328,7 +352,6 @@ h3{
     margin:0 auto; /* フォーム全体を中央揃え */
 
     padding: 20px 20px;
-    box-sizing: border-box;
 }
 
 .form-container label{
@@ -343,7 +366,6 @@ h3{
     height: 40px;
     border-radius: 5px;
     border: solid 1px rgb(132, 132, 132);
-    box-sizing: border-box;
 }
 
 .min-text{
@@ -351,23 +373,22 @@ h3{
     padding: 8px;
     border-radius: 3px;
     border: solid 1px rgb(106, 106, 106);
-    border-radius: 5px;
 }
 
 /*カードの設定*/
 .container{
     border-radius: 5px;
     width: 100%;
-    height: 90px;
+    height: 80px;
     margin-bottom: 5px;
     text-align: center;
     margin:0;
     padding:0;
-    margin-bottom: 5px;;
+    margin-bottom: 6px;
 }
 
 .center a{
-    width: 100%;
+    width: 140px;
     height: 100%;
     text-align: left;
 }
@@ -395,6 +416,10 @@ h3{
     background-color: rgb(226, 95, 95);
 }
 
+.yellowBtn{
+    background-color: #ffff97;
+}
+
 .thinblue{
     background-color: rgb(210, 218, 255);
     border: solid 1px rgb(145, 157, 213);
@@ -404,31 +429,37 @@ h3{
     color: #5db8e9
 }
 
-
+.black{
+    color: black;
+}
 
 /*ボタンの設定*/
 .btn-base{
     border: none;
     color: white;
-    width: 150px;
+    width: 140px;
     height: 40px;
+    line-height: 40px;
     border-radius: 5px;
     font-size: 15px;
     cursor: pointer;
     box-shadow: none;
+    padding: 0 20px;
 }
 
-.button-group{
+.btn-group{
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;/*ボタン間の隙間*/
     margin-top: 30px;
     padding-bottom: 20px;
+    width: 100%;
 }
 
-.button-group a{
-    display: flex;
+.btn-group a{
     align-items: center;
+    width: 150px;
 }
 
 .btn-wrapper{
@@ -437,6 +468,7 @@ h3{
 
 .center{
     text-align: center;
+    margin-top: 30px;
 }
 
 .login-btn{
@@ -446,22 +478,22 @@ h3{
     font:bold;
 }
 
-/*画面サイズが800pxの設定*/
-@media screen and (max-width: 800px) {
+/*画面サイズが750pxの設定*/
+@media screen and (max-width: 900px) {
     .navImage{
-        width: 20px;
+        margin-top: 3px;
     }
+
     header{
         height: 46px;
     }
 
     .navIcon{
-        font-size: 12px;
-        margin-left: 8px;
+        font-size: 11px;
     }
 
-    .navImage{
-        margin-top: 3px;
+    .navLink{
+        width: 55px;
     }
     
     .searchIcon{
@@ -478,8 +510,7 @@ h3{
 
     .menu{
         top:46px;
-        width: 120px;
-        
+        width: 120px;        
     }
 
     .menu li{
@@ -493,28 +524,35 @@ h3{
     .menu-btn{
         margin-left: 75px;
     }
+
+    .icon{
+        width: 40px;
+        height: 40px;
+        margin: 3px;
+        box-sizing: border-box;
+    }
 }
 
 /*画面サイズが610px以下*/
 @media screen and (max-width: 610px) {
     .navImage{
-        width: 16px;
+        margin-top: 6px;
     }
+
+    .navLink{
+        width: 40px;
+    }
+
     header{
         height: 40px;
     }
 
     .navIcon{
         font-size: 8px;
-        margin-left: 3px;
-    }
-
-    .navImage{
-        margin-top: 6px;
     }
     
     .searchIcon{
-        width: 18px;
+        width: 17px;
     }
 
     .search-inner form {
@@ -532,19 +570,21 @@ h3{
     }
 
     .menu li{
-        font-size:13px;
+        font-size:12px;
     }
 
     .menu-button {
     top: 40px;
     }
 
-    .menu-btn{
-        margin-left: 67px;
-    }
-
     .login{
         width: 350px;
         font-size: 10px;
+    }
+
+    .icon{
+        width: 35px;
+        height: 35px;
+        margin: 3px;
     }
 }
