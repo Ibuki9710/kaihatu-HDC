@@ -21,7 +21,7 @@ session_start();
 <div class="cart-list">
     <section class="cart-item">
         <button class="remove-btn" aria-label="商品を削除">×</button>
-        <img src="https://cdn.pixabay.com/photo/2016/06/14/08/31/refrigerator-1453513_1280.jpg" alt="冷蔵庫" />
+        <img src="../image/1.png" alt="冷蔵庫" />
         <div class="info">
             <strong>冷蔵庫</strong>
             <div>販売元</div>
