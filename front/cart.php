@@ -1,7 +1,7 @@
 <?php 
 session_start();
 require 'header.html';
-require '../back/db_connect.php';
+//require '../back/db_connect.php';
 require '../back/cart.php';
 ?>
 <div class="form-container">
