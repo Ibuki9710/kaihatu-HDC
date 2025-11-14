@@ -1,9 +1,8 @@
-<?php
-session_start();
+<?php session_start();
 $items = $_SESSION['items'] ?? [];
 require 'header.html';
+require 'list.html';
 ?>
-<main>
 <h2>商品一覧</h2>
 <div class="item-list">
 <?php if (empty($items)): ?>
