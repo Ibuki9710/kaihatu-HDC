@@ -8,6 +8,7 @@ require '../back/cart.php';
     <div class="center-content">
         <h1>カート一覧</h1>
     </div>
+    --$$-- 一応消す予定 --$$--
     <div class="cart-list">
         <section class="cart-item">
             <button class="remove-btn" aria-label="商品を削除">×</button>
@@ -46,6 +47,7 @@ require '../back/cart.php';
             </div>
         </section>
     </div>
+    --$$-- ここまで --$$--
     <div class="button-area">
         <button class="btn-back button">戻る</button>
         <button class="btn-order button">注文</button>
