@@ -1,13 +1,14 @@
 <?php
     require 'header.html';
 ?>
-<br>
-<br>
-    <h2 class="h2">お届け先</h2>
-
-
-    <h2 class="h2">追加</h2>
+<div class="center">
     <div class="form-container">
+        <div class="center-content">
+            <h2 class="h2">お届け先</h2>
+        </div>
+        <div class="center-content">
+            <h2 class="h2">追加</h2>
+        </div>
         <form action="address.php" method="post">
             <p class="input">
                 <label>郵便番号<font color="red"></font></label><br>
@@ -26,11 +27,11 @@
                 <label>番地<font color="red">（必須）</font></label><br>
                 <input type="text" name="" class="customer-text" placeholder="番地"> 
             </p>
-            <div class="center">
-                <div class="button-group">
-                    <button  type="submit" class="greenBtn btn-base">保存</button>
         </form>
-                    <a href="address.php"><button class="redBtn btn-base">削除</button></a>
+        <div class="center">
+                <div class="btn-group">
+                    <a href="address.php"><button class="redBtn btn-base btn-wrapper">削除</button></a>
+                    <button  type="submit" class="greenBtn btn-base btn-wrapper">保存</button>
                 </div>
             <a href="customer-menu.html"><button class="blueBtn btn-base btn-wrapper">戻る</button></a>
         </div>

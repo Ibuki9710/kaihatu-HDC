@@ -33,19 +33,29 @@ if(daySelect){
 }
 
 //メニュー開閉の設定
-document.addEventListener('DOMContentLoaded', () => {
-    // IDで要素を取得
-    const menuToggle = document.getElementById('menu-toggle');
-    const sideMenu = document.getElementById('side-menu');
+const menuToggle = document.getElementById("menu-toggle");
+if(menuToggle){
+    document.addEventListener('DOMContentLoaded', () => {
+        // IDで要素を取得
+        const sideMenu = document.getElementById('side-menu');
+        // クリックイベントリスナーを設定
+        menuToggle.addEventListener('click', () => {
+            // メニューとボタンにCSSクラスをトグル
+            sideMenu.classList.toggle('is-open');
+            menuToggle.classList.toggle('is-active');
 
-    // クリックイベントリスナーを設定
-    menuToggle.addEventListener('click', () => {
-        // メニューとボタンにCSSクラスをトグル
-        sideMenu.classList.toggle('is-open');
-        menuToggle.classList.toggle('is-active');
-
-        // アクセシビリティ属性を更新
-        const isExpanded = sideMenu.classList.contains('is-open');
-        menuToggle.setAttribute('aria-expanded', isExpanded);
+            // アクセシビリティ属性を更新
+            const isExpanded = sideMenu.classList.contains('is-open');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+            });
     });
-});
+}
+
+//セレクトのリンク設定
+function navigateToUrl(selectElement) {
+    const url = selectElement.value; 
+
+    if (url) { 
+        window.location.href = url;
+    }
+}
