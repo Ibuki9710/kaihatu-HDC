@@ -1,6 +1,6 @@
 <?php
 session_start();
-//var_dump($_POST);
+var_dump($_POST);
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 require 'db_connect.php';

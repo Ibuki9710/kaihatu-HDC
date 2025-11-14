@@ -3,7 +3,7 @@ session_start();
 require_once 'db_connect.php';
 
 if (!isset($_GET['id'])) {
-    header('Location: ../frontend/home.php');
+    header('Location: ../front/home.php');
     exit;
 }
 
