@@ -30,7 +30,7 @@
                 <h4>よくある質問</h4>
             </div>
         </a>
-        <a href="login.php">
+        <a href="login.php" class="black">
             <div class="container btn-wrapper grey">
                 <h4>ログアウト</h4>
             </div>
@@ -40,8 +40,9 @@
                 <h4>退会</h4>
             </div>
         </a>
+        <br>
         <a href="home.php">
-            <button type="submit" class="blueBtn btn-base btn-wrapper">戻る</button  
+            <button type="submit" class="blueBtn btn-base btn-wrapper">戻る</button>
         </a>
     </div>
 </div>

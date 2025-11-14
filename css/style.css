@@ -1,3 +1,8 @@
+html{
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
 body{
     padding: 0;
     margin: 0;
@@ -6,15 +11,25 @@ body{
     flex-direction: column;
     min-height: 100vh;
     font: bold;
+    min-height: 100vh;
+    height: 100%;
 }
 
+main{
+    flex-grow: 1;
+}
 
 * {
     box-sizing: border-box; /* 全ての要素に適用 */
 }
 
-main{
-    flex-grow: 1;
+.main{
+    margin-top: 30px;
+    transition: margin-left 0.4s ease;
+}
+
+#menu-toggle.is-active ~ .main {
+    margin-left: 170px; /* サイドバーの幅分オフセット */
 }
 
 /*グローバルナビゲーションバー*/
@@ -205,7 +220,7 @@ h3{
 
 .menu {
     position: fixed;
-    left: -250%; /* 画面左側に完全に隠す */
+    left: -250px; /* 画面左側に完全に隠す */
     width: 160px;
     height: 100vh; /* 画面の残りいっぱい */
     transition: left 0.4s ease; /* スライドアニメーション */
@@ -286,12 +301,14 @@ h3{
 
 .footer{
     background-color: rgb(197, 197, 197);
+    display: block;
     position:static;
     width: 100%;
     height: 150px;
     margin:0;
     padding:0;
     margin-top: 10px;
+    bottom:0;
 }
 
 /*入力関係*/
@@ -314,10 +331,9 @@ h3{
     margin: 0 auto;
     border: 1px solid #7d7d7d;
     background-color: #f9f9f9;
-    width: 500px;
-    height: 650px;
+    width: 60%;
     margin-bottom: 30px;
-    padding: 10px;
+    padding: 20px;
     box-sizing: border-box;
     margin-top: 15px;
 
@@ -337,21 +353,22 @@ h3{
 }
 
 /*見出しと入力欄のスタイル */
-.center-content  h2,
+.center-content h1,
+.center-content h2,
 .center-content h3{
-    text-align: left; 
     margin: 0 0 10px 0; 
-
     max-width: none;
     padding-left: 0;
+    font-weight: normal;
+    font-size: 22px;
+    margin-bottom: 14px;
+    text-align: left;
 }
 
 .form-container{
-    width:100%;
-    max-width: 500px;
+    width:80%;
     margin:0 auto; /* フォーム全体を中央揃え */
-
-    padding: 20px 20px;
+    padding: 30px 30px;
 }
 
 .form-container label{
@@ -378,8 +395,8 @@ h3{
 /*カードの設定*/
 .container{
     border-radius: 5px;
-    width: 100%;
-    height: 80px;
+    width: 80%;
+    height: 100px;
     margin-bottom: 5px;
     text-align: center;
     margin:0;
@@ -513,6 +530,10 @@ h3{
         width: 120px;        
     }
 
+    #menu-toggle.is-active ~ .main{
+        margin-left: 130px;
+    }
+
     .menu li{
         font-size:14px;
     }
@@ -567,6 +588,10 @@ h3{
         top:40px;
         width: 110px;
         
+    }
+
+    #menu-toggle.is-active ~ .main{
+        margin-left: 120px;
     }
 
     .menu li{
