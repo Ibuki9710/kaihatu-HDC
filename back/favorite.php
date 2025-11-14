@@ -13,5 +13,5 @@ if (isset($_POST['remove_fav'])) {
     unset($_SESSION['favorite'][$_POST['item_id']]);
 }
 
-header('Location: ../frontend/favorite.php');
+header('Location: ../front/favorite.php');
 exit;
