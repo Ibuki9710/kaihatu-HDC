@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_POST['email']
         ]);
         $_SESSION['password_reset'] = true;
-        header('Location: ../frontend/login.php');
+        header('Location: ../front/login.php');
         exit;
 
     } catch (PDOException $e) {
