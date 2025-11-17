@@ -12,27 +12,28 @@ require 'list-admin.html';
             <h3>アカウント管理</h3>
             <form acton="" method="post">
                 <div class="input-row">
-                    <label class="input-label" for="account-name">アカウント名</label>
+                    <label class="input-label">アカウント名</label>
                     <div class="input-field-area"> 
-                        <input type="text" name="" id="account-name" class="input-field"> 
+                        <input type="text" name="" class="input-field"> 
                     </div>
                 </div>
                 <div class="input-row">
-                    <label class="input-label" for="account-mail">メールアドレス</label>
+                    <label class="input-label">メールアドレス</label>
                     <div class="input-field-area"> 
-                        <input type="email" name="" id="account-mail" class="input-field"> 
+                        <input type="email" name="" class="input-field"> 
                     </div>
                 </div>
                 <div class="input-row">
-                    <label class="input-label" for="account-phon">電話番号</label>
+                    <label class="input-label">電話番号</label>
                     <div class="input-field-area"> 
-                        <input type="text" name="" id="account-phon" class="input-field"> 
+                        <input type="text" name="" class="input-field"> 
                     </div>
                 </div>
                 <div class="empty"></div>
                 <div class="center">
                     <button type="submit" class="btn-base blueBtn btn-wrapper">変更</button>
                 </div>
+                <p>バージョン確認　　　　2-2.2.2.0</p>
             </form>
         </div>
     </div>

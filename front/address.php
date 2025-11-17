@@ -10,23 +10,37 @@
             <h2 class="h2">追加</h2>
         </div>
         <form action="address.php" method="post">
-            <p class="input">
-                <label>郵便番号<font color="red"></font></label><br>
-                <input type="text" name=""  class="min-text" placeholder="000">ー
-                <input type="text" name=""  class="min-text" placeholder="0000">
-            </p>
-            <p class="input">
-                <label>都道府県<font color="red">（必須）</font></label><br>
-                <input type="text" name="" class="customer-text" placeholder="都道府県名"> 
-            </p>
-            <p class="input">
-                <label>市区町村<font color="red">（必須）</font></label><br>
-                <input type="text" name="" class="customer-text" placeholder="市区町村"> 
-            </p>
-            <p class="input">
-                <label>番地<font color="red">（必須）</font></label><br>
-                <input type="text" name="" class="customer-text" placeholder="番地"> 
-            </p>
+            <div class="input-row">
+                <label class="input-label">郵便番号</label>
+                <div class="input-field-area">
+                    <input type="text" name="" id="zipcode" maxlength="7" placeholder="1000001">
+                    <button type="button" id="searchButton" class="menu-btn">検索</button>
+                </div>
+            </div>
+            <div class="input-row">
+                <div class="input-field-area">
+                    <label class="input-label">住所</label>
+                    <select name="" id="prefecture" class="size-input"></select>
+                </div>
+            </div>
+            <div class="input-row">
+                <div class="input-field-area">
+                    <label class="input-label">　　　</label>
+                    <input type="text" id="city" name="" class="input-field" placeholder="市区町村"> 
+                </div>
+            </div>
+            <div class="input-row">
+                <div class="input-field-area">
+                    <label class="input-label">　　　</label>
+                    <input type="text" id="town" name="" class="input-field" placeholder="番地"> 
+                </div>
+            </div>
+            <div class="input-row">
+                <div class="input-field-area">
+                    <label class="input-label">　　　</label>
+                    <input type="text" id="town" name="" class="input-field" placeholder="建物　部屋番号"> 
+                </div>
+            </div>
         </form>
         <div class="center">
                 <div class="btn-group">
@@ -38,5 +52,5 @@
         
     </div>
 <?php
-    require 'footer.php';
+    require 'footer.html';
 ?>

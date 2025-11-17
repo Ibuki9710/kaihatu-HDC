@@ -31,21 +31,21 @@
                 <label for="file-input" class="label-file">＋ファイルをアップロード</label>  
 
                 <div class="input-row">
-                    <label class="input-label" for="product-description">商品名の説明</label>
-                    <textarea id="product-description" class="input-field"></textarea>
+                    <label class="input-label">商品名の説明</label>
+                    <textarea class="input-field"></textarea>
                 </div>
                 <div class="input-row">
-                    <label class="input-label" for="stock">在庫数</label>
-                    <input type="number" name="stock" id="stock" min="0" class="input-field-small">
-                    <input type="checkbox" name="unlimited_stock" id="check" class="checkbox">
+                    <label class="input-label">在庫数</label>
+                    <input type="number" name="stock" min="0" class="size-input">
+                    <input type="checkbox" id="check" class="checkbox">
                     <label for="check">無制限</label>
                 </div>
 
                 <div class="input-row">
                     <label class="input-label">サイズ登録</label>
                     <div class="size-group">
-                        <label>横幅：<input type="number" name="width" min="0" class="mintext-input"></label>
-                        <label>高幅：<input type="number" name="height" min="0" class="mintext-input"></label>
+                        <label>横幅：<input type="number" name="width" min="0" class="size-input"></label>
+                        <label>高幅：<input type="number" name="height" min="0" class="size-input"></label>
                     </div>
                 </div>
 
