@@ -1,3 +1,4 @@
+<?php require 'header2.html'; ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
