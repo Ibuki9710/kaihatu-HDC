@@ -24,7 +24,7 @@ if (!isset($_SESSION['cart'])) {
 $found = false;
 foreach ($_SESSION['cart'] as &$item) {
     if ($item['item_id'] == $id) {
-        $item['count'] += (int)$_POST['count'];
+        $item['count'] += $count;
         $found = true;
         break;
     }
@@ -32,12 +32,27 @@ foreach ($_SESSION['cart'] as &$item) {
 
 // 新規追加
 if (!$found) {
-    $_SESSION['cart'][] = [
-        'item_id' => $id,
-        'item_name' => $_POST['item_name'],
-        'price' => $_POST['price'],
-        'img_path' => "../image/", $id, ".png",
-        'count' => (int)$_POST['count']
-    ];
+    try {
+        $pdo = new PDO($connect, USER, PASS);
+        $stmt = $pdo->prepare("SELECT * FROM item WHERE item_id = ?");
+        $stmt->execute([$id]);
+        $product = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        if ($product) {
+            $_SESSION['cart'][] = [
+                'item_id' => $id,
+                'item_name' => $product['item_name'],
+                'price' => $product['price'],
+                'img_path' => $product['img_path'],
+                'count' => $count
+            ];
+        }
+    } catch (PDOException $e) {
+        $_SESSION['error'] = 'エラーが発生しました';
+    }
 }
+
+$_SESSION['success'] = 'カートに追加しました';
+header('Location: ../front/cart.php');
+exit;
 ?>

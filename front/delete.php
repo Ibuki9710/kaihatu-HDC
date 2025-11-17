@@ -4,8 +4,8 @@
 
 <div class="center">
     <p><font color="red">
-        「退会する」ボタンを押すと大会が完了します。<br>
-        本当に退化してもよろしいですか？
+        「退会する」ボタンを押すと退会が完了します。<br>
+        本当に退会してもよろしいですか？
     </p></font>
     <div class="btn-group">
         <a href="customer-menu.php"><button class="blueBtn btn-base">戻る</button></a>
