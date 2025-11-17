@@ -10,7 +10,6 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font: bold;
     min-height: 100vh;
     height: 100%;
 }
@@ -134,7 +133,8 @@ a{
     height: 100%;
 }
 
-li a{
+li a,
+ul a{
     color: black;/*liタグの文字色を黒に*/
 }
 

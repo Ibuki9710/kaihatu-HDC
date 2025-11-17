@@ -8,7 +8,7 @@
 </div>
 <div class="admin-main">
     <div class="conteiner-admin">
-        <p class="section-title">基本情報</p>
+        <h3 class="section-title">基本情報</h3>
     </div>
 
     <div class="conteiner-admin">
@@ -68,7 +68,8 @@
 
     <div class="button-row">
         <a href="search-admin.php">
-            <button class="btn-base greyBtn">検索画面に戻る</button>
+            <button class="btn-base blueBtn btn-wrapper">戻る</button>
         </a>
     </div>
 </div>
+<?php require 'footer-admin.html' ?>
