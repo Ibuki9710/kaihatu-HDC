@@ -2,11 +2,10 @@
     require 'header.html';
 ?>
 <div class="center">
-    <div class="center-content">
-        <h2 class="h2">お届け先</h2>
-    </div>
-    
     <div class="form-container">
+        <div class="center-content">
+            <h2 class="h2">お届け先</h2>
+        </div>
         <div class="center-content">
             <h2 class="h2">追加</h2>
         </div>

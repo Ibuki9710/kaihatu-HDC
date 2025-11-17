@@ -7,7 +7,7 @@
     </div>
     <form action="../back/customer_input.php" method="post" class="form-container">
         <p class="input">
-            <label>メールアドレスまたは電話番号<font color="red">（必須）</font></label>
+            <label>メールアドレス<font color="red">（必須）</font></label>
             <input type="text" name="email"  id="email" class="customer-text" placeholder="メールアドレス（電話番号）"> 
         </p>
         <p class="input">
