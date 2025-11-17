@@ -36,7 +36,7 @@ if (!$found) {
         'item_id' => $id,
         'item_name' => $_POST['item_name'],
         'price' => $_POST['price'],
-        'img_path' => "../image/", $id, ".png",
+        'img_path' => "../image/" . $id . ".png",
         'count' => (int)$_POST['count']
     ];
 }
