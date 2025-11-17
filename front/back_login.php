@@ -1,3 +1,6 @@
+<?php session_start();
+    require 'header3.html'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
