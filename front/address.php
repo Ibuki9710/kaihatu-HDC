@@ -10,17 +10,22 @@
             <h2 class="h2">追加</h2>
         </div>
         <form action="address.php" method="post">
-            <p class="input">
-                <label>郵便番号<font color="red"></font></label><br>
-                <input type="text" name=""  class="min-text" placeholder="000">ー
-                <input type="text" name=""  class="min-text" placeholder="0000">
-            </p>
-            <p class="input">
-                <label>住所<font color="red">（必須）</font></label><br>
-                <input type="text" name="" class="customer-text" placeholder="都道府県名"> 
-            </p>
-        </form>
-        <div class="center">
+            <div class="input-row">
+                <label class="input-label" for="zipcode">郵便番号</label>
+                <div class="input-field-area">
+                    <input type="text" name="" id="zipcode" maxlength="7" placeholder="1000001">
+                    <button type="button" id="searchButton" class="menu-btn">検索</button>
+                </div>
+            </div>
+    
+            <div class="input-row">
+                <label class="input-label" for="address">住所</label>
+                <div class="input-field-area">
+                    <input type="text" id="address" name="" class="input-field" placeholder="市町村番地"> 
+                </div>
+            </div>
+            </form>
+            <div class="center">
                 <div class="btn-group">
                     <a href="address.php"><button class="redBtn btn-base btn-wrapper">削除</button></a>
                     <button  type="submit" class="greenBtn btn-base btn-wrapper">保存</button>

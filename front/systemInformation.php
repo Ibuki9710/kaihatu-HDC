@@ -29,34 +29,17 @@ require 'list-admin.html';
                     </div>
                 </div>
                 <div class="input-row">
-                    <label class="input-label">郵便番号</label>
+                    <label class="input-label" for="zipcode">郵便番号</label>
                     <div class="input-field-area">
                         <input type="text" name="" id="zipcode" maxlength="7" placeholder="1000001">
                         <button type="button" id="searchButton" class="menu-btn">検索</button>
                     </div>
                 </div>
+        
                 <div class="input-row">
+                    <label class="input-label" for="address">住所</label>
                     <div class="input-field-area">
-                        <label class="input-label">住所</label>
-                        <select name="" id="prefecture" class="size-input"></select>
-                    </div>
-                </div>
-                <div class="input-row">
-                    <div class="input-field-area">
-                        <label class="input-label">　　　</label>
-                        <input type="text" id="city" name="" class="input-field" placeholder="福岡市東区"> 
-                    </div>
-                </div>
-                <div class="input-row">
-                    <div class="input-field-area">
-                        <label class="input-label">　　　</label>
-                        <input type="text" id="town" name="" class="input-field" placeholder="3-19-3"> 
-                    </div>
-                </div>
-                <div class="input-row">
-                    <div class="input-field-area">
-                        <label class="input-label">　　　</label>
-                        <input type="text" id="town" name="" class="input-field" placeholder="建物　部屋番号"> 
+                        <input type="text" id="address" name="" class="input-field" placeholder="市町村番地"> 
                     </div>
                 </div>
                 <div class="input-row">
