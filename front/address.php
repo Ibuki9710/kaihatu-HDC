@@ -16,16 +16,8 @@
                 <input type="text" name=""  class="min-text" placeholder="0000">
             </p>
             <p class="input">
-                <label>都道府県<font color="red">（必須）</font></label><br>
+                <label>住所<font color="red">（必須）</font></label><br>
                 <input type="text" name="" class="customer-text" placeholder="都道府県名"> 
-            </p>
-            <p class="input">
-                <label>市区町村<font color="red">（必須）</font></label><br>
-                <input type="text" name="" class="customer-text" placeholder="市区町村"> 
-            </p>
-            <p class="input">
-                <label>番地<font color="red">（必須）</font></label><br>
-                <input type="text" name="" class="customer-text" placeholder="番地"> 
             </p>
         </form>
         <div class="center">
