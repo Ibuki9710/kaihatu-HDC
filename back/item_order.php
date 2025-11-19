@@ -9,6 +9,6 @@ if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
 // 合計計算
 $total = 0;
 foreach ($_SESSION['cart'] as $item) {
-    $total += $item['price'] * $item['quantity'];
+    $total += $item['price'] * $item['count'];
 }
 $_SESSION['order_total'] = $total;

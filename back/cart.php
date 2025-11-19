@@ -1,6 +1,5 @@
 <?php session_start(); ?>
 <?php
-    echo 'カート一覧';
     if(!empty($_SESSION['cart'])){
         $total=0;
         foreach($_SESSION['cart'] as $id=>$product){
@@ -13,18 +12,5 @@
         }
     }else{
         echo 'カートに商品がありません。';
-    }
-
-    // カートから削除
-    if (isset($_POST['remove'])) {
-        foreach ($_SESSION['cart'] as $i => $c) {
-            if ($c['item_id'] == $_POST['item_id']) {
-                unset($_SESSION['cart'][$i]);
-                break;
-            }
-        }
-        $_SESSION['cart'] = array_values($_SESSION['cart']);
-        header('Location: ../front/cart.php');
-        exit;
     }
 ?>
