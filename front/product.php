@@ -15,9 +15,9 @@
         <div class="form-container">
             <form action="" method="post" id="product-form">
                 <div class="input-row">
-                    <label class="input-label" for="product-name">商品名</label>
+                    <label class="input-label">商品名</label>
                     <div class="input-field-area"> 
-                        <input type="text" name="" id="product-name" class="input-field"> 
+                        <input type="text" name="" class="input-field"> 
                     </div>
                 </div>
 

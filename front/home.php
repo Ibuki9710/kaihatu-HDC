@@ -1,8 +1,7 @@
-<?php
+<?php 
 session_set_cookie_params(['path' => '/']); 
 session_start();
 $items = $_SESSION['items'] ?? [];
-
 require 'header.html';
 require 'list.html';
 ?>
