@@ -31,6 +31,7 @@ require 'list-admin.html';
                 </div>
                 <div class="empty"></div>
                 <div class="center">
+                    <button href="login.php"class="btn-base redBtn btn-wrapper">ログアウト</button>
                     <button type="submit" class="btn-base blueBtn btn-wrapper">変更</button>
                 </div>
                 <p>バージョン確認　　　　2-2.2.2.0</p>
