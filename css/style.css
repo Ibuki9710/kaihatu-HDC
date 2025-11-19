@@ -328,7 +328,7 @@ h3{
 /*入力関係*/
 .input label{
     font-weight: bold;
-    width: auto; 
+    width: 150px; 
     min-width: auto;
     display: block; 
     margin-bottom: 2px;
@@ -400,7 +400,7 @@ h3{
 
 /*テキストボックス*/
 .customer-text{
-    width:100%;
+    width:80%;
     padding: 8px;
     height: 40px;
     border-radius: 5px;
@@ -477,6 +477,167 @@ h3{
 .black{
     color: black;
 }
+
+
+/* --- レイアウト全体 (左右分割) の設定 --- */
+.main-layout {
+    width: 90%; 
+    margin: 30px auto;
+    display: flex;
+    gap: 40px; 
+}
+
+.left-panel, .right-panel {
+    /* 左右を約 50% ずつに分割 */
+    flex: 1; 
+    min-width: 0; 
+}
+
+/* --- 左パネル（画像コンテナ群）の設定 --- */
+.left-panel {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
+    padding: 0; 
+    margin: 0;
+}
+
+/* --- 画像コンテナの共通スタイル --- */
+.large-box, .small-box {
+    border: 1px solid #ccc; 
+    background-color: #f4f4f4;
+    padding: 10px; 
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s, opacity 0.2s;
+    position: relative; 
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+/* 大きなコンテナのスタイル */
+.large-box {
+    height: 200px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 小さなコンテナのラッパー設定 */
+.small-boxes-wrapper {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 15px; 
+    justify-content: space-between; 
+}
+
+/* 小さなコンテナのスタイル */
+.small-box {
+    /* 6つ並びは画面幅によっては小さすぎるため、今回は3つずつ2段に並べることを推奨 */
+    width: calc((100% - 2 * 15px) / 3); 
+    height: 100px; /* 高さを調整 */
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ファイル入力フィールド自体は非表示 */
+.file-input {
+    display: none;
+}
+
+/* ファイル入力フィールドの代わりにラベルがクリック可能になるように設定 */
+.drop-zone label {
+    display: none; 
+}
+
+/* ドロップ可能なことを示すテキスト */
+.drop-text-inner {
+    font-size: 1em;
+    color: #555;
+    pointer-events: none; /* クリックイベントが下のinputに伝わるようにする */
+    z-index: 10;
+}
+
+/* --- 右側: 商品情報フォームのスタイル --- */
+.product-info-form {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.product-info-form h2 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.input label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+    margin-right: 10px;
+}
+
+/* テキストボックスとテキストエリアの共通スタイル */
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* paddingとborderをwidthに含める */
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.input input[text="number"]{
+    width: 80px;
+    margin-right: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* paddingとborderをwidthに含める */
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.form-group textarea{
+    height: 150px;
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+}
+
+/* テキストエリアのサイズ調整 */
+.form-group textarea {
+    resize: vertical; /* 縦方向のみリサイズ可能にする */
+}
+
 
 /*ボタンの設定*/
 .btn-base{
