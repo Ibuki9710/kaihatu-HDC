@@ -59,42 +59,14 @@ function navigateToUrl(selectElement) {
     }
 }
 
-//住所（県）のセレクトボックスの作成
-const prefecture = document.getElementById('prefecture');
-if(prefecture){
-    const value = [
-    "北海道", "青森県", "岩手県", "秋田県", "山形県",
-    "宮城県", "福島県", "群馬県", "栃木県", "千葉県",
-    "埼玉県","東京都", "神奈川","長野県", "山梨県",
-    "石川県", "岐阜県", "静岡県","福井県",  "新潟県",
-     "愛知県", "富山県", "滋賀県", "奈良県","三重県",
-     "大阪府", "京都府", "奈良県", "和歌山県","岡山県",
-    "兵庫県", "広島県", "島根県", "鳥取県", "山口県",
-    "香川県", "徳島県", "愛媛県", "高知県", "福岡県",
-    "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県",
-    "鹿児島県", "沖縄県"
-];
-    value.forEach(element => {
-        const option = document.createElement('option');
-        option.value=element;
-        option.textContent=element;
-        prefecture.appendChild(option);
-    });     
-}
-
 // APIを呼び出し、郵便番号に基づく住所を取得
 document.addEventListener('DOMContentLoaded', () => {
     const zipcodeInput = document.getElementById('zipcode');
     const searchButton = document.getElementById('searchButton');
-    
-    const prefectureInput = document.getElementById('prefecture');
-    const cityInput = document.getElementById('city');
-    const townInput = document.getElementById('town');
+    const addressInput = document.getElementById('address');
 
     function clearAddressFields() {
-        if (prefectureInput) prefectureInput.value = '';
-        if (cityInput) cityInput.value = '';
-        if (townInput) townInput.value = '';
+        if (addressInput) addressInput.value = '';
     }
 
     if (zipcodeInput) {
@@ -131,9 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(data => {
                 if(data.code === 200) {
-                    prefectureInput.value = data.data.pref; // 都道府県
-                    cityInput.value = data.data.city; // 市区町村
-                    townInput.value = data.data.town;// 町域
+                    addressInput.value = data.data.pref + data.data.city + data.data.town; 
                 } else {
                     alert('住所を取得できませんでした。郵便番号を確認してください。');
                     clearAddressFields();
