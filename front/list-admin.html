@@ -1,16 +1,23 @@
 <!-- サイドメニュー本体 -->
 <nav class="admin-nav">
         <ul class="menu-ul">
-            <li  class="list-admin"><a href="#" class="list-hover">ホーム</a></li>
-                <select class="list-admin" id="link-selector" onchange="navigateToUrl(this)">
-                    <option disabled id="">商品管理</option>
-                    <option value="#">商品登録</option>
+            <a href="home-admin.php" class="list-hover"><li  class="list-admin">ホーム</li></a>
+            <li>
+                <select id="link-selector" class="list-admin select" onchange="navigateToUrl(this)">
+                    <option disabled selected>商品管理</option>
+                    <option value="product.php">商品登録</option>
                     <option value="#">商品マスター</option>
                 </select>
             </li>
-            <li  class="list-admin"><a href="#" class="list-hover">不用品管理</a></li>
-            <li  class="list-admin"><a href="#" class="list-hover">コンテンツ管理</a></li>
-            <li  class="list-admin"><a href="#" class="list-hover">基本情報設定</a></li>
-            <li  class="list-admin"><a href="#" class="list-hover">システム情報管理</a></li>
+            <li>
+                <select class="list-admin select" id="link-selector" onchange="navigateToUrl(this)">
+                    <option disabled selected>コンテンツ管理</option>
+                    <option value="#">ページ管理</option>
+                    <option value="#">お知らせ管理</option>
+                </select>
+            </li>
+            <a href="#" class="list-hover"><li  class="list-admin">不用品管理</li></a>
+            <a href="accountInformation.php" class="list-hover"><li  class="list-admin">基本情報設定</li></a>
+            <a href="#" class="list-hover"><li  class="list-admin">システム情報管理</li></a>
         </ul>
 </nav>
