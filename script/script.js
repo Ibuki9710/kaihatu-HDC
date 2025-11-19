@@ -117,3 +117,76 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // すべてのドロップゾーンとファイルインプットを取得
+    const dropZones = document.querySelectorAll('.drop-zone');
+    const fileInputs = document.querySelectorAll('.file-input');
+
+    // 1. クリックによるファイル選択を有効にする
+    fileInputs.forEach(input => {
+        // ファイルが選択されたときの処理
+        input.addEventListener('change', (event) => {
+            const files = event.target.files;
+            if (files.length > 0) {
+                // 選択されたファイルを表示・処理する関数を呼び出す
+                handleFiles(files, event.currentTarget.closest('.drop-zone').id);
+            }
+        });
+    });
+
+    // 2. ファイルのドラッグ＆ドロップを有効にする
+    dropZones.forEach(zone => {
+        // ドラッグされた要素がドロップゾーンに入ったとき
+        zone.addEventListener('dragenter', (e) => {
+            e.preventDefault();
+            zone.classList.add('dragover-file');
+        });
+
+        // ドラッグされた要素がドロップゾーンの上にある間
+        zone.addEventListener('dragover', (e) => {
+            e.preventDefault(); // これがないとドロップが許可されない
+        });
+
+        // ドラッグされた要素がドロップゾーンから出たとき
+        zone.addEventListener('dragleave', (e) => {
+            zone.classList.remove('dragover-file');
+        });
+
+        // 要素がドロップされたとき
+        zone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            zone.classList.remove('dragover-file');
+
+            // ドロップされたファイルを取得
+            const files = e.dataTransfer.files;
+
+            if (files.length > 0) {
+                // 取得したファイルを、対応するファイルインプットに設定
+                const fileInput = zone.querySelector('.file-input');
+                fileInput.files = files; // filesプロパティにデータを設定
+
+                // 選択されたファイルを表示・処理する関数を呼び出す
+                handleFiles(files, zone.id);
+            }
+        });
+    });
+
+    // 3. ファイルを処理する関数（ここではファイル名を表示する例）
+    function handleFiles(files, zoneId) {
+        const zone = document.getElementById(zoneId);
+        let output = `[${zoneId}] 選択されたファイル:\n`;
+
+        // 複数のファイルがある場合を考慮
+        for (let i = 0; i < files.length; i++) {
+            output += ` - ${files[i].name} (${(files[i].size / 1024).toFixed(1)} KB)\n`;
+        }
+
+        // 結果をコンテナ内に表示する（例として、既存のテキストを上書き）
+        const dropText = zone.querySelector('.drop-text');
+        dropText.textContent = output;
+
+        console.log(output);
+        alert(output);
+    }
+});
