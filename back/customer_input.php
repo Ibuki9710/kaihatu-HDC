@@ -4,7 +4,6 @@ require_once 'db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
-        $pdo = new PDO($connect, USER, PASS);
         $stmt = $pdo->prepare("INSERT INTO customer(name, member_email, password) VALUES(?, ?, ?)");
         $stmt->execute([
             $_POST['name'],

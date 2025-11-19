@@ -8,7 +8,6 @@ if (!isset($_SESSION['member_id'])) {
 }
 
 try {
-    $pdo = new PDO($connect, USER, PASS);
     $stmt = $pdo->prepare("SELECT * FROM customer WHERE member_id = ?");
     $stmt->execute([$_SESSION['member_id']]);
     $_SESSION['customer_data'] = $stmt->fetch(PDO::FETCH_ASSOC);
