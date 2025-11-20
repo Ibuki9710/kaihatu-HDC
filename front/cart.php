@@ -6,6 +6,7 @@ require 'header.html';
     <div class="center-content">
         <h1>カート一覧</h1>
     </div>
+    //デザインんが正常に動くための確認後ほど削除//
     <div class="cart-list">
         <section class="cart-item">
             <button class="remove-btn" aria-label="商品を削除">×</button>
@@ -43,6 +44,7 @@ require 'header.html';
                 <a href="#" class="order-link">商品注文画面へ</a>
             </div>
         </section>
+        //ここまで//
     </div>
     <div class="button-area">
         <button class="btn-back button">戻る</button>
