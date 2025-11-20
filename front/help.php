@@ -13,20 +13,23 @@
             <p><a href="#" class="blue-text">＞どうやってログインするのですか？</a></p>
             <p><a href="#" class="blue-text">＞どうやってログインするのですか？</a></p>
             <p><a href="#" class="blue-text">＞どうやってログインするのですか？</a></p>
-
         <div class="center">
-            <p class="white"><button class="blueBtn login-btn"><font color="white">質問内容を送信</font></button></p>
-            <p>わからない場合、内容を入力・送信してください。<br>
-                <textarea cols="60" rows="4" placeholder="質問内容を入力"></textarea>
-            </p>
-            <a href="#"><button class="btn-base thinblue"><font color="black">送信</font></button></a>
-            <p><a href="customer-menu.php">
-                <button type="submit" class="blueBtn btn-base btn-wrapper">戻る</button>
-            </p></a>
+            <div>
+                <button class="btn-base login-btn thinblue black">質問内容を送信</button>
+            </div>          
+            <div>
+                わからない場合、内容を入力・送信してください。<br>
+                <textarea cols="60" rows="4" placeholder="質問内容を入力" class="input-base-text"></textarea>
+            </div>           
+            <a href="#">
+                <button class="btn-base thinblue black">送信</button>
+            </a>
+            <div class="btn-group">
+                <a href="customer-menu.php">
+                    <button type="submit" class="blueBtn btn-base">戻る</button>
+                </a>
+            </div>
         </div>
     </div>
 </div>
-
-
-
-        
+<?php require 'footer.html'; ?>

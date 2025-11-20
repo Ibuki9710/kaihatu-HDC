@@ -14,19 +14,19 @@ require 'list-admin.html';
                 <div class="input-row">
                     <label class="input-label">アカウント名</label>
                     <div class="input-field-area"> 
-                        <input type="text" name="" class="input-field"> 
+                        <input type="text" name="" class="input-base-text"> 
                     </div>
                 </div>
                 <div class="input-row">
                     <label class="input-label">メールアドレス</label>
                     <div class="input-field-area"> 
-                        <input type="email" name="" class="input-field"> 
+                        <input type="email" name="" class="input-base-text"> 
                     </div>
                 </div>
                 <div class="input-row">
                     <label class="input-label">電話番号</label>
                     <div class="input-field-area"> 
-                        <input type="text" name="" class="input-field"> 
+                        <input type="text" name="" class="input-base-text"> 
                     </div>
                 </div>
                 <div class="empty"></div>
