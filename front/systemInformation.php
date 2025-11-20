@@ -13,19 +13,19 @@ require 'list-admin.html';
                 <div class="input-row">
                     <label class="input-label">会社名</label>
                     <div class="input-field-area"> 
-                        <input type="text" name="" class="input-field"> 
+                        <input type="text" name="" class="input-base-text"> 
                     </div>
                 </div>
                 <div class="input-row">
                     <label class="input-label"">会社名（カナ）</label>
                     <div class="input-field-area"> 
-                        <input type="text" name="" class="input-field"> 
+                        <input type="text" name="" class="input-base-text"> 
                     </div>
                 </div>
                 <div class="input-row">
                     <label class="input-label">店名</label>
                     <div class="input-field-area"> 
-                        <input type="text" name="" class="input-field"> 
+                        <input type="text" name="" class="input-base-text"> 
                     </div>
                 </div>
                 <div class="input-row">
@@ -39,13 +39,13 @@ require 'list-admin.html';
                 <div class="input-row">
                     <label class="input-label" for="address">住所</label>
                     <div class="input-field-area">
-                        <input type="text" id="address" name="" class="input-field" placeholder="市町村番地"> 
+                        <input type="text" id="address" name="" class="input-base-text" placeholder="市町村番地"> 
                     </div>
                 </div>
                 <div class="input-row">
                     <label class="input-label">送信メールアドレス</label>
                     <div class="input-field-area"> 
-                        <input type="email" name="" class="input-field"placeholder="email@example.com"> 
+                        <input type="email" name="" class="input-base-text"placeholder="email@example.com"> 
                     </div>
                 </div>
                 <div class="center">

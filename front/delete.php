@@ -3,7 +3,7 @@
 ?>
 
 <div class="center">
-    <p><font color="red">
+    <p"><font color="red" >
         「退会する」ボタンを押すと退会が完了します。<br>
         本当に退会してもよろしいですか？
     </p></font>

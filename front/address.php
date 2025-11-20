@@ -21,7 +21,7 @@
             <div class="input-row">
                 <label class="input-label" for="address">住所</label>
                 <div class="input-field-area">
-                    <input type="text" id="address" name="" class="input-field" placeholder="市町村番地"> 
+                    <input type="text" id="address" name="" class="input-base-text" placeholder="市町村番地"> 
                 </div>
             </div>
             </form>
