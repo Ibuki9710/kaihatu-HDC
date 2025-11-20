@@ -46,14 +46,17 @@
     $stmt->execute($params);
     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $_SESSION['product'] = $products;
-    echo '<h1>検索結果</h1>';
+    echo '<div class="item-list">';
     foreach($products as $row){
         $id=$row['item_id'];
+        echo '<div class="item-card">';
         echo '<a href="../front/detail.php?id=', $id, '">';
         echo '<img src="../image/', $id, '.png">';
         echo $row['item_name'];
         echo $row['width'];
         echo $row['height'];
         echo '</a>';
+        echo '</div>';
     }
+    echo '</div>';
 ?>
