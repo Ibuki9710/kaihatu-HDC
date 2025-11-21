@@ -1,6 +1,7 @@
 html{
     height: 100%;
     font-family: Arial, sans-serif;
+    width:100%;
 }
 body{
     padding: 0;
@@ -271,7 +272,6 @@ h3{
     padding: 0 20px;
 }
 
-/* 固有のボタンの差分を記述 */
 .menu-btn {
     right: 10px;
     background-color: rgb(98, 126, 197);
@@ -282,9 +282,9 @@ h3{
     /* 差分プロパティ */
     height: 25px;
     line-height: 25px; 
-    margin-left: 110px;
-    width: 80px; 
-    padding: 0 20px;
+    margin-left: 90px;
+    width: 65px; 
+    padding: 0 10px;
 }
 
 .login-btn{
@@ -480,6 +480,7 @@ textarea{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom:10px;
 }
 
 /* 小さなコンテナのラッパー設定 (維持) */
@@ -658,6 +659,23 @@ textarea{
     flex-shrink: 0;
     margin-right: 20%;
 }
+/* 左側のラベル部分（商品名、商品画像など） */
+.input-label-area {
+    width: 120px; 
+    padding-right: 15px;
+    padding-top: 5px;
+    font-weight: bold;
+    color: #333;
+    flex-shrink: 0;
+}
+.input-label { 
+    width: 160px; 
+    min-width: 120px; 
+    padding-right: 15px;
+    padding-top: 5px;
+    flex-shrink: 0;
+    margin-right: 20%;
+}
 
 /* 右側の入力欄部分（テキストボックス、ボタンなど） */
 .input-field-area {
@@ -711,11 +729,22 @@ p{
 .main-layout {
     width: 90%; 
     margin: 30px auto;
-    display: flex;
-    gap: 40px; 
 }
+
+.main-layout form {
+    display: flex;
+    flex-direction: column; 
+    gap: 30px;
+}
+
+.panels-wrapper {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+}
+
 .left-panel, .right-panel {
-    flex: 1; 
+    flex: 1; /* 左右を均等な幅にする */
     min-width: 0; 
 }
 
@@ -763,10 +792,20 @@ p{
 }
 .input label {
     font-weight: bold;
-    margin-bottom: 8px;
-    color: #555;
+    margin-bottom: 8px solid #555;
     margin-right: 10px;
 }
+
+.product-info-form input[type="text"],
+.product-info-form input[type="number"],
+.product-info-form textarea {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* paddingとborderをwidthに含める */
+}
+
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
@@ -774,6 +813,11 @@ p{
 
 .form-group textarea {
     resize: vertical; 
+}
+
+/* ★修正点★ サイズ入力欄の幅を調整 */
+.input input[type="number"].min-text {
+    width: 100px; 
 }
 
 /*画面サイズが750pxの設定*/
@@ -813,7 +857,9 @@ p{
     top: 46px;
     }
     .menu-btn{
-        margin-left: 75px;
+        margin-left: 50px;
+        width: 50px; 
+        font-size: 10px;
     }
     .icon{
         width: 40px;
