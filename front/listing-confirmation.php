@@ -6,10 +6,8 @@ require 'header.html';
         <h3>出品</h3>
     </div>
     <div class="main-layout">
-        <form action="#" method="post">
-            
+        <form action="#" method="post" id="edit-form">
             <div class="panels-wrapper">
-                
                 <div class="left-panel drag-container">
                     <div class="large-box drop-zone" id="box1" draggable="true">
                         <input type="file" id="fileInput1" class="file-input" multiple>
@@ -64,11 +62,16 @@ require 'header.html';
                         <input type="number" class="min-text" name="" placeholder="縦幅"><label>cm</label>
                     </div>
                 </div> 
-            
-            </div> <div class="center">
-                <button type="submit" class="btn-base greenBtn">出品</button>
-            </div>  
+            </div>
         </form>
+        <div class="center">
+        <div class="btn-group">
+            <a href="customer-menu.php">
+                <button class="blueBtn btn-base">戻る</button>
+            </a>
+            <button  type="submit" class="greenBtn btn-base" form="edit-form">変更</button>
+        </div>
+    </div>
     </div>
 </div>
 <?php require 'footer-admin.html'; ?>
