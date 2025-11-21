@@ -6,7 +6,6 @@ require 'header.html';
 require 'list.html';
 ?>
 <div class="main">
-    <h2>商品一覧</h2>
-    <?php require '../back/product-display.php'; ?>
-</div>
+<h2>商品一覧</h2>
+<?php require '../back/home.php'; ?>
 <?php require 'footer.html'; ?>
