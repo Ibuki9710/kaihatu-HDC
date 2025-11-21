@@ -10,7 +10,7 @@ require 'list-admin.html';
     <div class="conteiner-admin">
         <div class="form-container">
             <h3>アカウント管理</h3>
-            <form acton="" method="post">
+            <form action="login.php" method="post">
                 <div class="input-row">
                     <label class="input-label">アカウント名</label>
                     <div class="input-field-area"> 
@@ -31,7 +31,7 @@ require 'list-admin.html';
                 </div>
                 <div class="empty"></div>
                 <div class="center">
-                    <button type="submit" class="btn-base blueBtn btn-wrapper">変更</button>
+                    <button type="submit" class="btn-base blueBtn btn-wrapper">ログアウト</button>
                 </div>
                 <p>バージョン確認　　　　2-2.2.2.0</p>
             </form>
