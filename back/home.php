@@ -8,7 +8,7 @@ session_start();
 require_once 'db_connect.php';
 
 // テーブル名が item で合っている場合
-$sql = "SELECT * FROM item"; 
+$sql = "SELECT item_id, item_name, price, image FROM item";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
