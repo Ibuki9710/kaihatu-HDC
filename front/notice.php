@@ -15,4 +15,4 @@ require 'list-admin.html';
         </div>
     </div>
 </div>
-<?php require 'footer.html'; ?>
+<?php require 'foote-admin.html'; ?>
