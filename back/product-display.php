@@ -45,7 +45,7 @@
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $_SESSION['product'] = $products;
+    $_SESSION['items'] = $products;
     echo '<div class="item-list">';
     foreach($products as $row){
         $id=$row['item_id'];

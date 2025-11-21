@@ -1,21 +1,20 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
-session_set_cookie_params(['path' => '/']); 
 session_start();
 
-require_once 'db_connect.php';
+require 'db_connect.php';
 
 // テーブル名が item で合っている場合
-$sql = "SELECT item_id, item_name, price, FROM item";
+
+$sql = 'SELECT item_id, item_name, price FROM item';
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+for($i=1; $i<=20; $i++){
+    echo '<img src="../image/', $i, '.png">';
+}
 
 // セッションに保存
 $_SESSION['items'] = $items;
 
 // front/home.php にリダイレクト
-header('Location: ../front/home.php');
 exit;
