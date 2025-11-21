@@ -17,7 +17,7 @@
                 <div class="input-row">
                     <label class="input-label">商品名</label>
                     <div class="input-field-area"> 
-                        <input type="text" name="" class="input-field"> 
+                        <input type="text" name="" class="input-base-text"> 
                     </div>
                 </div>
 
@@ -32,7 +32,7 @@
 
                 <div class="input-row">
                     <label class="input-label">商品名の説明</label>
-                    <textarea class="input-field"></textarea>
+                    <textarea class="input-base-text"></textarea>
                 </div>
                 <div class="input-row">
                     <label class="input-label">在庫数</label>

@@ -24,7 +24,7 @@ require 'header2.html';
         <h3>まだ会員でない方</h3>
     <a href="customer.php">
         <div class="center">
-            <button type="submit" class="login-btn thinblue"><p>新規会員登録はこちら</p></button>
+            <button type="submit" class="login-btn thinblue">新規会員登録はこちら</button>
         </div>
     </a>
     </div>
