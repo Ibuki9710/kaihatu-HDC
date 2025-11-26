@@ -6,7 +6,7 @@
     $width = $_POST['width'] ?? null;
     $quality = $_POST['quality'] ?? null;
     $genre = $_POST['genre'] ?? null;
-    $pdo=new PDO($connect, USER, PASS);
+    //$pdo=new PDO($connect, USER, PASS);
 
     $sql = "SELECT * FROM item WHERE 1=1";
     $params = [];
@@ -45,18 +45,20 @@
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $_SESSION['items'] = $products;
-    echo '<div class="item-list">';
-    foreach($products as $row){
-        $id=$row['item_id'];
-        echo '<div class="item-card">';
-        echo '<a href="../front/detail.php?id=', $id, '">';
-        echo '<img src="../image/', $id, '.png">';
-        echo $row['item_name'];
-        echo $row['width'];
-        echo $row['height'];
-        echo '</a>';
-        echo '</div>';
-    }
-    echo '</div>';
+    //$_SESSION['items'] = $products;
+    //echo '<div class="item-list">';
+    //foreach($products as $row){
+      //  $id=$row['item_id'];
+        //echo '<div class="item-card">';
+       // echo '<a href="../front/detail.php?id=', $id, '">';
+        //echo '<img src="../image/', $id, '.png">';
+        //echo $row['item_name'];
+        //echo $row['width'];
+        //echo $row['height'];
+        //echo '</a>';
+        //echo '</div>';
+    //}
+    //echo '</div>';
+    header('Location:../front/home.php');
+    exit;
 ?>
