@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  background: #fff;
+  color: #000;
+}
+
+/* タイトル */
+h1 {
+  font-weight: normal;
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+/* カートリスト */
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* カートアイテム */
+.cart-item {
+  position: relative;
+  border: 1px solid #999;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  background-color: #fff;
+}
+
+/* 商品画像 */
+.cart-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  flex-shrink: 0;
+}
+
+/* 商品詳細テキスト */
+.cart-info {
+  flex-grow: 1;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.cart-info strong {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.cart-info div {
+  margin-bottom: 6px;
+}
+
+/* リンク */
+.order-link {
+  color: #157dfb;
+  text-decoration: none;
+  font-size: 14px;
+  float: right;
+  cursor: pointer;
+}
+
+.order-link:hover {
+  text-decoration: underline;
+}
+
+/* 削除ボタン */
+.remove-btn {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #555;
+  user-select: none;
+}
+
+.remove-btn:hover {
+  color: red;
+}
+
+/* ボタンエリア */
+.button-area {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 48px;
+}
+
+.button {
+  width: 140px;
+  height: 56px;
+  font-size: 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-back {
+  background-color: #70a7d9;
+  color: white;
+}
+
+.btn-order {
+  background-color: #fcf3b3;
+  color: #333;
+}
+
+button:active {
+  filter: brightness(90%);
+}

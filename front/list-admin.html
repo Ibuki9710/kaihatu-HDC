@@ -1,0 +1,16 @@
+<!-- サイドメニュー本体 -->
+<nav class="admin-nav">
+        <ul class="menu-ul">
+            <a href="home-admin.php" class="list-hovern black"><li  class="list-admin">ホーム</li></a>
+            <li>
+                <select id="link-selector" class="list-admin select" onchange="navigateToUrl(this)">
+                    <option disabled selected>商品管理</option>
+                    <option value="product.php">商品登録</option>
+                    <option value="product-search.php">商品マスター</option>
+                </select>
+            </li>
+            <a href="unused-admin.php" class="list-hover black"><li  class="list-admin">不用品管理</li></a>
+            <a href="accountInformation.php" class="list-hover black"><li  class="list-admin">基本情報設定</li></a>
+            <a href="systemInformation.php" class="list-hover black"><li  class="list-admin">システム情報管理</li></a>
+        </ul>
+</nav>

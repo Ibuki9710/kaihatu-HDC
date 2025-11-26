@@ -1,6 +1,20 @@
-<?php session_start(); ?>
-<?php require 'header.php'; ?>
 <?php
+session_start();
 
-?>
-<?php require 'footer.php'; ?>
+require 'db_connect.php';
+
+// テーブル名が item で合っている場合
+
+$sql = 'SELECT item_id, item_name, price FROM item';
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+for($i=1; $i<=20; $i++){
+    echo '<img src="../image/', $i, '.png">';
+}
+
+// セッションに保存
+$_SESSION['items'] = $items;
+
+// front/home.php にリダイレクト
+exit;
