@@ -10,7 +10,7 @@ require 'header2.html';
 ?>
 
 <div class="form-container">
-    <div class="center-content">
+    <div class="center-content center">
         <h2>会員登録完了</h2>
         <p>会員登録が完了しました。</p>
         <p>ご登録ありがとうございます。</p>
