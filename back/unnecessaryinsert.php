@@ -54,7 +54,6 @@ $upload_path = "upload/" . $image_name;
 
 if (!move_uploaded_file($_FILES['image']['tmp_name'], $upload_path)) {
     echo "<p style='color:red;'>画像をアップロードできませんでした。</p>";
-    echo "<button onclick='history.back()'>戻る</button>";
     exit();
 }
 
@@ -81,6 +80,5 @@ if ($result) {
     exit();
 } else {
     echo "<p style='color:red;'>データの登録に失敗しました。</p>";
-    echo "<button onclick='history.back()'>戻る</button>";
 }
 ?>
