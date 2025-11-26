@@ -1,65 +1,86 @@
+<?php session_start(); ?>
+<?php require 'db_connect.php'; ?>
 <?php
-session_start();
+// ------------- DB接続 -------------
+$pdo = new PDO($connect, USER, PASS);
 
-// 入力チェック
-if (empty($_POST['name']))    $errors[] = "商品名が入力されていません。";
-if (empty($_POST['price']))   $errors[] = "価格が入力されていません。";
-if (empty($_POST['explain'])) $errors[] = "商品説明が入力されていません。";
-if (empty($_POST['width']))   $errors[] = "横幅(mm)が入力されていません。";
-if (empty($_POST['height']))  $errors[] = "高さ(mm)が入力されていません。";
-if (empty($_FILES['image']['name'])) $errors[] = "画像が選択されていません。";
+try {
+    $pdo = new PDO($dsn, $user, $pass);
+} catch (PDOException $e) {
+    exit("DB接続に失敗しました：" . $e->getMessage());
+}
 
-// エラーが1つでもあれば表示して終了
+// ------------- 入力チェック -------------
+$errors = [];
+
+if (empty($_POST["name"])) {
+    $errors[] = "商品名を入力してください。";
+}
+
+if (empty($_POST["price"])) {
+    $errors[] = "価格を入力してください。";
+} elseif (!preg_match('/^[0-9]+$/', $_POST["price"])) {
+    $errors[] = "価格は数字で入力してください。";
+}
+
+if (empty($_POST["explain"])) {
+    $errors[] = "商品説明を入力してください。";
+}
+
+if (empty($_POST["width"])) {
+    $errors[] = "横幅を入力してください。";
+}
+
+if (empty($_POST["height"])) {
+    $errors[] = "高さを入力してください。";
+}
+
+// 画像チェック
+if (empty($_FILES["image"]["name"])) {
+    $errors[] = "画像を選択してください。";
+}
+
+// ------------- エラーがある場合は表示して終了 -------------
 if (!empty($errors)) {
-    foreach ($errors as $error) {
-        echo "<p style='color:red; font-weight:bold;'>※ $error</p>";
+    foreach ($errors as $e) {
+        echo "<p style='color:red;'>$e</p>";
     }
-    echo "<br><a href='exhibit_form.php'>戻る</a>";
     exit();
 }
 
-// フォーム値を受け取り
-$name    = $_POST['name'];
-$price   = $_POST['price'];
-$explain = $_POST['explain'];
-$width   = $_POST['width'];
-$height  = $_POST['height'];
-
-// 画像保存処理
-$image_name = time() . "_" . $_FILES['image']['name'];  // ファイル名をユニーク化
+// ------------- 画像アップロード処理 -------------
+$image_name = time() . "_" . $_FILES['image']['name'];  // ユニーク化
 $upload_path = "upload/" . $image_name;
 
 if (!move_uploaded_file($_FILES['image']['tmp_name'], $upload_path)) {
-    echo "画像をアップロードできませんでした。";
+    echo "<p style='color:red;'>画像をアップロードできませんでした。</p>";
+    echo "<button onclick='history.back()'>戻る</button>";
     exit();
 }
 
-// DB接続
-$pdo = new PDO(
-    'mysql:host=localhost;dbname=shop;charset=utf8',
-    'staff',
-    'password'
-);
-
-// INSERT実行
+// ------------- INSERT処理 -------------
 $sql = $pdo->prepare("
     INSERT INTO unnecessary_items
-    (unnecessary_items_name, price, unnecessary_items_explain, created_at, width, height, image)
+        (unnecessary_items_name, price, unnecessary_items_explain, created_at, width, height, image)
     VALUES
-    (?, ?, ?, NOW(), ?, ?, ?)
+        (?, ?, ?, NOW(), ?, ?, ?)
 ");
 
-$sql->execute([
-    $name,
-    $price,
-    $explain,
-    $width,
-    $height,
+$result = $sql->execute([
+    $_POST["name"],
+    $_POST["price"],
+    $_POST["explain"],
+    $_POST["width"],
+    $_POST["height"],
     $image_name
 ]);
 
-// 完了画面へ移動
-header("Location: exhibit_done.php");
-exit();
-
+// ------------- 成功したら完了画面へ移動 -------------
+if ($result) {
+    header("Location: complete.php");
+    exit();
+} else {
+    echo "<p style='color:red;'>データの登録に失敗しました。</p>";
+    echo "<button onclick='history.back()'>戻る</button>";
+}
 ?>

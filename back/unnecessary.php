@@ -4,6 +4,7 @@
 
 
 <?php
+$pdo = new PDO($connect, USER, PASS);
 $sql = $pdo->prepare("select * from notitem");
     $sql->execute();
     
