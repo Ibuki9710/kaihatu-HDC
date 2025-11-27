@@ -18,6 +18,7 @@ main{
     flex-grow: 1;
     min-height: 0;
     height: auto;
+    padding: 15px;
 }
 * {
     box-sizing: border-box; /* 全ての要素に適用 */
@@ -487,8 +488,8 @@ textarea{
 .small-boxes-wrapper {
     display: flex; 
     flex-wrap: wrap; 
-    gap: 20px; 
-    justify-content: flex-start; 
+    gap: 15px; 
+    justify-content: space-around; 
 }
 
 /* 小さなコンテナのスタイル (レイアウトを維持) */
@@ -592,6 +593,10 @@ textarea{
 .left{
     text-align: left;
     padding: 10px;
+}
+.showProduct{
+    justify-content: flex-start; 
+    gap: 25px;
 }
 /*  管理者側CSS  */
 .conteiner-header{

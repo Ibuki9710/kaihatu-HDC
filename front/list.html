@@ -10,17 +10,18 @@
 <nav class="menu" id="side-menu">
     <div class="menu-item">
         <strong>サイズ</strong><br>
-        <ul class="menu-ul a">
-            <form action="../back/product-display.php" method="post" style="display: flex; flex-wrap: wrap;">
+        <form action="../back/search.php" method="post" style="display: flex; flex-wrap: wrap;">
+            <ul class="menu-ul a">
                 <li>縦　<input type="number" name="height" min="0" class="size">cm</li>
                 <li>横　<input type="number" name="width" min="0" class="size">cm</li>
-            </form>
-        </ul>
-        <strong>品質</strong><br>
-        <ul class="menu-ul a">
-            <li><label class="menu-hover"><input type="radio" name="quality" value="">良品</label></li>
-            <li><label class="menu-hover"><input type="radio" name="quality" value="">難あり</label></li>
-        </ul>
-        <button type="submit" class="menu-btn">検索</button>
+            </ul>
+            <strong>品質</strong><br>
+            <ul class="menu-ul a">
+                <li><label class="menu-hover"><input type="radio" name="quality" value="">良品</label></li>
+                <li><label class="menu-hover"><input type="radio" name="quality" value="">並品</label></li>
+                <li><label class="menu-hover"><input type="radio" name="quality" value="">難あり</label></li>
+            </ul>
+            <button type="submit" class="menu-btn">検索</button>
+        </form>
     </div>
 </nav>
