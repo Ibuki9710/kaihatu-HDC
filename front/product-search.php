@@ -19,7 +19,7 @@ require 'list-admin.html';
             </div>
         </div>
     </form>
-    <div class="conteiner-admin">
+    <div class="conteiner-admin center">
         <h2>検索結果</h2>
     </div>
     <div class="conteiner-admin">
@@ -30,8 +30,8 @@ require 'list-admin.html';
         <a href="product-search.php" class="black">在庫なし</a>
     </div>
     <div class="conteiner-admin">
-        <div class="conteiner-admin grey">
-        </div>
+        /* ここに不用品の検索結果表示
+            <div class="align conteiner-admin grey">をつけてください */
     </div>
 </div>
 <?php require 'footer-admin.html'; ?>

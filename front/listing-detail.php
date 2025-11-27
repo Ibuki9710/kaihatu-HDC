@@ -12,17 +12,17 @@ require 'header.html';
                     <div class="large-box" id="box1">
                     </div>
                     <div class="small-boxes-wrapper">
-                        <div class="small-box" id="box2">
+                        <div class="small-box" id="box2" name="">
                         </div>
-                        <div class="small-box" id="box3">
+                        <div class="small-box" id="box3" name="">
                         </div>
-                        <div class="small-box" id="box4">
+                        <div class="small-box" id="box4" name="">
                         </div>
-                        <div class="small-box" id="box5">
+                        <div class="small-box" id="box5" name="">
                         </div>
-                        <div class="small-box" id="box6">
+                        <div class="small-box" id="box6" name="">
                         </div>
-                        <div class="small-box" id="box7">
+                        <div class="small-box" id="box7" name="">
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@ require 'header.html';
                 </div> 
             
             </div> <div class="center">
-                <button type="submit" class="btn-base greenBtn">不用品管理画面へ</button>
+                <button type="submit" class="btn-base blueBtn">戻る</button>
             </div>  
         </form>
     </div>
