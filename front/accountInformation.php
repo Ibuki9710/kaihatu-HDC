@@ -31,7 +31,7 @@ require 'list-admin.html';
                 </div>
                 <div class="empty"></div>
                 <div class="center">
-                    <button type="submit" class="btn-base blueBtn btn-wrapper">ログアウト</button>
+                    <button type="submit" class="btn-base blueBtn btn-wrapper">更新</button>
                 </div>
                 <p>バージョン確認　　　　2-2.2.2.0</p>
             </form>
