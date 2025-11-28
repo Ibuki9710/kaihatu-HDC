@@ -6,7 +6,7 @@ require 'list.html';
 ?>
 <div class="main">
 <h2>商品一覧</h2>
-<div class="item-list">
+    <div class="small-boxes-wrapper showProduct">
         <?php require '../back/product-display.php'; ?>
     </div>
 </div>
