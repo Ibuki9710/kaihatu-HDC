@@ -61,8 +61,8 @@ if (empty($items)): ?>
     <p>商品データがありません。</p>
 <?php else: ?>
     <?php foreach ($items as $item): ?>
-    <div class="item-card">
-        <a href="detail.php?id=<?= htmlspecialchars($item['item_id']) ?>">
+    <div class="card">
+        <a href="detail.php?id=<?= htmlspecialchars($item['item_id']) ?>" class="black">
             <img src="../image/<?= htmlspecialchars($item['item_id']) ?>.png" alt="<?= htmlspecialchars($item['item_name']) ?>">
             <h3><?= htmlspecialchars($item['item_name']) ?></h3>
             <p>価格: <?= htmlspecialchars($item['price']) ?>円</p>
