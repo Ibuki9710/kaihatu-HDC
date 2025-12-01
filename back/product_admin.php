@@ -54,35 +54,35 @@ $error = '';
 // ----------------------------------------
 // 3-1. 削除処理 (Delete)
 // ----------------------------------------
-if (isset($_GET['action']) && $_GET['action'] === 'delete') {
+if (isset($_POST['action']) && $_POST['action'] === 'delete') {
     $product_id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
-    if ($product_id !== false && $product_id !== null) {
-        if ($model->deleteProduct($product_id)) {
-            $message = '✅ 商品ID: ' . $product_id . ' が正常に削除されました。';
+    //if ($product_id !== false && $product_id !== null) {
+    //    if ($model->deleteProduct($product_id)) {
+    //        $message = '✅ 商品ID: ' . $product_id . ' が正常に削除されました。';
             // 削除後のリダイレクト（パラメータ除去とメッセージ表示のため）
-            header('Location: product_admin.php?message=' . urlencode($message));
-            exit;
-        } else {
-            $error = '❌ 削除に失敗しました。';
-        }
-    } else {
-        $error = '❌ 削除対象のIDが無効です。';
-    }
-}
+    //        header('Location: product_admin.php?message=' . urlencode($message));
+    //        exit;
+    //    } else {
+    //        $error = '❌ 削除に失敗しました。';
+    //    }
+   // } else {
+    //    $error = '❌ 削除対象のIDが無効です。';
+  //  }
+//}
 
 // ----------------------------------------
 // 3-2. メッセージの受け取り
 // ----------------------------------------
-if (isset($_GET['message'])) {
-    $message = htmlspecialchars($_GET['message']);
+if (isset($_POST['message'])) {
+    $message = htmlspecialchars($_POST['message']);
 }
 
 // ----------------------------------------
 // 3-3. 商品一覧・検索データ取得処理 (Read/Search)
 // ----------------------------------------
-if (isset($_GET['keyword']) && $_GET['keyword'] !== '') {
-    $search_keyword = filter_input(INPUT_GET, 'keyword', FILTER_SANITIZE_STRING);
+if (isset($_POST['keyword']) && $_POST['keyword'] !== '') {
+    $search_keyword = filter_input(INPUT_POST, 'keyword', FILTER_SANITIZE_STRING);
     $products = $model->searchProducts($search_keyword); 
 } else {
     $products = $model->getAllProducts();
