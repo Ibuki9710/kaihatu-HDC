@@ -13,7 +13,7 @@ class ProductModel {
 
     public function __construct() {
         // 外部の DbConnect クラスを利用して PDO インスタンスを取得
-        $db = new DbConnect();
+        $db = new dbConnect();
         $this->pdo = $db->connect();
     }
 
