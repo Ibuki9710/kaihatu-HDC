@@ -30,7 +30,7 @@
                     <a href="address.php"><button class="redBtn btn-base btn-wrapper">削除</button></a>
                     <button  type="submit" class="greenBtn btn-base btn-wrapper">保存</button>
                 </div>
-            <a href="customer-menu.html"><button class="blueBtn btn-base btn-wrapper">戻る</button></a>
+            <a href="customer-menu.php"><button class="blueBtn btn-base btn-wrapper">戻る</button></a>
         </div>
         
     </div>
