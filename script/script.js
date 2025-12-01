@@ -119,74 +119,99 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    // すべてのドロップゾーンとファイルインプットを取得
     const dropZones = document.querySelectorAll('.drop-zone');
     const fileInputs = document.querySelectorAll('.file-input');
 
-    // 1. クリックによるファイル選択を有効にする
+    // ファイル選択（changeイベント）処理
     fileInputs.forEach(input => {
-        // ファイルが選択されたときの処理
         input.addEventListener('change', (event) => {
             const files = event.target.files;
+            const dropZone = event.currentTarget.closest('.drop-zone');
+            
             if (files.length > 0) {
-                // 選択されたファイルを表示・処理する関数を呼び出す
-                handleFiles(files, event.currentTarget.closest('.drop-zone').id);
+                handleFiles(files, dropZone);
             }
         });
     });
 
-    // 2. ファイルのドラッグ＆ドロップを有効にする
+    // ドロップゾーンのイベント処理
     dropZones.forEach(zone => {
-        // ドラッグされた要素がドロップゾーンに入ったとき
-        zone.addEventListener('dragenter', (e) => {
-            e.preventDefault();
-            zone.classList.add('dragover-file');
+        const fileInput = zone.querySelector('.file-input');
+        
+        // ドロップゾーン全体をクリックでファイル選択
+        zone.addEventListener('click', (e) => {
+            if (e.target.classList.contains('file-input')) {
+                return;
+            }
+            fileInput.click();
         });
 
-        // ドラッグされた要素がドロップゾーンの上にある間
-        zone.addEventListener('dragover', (e) => {
-            e.preventDefault(); // これがないとドロップが許可されない
-        });
+        
 
-        // ドラッグされた要素がドロップゾーンから出たとき
-        zone.addEventListener('dragleave', (e) => {
-            zone.classList.remove('dragover-file');
-        });
-
-        // 要素がドロップされたとき
+        // ドラッグイベント
+        zone.addEventListener('dragenter', (e) => { e.preventDefault(); zone.classList.add('dragover-file'); });
+        zone.addEventListener('dragover', (e) => { e.preventDefault(); });
+        zone.addEventListener('dragleave', (e) => { zone.classList.remove('dragover-file'); });
+        
+        // ドロップイベント
         zone.addEventListener('drop', (e) => {
             e.preventDefault();
             zone.classList.remove('dragover-file');
 
-            // ドロップされたファイルを取得
             const files = e.dataTransfer.files;
 
             if (files.length > 0) {
-                // 取得したファイルを、対応するファイルインプットに設定
-                const fileInput = zone.querySelector('.file-input');
-                fileInput.files = files; // filesプロパティにデータを設定
-
-                // 選択されたファイルを表示・処理する関数を呼び出す
-                handleFiles(files, zone.id);
+                fileInput.files = files; 
+                handleFiles(files, zone);
             }
         });
     });
 
-    // 3. ファイルを処理する関数（ここではファイル名を表示する例）
-    function handleFiles(files, zoneId) {
-        const zone = document.getElementById(zoneId);
-        let output = `[${zoneId}] 選択されたファイル:\n`;
-
-        // 複数のファイルがある場合を考慮
-        for (let i = 0; i < files.length; i++) {
-            output += ` - ${files[i].name} (${(files[i].size / 1024).toFixed(1)} KB)\n`;
+    // ファイル処理（画像表示とファイル名保存）関数
+    function handleFiles(files, dropZone) {
+        const fileIcon = dropZone.querySelector('.file-icon');
+        const existingImg = dropZone.querySelector('.uploaded-image-preview'); 
+        
+        if (fileIcon) fileIcon.style.display = 'none';
+        if (existingImg) existingImg.remove();
+        
+        // 隠しフィールドの生成または取得
+        let fileNameStorage = dropZone.querySelector('.file-name-storage');
+        if (!fileNameStorage) {
+            fileNameStorage = document.createElement('input');
+            fileNameStorage.type = 'hidden';
+            fileNameStorage.className = 'file-name-storage';
+            fileNameStorage.name = `image_name_${dropZone.id}`;
+            dropZone.appendChild(fileNameStorage);
         }
+        
+        fileNameStorage.value = '';
+        
+        const file = files[0];
 
-        // 結果をコンテナ内に表示する（例として、既存のテキストを上書き）
-        const dropText = zone.querySelector('.drop-text');
-        dropText.textContent = output;
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
 
-        console.log(output);
-        alert(output);
+            reader.onload = (e) => {
+                const img = document.createElement('img');
+                img.src = e.target.result; 
+                img.alt = file.name;
+                img.classList.add('uploaded-image-preview'); 
+                
+                dropZone.appendChild(img); 
+                
+                if (fileNameStorage) {
+                    fileNameStorage.value = file.name;
+                }
+            };
+
+            reader.readAsDataURL(file);
+        } else if (file) {
+             alert('選択されたファイルは画像ではありません。');
+        }
+        
+        if (files.length === 0 && fileIcon) {
+            fileIcon.style.display = ''; 
+        }
     }
 });

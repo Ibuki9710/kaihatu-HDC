@@ -18,9 +18,7 @@ require 'header2.html';
                 <div class="input-row">
                     <input type="password" class="customer-text" name="password" placeholder="パスワード">
                 </div>
-                <div class="input-row">
-                    <input type="checkbox" name="check" class="label left">IDを保持する
-                </div>
+                <input type="checkbox" name="check" class="label left">IDを保持する
                 <div class="center">
                     <button type="submit" class="login-btn thinblue">ログイン</button>
                 </div>

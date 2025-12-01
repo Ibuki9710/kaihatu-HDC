@@ -47,5 +47,8 @@ require 'list.html';
         //ここに不用品の表示処理
         div class="card"で囲んでimgにclass="image"をつける
     </div>
+    <div class="listing grey">
+        <a href="listing.php" class="black">+</a>
+    </div>
 </div>
 <?php require 'footer.html'; ?>

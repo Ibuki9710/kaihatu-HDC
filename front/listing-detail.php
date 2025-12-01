@@ -43,8 +43,11 @@ require 'header.html';
                     </div>
                 </div> 
             
-            </div> <div class="center">
-                <button type="submit" class="btn-base blueBtn">戻る</button>
+            </div> 
+            <div class="center">
+                <a href="javascript:history.back();">
+                    <button type="submit" class="btn-base blueBtn">戻る</button>
+                </a>
             </div>  
         </form>
     </div>
