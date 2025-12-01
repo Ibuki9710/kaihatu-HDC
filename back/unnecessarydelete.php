@@ -3,11 +3,6 @@
 <?php
 // DB接続
 $pdo = new PDO($connect, USER, PASS);
-// IDが渡されているか確認
-if (!isset($_POST['id']) || $_POST['id'] === "") {
-    echo "<p style='color:red;'>IDが指定されていません。</p>";
-    exit();
-}
 
 $id = $_POST['id'];
 
