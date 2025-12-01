@@ -5,7 +5,7 @@ require 'header.html';
 ?>
 <div class="form-container">
     <div class="center-content">
-        <h1>カート一覧</h1>
+        <h2>カート一覧</h2>
     </div>
     //デザインんが正常に動くための確認後ほど削除//
     <div class="cart-list">

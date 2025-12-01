@@ -115,10 +115,10 @@ main {
     flex-grow: 1;
     min-height: 0;
     height: auto;
-    padding: 15px;
+    margin: 15px;
+    margin-top: 25px;
 }
 .main {
-    margin-top: 30px;
     transition: margin-left 0.4s ease;
     margin: 0 auto;
 }
@@ -683,7 +683,6 @@ main {
 .form-container {
     width: 80%;
     margin: 0 auto; 
-    padding: 30px 30px;
 }
 .form-container label {
     text-align: left;
@@ -694,13 +693,13 @@ main {
 .center-content h1,
 .center-content h2,
 .center-content h3 {
-    margin: 0 0 10px 0; 
     max-width: none;
     padding-left: 0;
     font-weight: normal;
     font-size: 22px;
     margin-bottom: 14px;
     text-align: left;
+    margin-left: 5%;
 }
 .drop-text {
     font-size: 1em;
@@ -718,11 +717,44 @@ main {
     font-size: 50px;
     line-height: 50px;
     text-align: center;
+    z-index: 2;
 }
 .listing a{
     width: 100%;
 }
+/*商品詳細*/
+.product-header-row {
+    display: flex;
+    justify-content: space-between; /* 左右に要素を寄せる */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+.product-media-description {
+    display: flex; 
+    flex-direction: row;
+    flex: 2;
+    gap: 20px;
+}
+.product-action-box {
+    flex: 1; 
+    min-width: 300px; 
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.product-image-area {
+    flex: 1 1 50%;
+    max-width: 50%;
+}
 
+.product-detail-summary {
+    flex: 1 1 50%;
+    max-width: 50%;
+    padding-top: 10px;
+}
 /*メディアクエリ*/
 /* 画面サイズが900px以下の設定 */
 @media screen and (max-width: 900px) {
@@ -766,4 +798,16 @@ main {
     .form-container{ width: 100%; }
     .input-label-area, .input-label{ padding-right: 5px;}
     .min-text{ width: 70px; }
+    .product-header-row { flex-direction: column; gap: 20px; }
+    .product-media-description {
+        flex-direction: column;
+        gap: 20px;
+        flex: none;
+    }
+    .product-image-area,
+    .product-detail-summary {
+        max-width: 100%;
+        flex: none;
+    }
+    .product-action-box { min-width: unset; }
 }

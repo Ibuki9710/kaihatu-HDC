@@ -23,13 +23,11 @@
 
                 <div class="input-row">
                     <label class="input-label" for="file-input">商品画像</label>
-                    <input type="file" name="product_image" id="file-input" class="hidden-input">
-                    <div class="custom-file-drop-area" for="file-input">
+                    <div class="small-box drop-zone" draggable="true">
+                        <input type="file" id="file-input" class="file-input">
                         <i class="fas fa-folder-open fa-2x file-icon"></i>
                     </div>
                 </div>
-                <label for="file-input" class="label-file">＋ファイルをアップロード</label>  
-
                 <div class="input-row">
                     <label class="input-label">商品名の説明</label>
                     <textarea class="input-base-text"></textarea>
