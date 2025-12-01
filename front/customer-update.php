@@ -40,15 +40,13 @@
     </form>
     <div class="center">
         <div class="btn-group">
-            <a href="customer-menu.php">
+            <a href="javascript:history.back();">
                 <button class="blueBtn btn-base">戻る</button>
             </a>
             <button  type="submit" class="greenBtn btn-base" form="edit-form">変更</button>
         </div>
     </div>
-
 </div>
-
 <?php
     require 'footer.html';
 ?>

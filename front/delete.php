@@ -8,7 +8,7 @@
         本当に退会してもよろしいですか？
     </font>
     <div class="btn-group">
-        <a href="customer-menu.php"><button class="blueBtn btn-base">戻る</button></a>
+        <a href="javascript:history.back();"><button class="blueBtn btn-base">戻る</button></a>
         <a href="back_login.php"><button class="redBtn btn-base">退会する</button></a>
     </div>  
 </div>

@@ -9,7 +9,7 @@
         <div class="center-content">
             <h2 class="h2">追加</h2>
         </div>
-        <form action="address.php" method="post">
+        <form action="address.php" method="post" id="edit-form">
             <div class="input-row">
                 <label class="input-label" for="zipcode">郵便番号</label>
                 <div class="input-field-area">
@@ -28,9 +28,9 @@
             <div class="center">
                 <div class="btn-group">
                     <a href="address.php"><button class="redBtn btn-base btn-wrapper">削除</button></a>
-                    <button  type="submit" class="greenBtn btn-base btn-wrapper">保存</button>
+                    <button type="submit" class="greenBtn btn-base btn-wrapper" form="edit-form">保存</button>
                 </div>
-            <a href="customer-menu.php"><button class="blueBtn btn-base btn-wrapper">戻る</button></a>
+            <a href="javascript:history.back();"><button class="blueBtn btn-base btn-wrapper">戻る</button></a>
         </div>
         
     </div>
