@@ -4,13 +4,9 @@
     $sql=$pdo->prepare('select * from item where id=?');
     $sql->execute([$_GET['id']]);
     foreach($sql as $row){
-        echo '<div class="product-header-row">';
-        echo '<div class="product-media-description">';
-        echo '<div class="product-image-area">';
-        echo '<p><img alt="image" src="./image/', $row['id'], '.jpg" class="image"></p>';
-        echo '</div>';
-        echo '<div class="product-detail-summary">';
-        echo '<h2>', $row['item_name'], '</h2>';
+        echo '<p><img alt="image" src="../image/', $row['id'], '.png"></p>';
+        echo '<form action="cart-insert.php?id=', $row['id'], '" method="post">';
+        echo '<p>', $row['item_name'], '</p>';
         echo '<p>', $row['item_explain'], '</p>';
         echo '<div class="product-action-box">';
         echo '<form action="cart-insert.php?id=', $row['id'], '" method="post">';
