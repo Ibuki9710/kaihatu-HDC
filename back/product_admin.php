@@ -54,9 +54,9 @@ $error = '';
 // ----------------------------------------
 // 3-1. 削除処理 (Delete)
 // ----------------------------------------
-//if (isset($_POST['action']) && $_POST['action'] === 'delete') {
-  //  $product_id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-//
+if (isset($_POST['action']) && $_POST['action'] === 'delete') {
+    $product_id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+
     //if ($product_id !== false && $product_id !== null) {
     //    if ($model->deleteProduct($product_id)) {
     //        $message = '✅ 商品ID: ' . $product_id . ' が正常に削除されました。';
