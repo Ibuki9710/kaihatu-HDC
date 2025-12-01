@@ -22,7 +22,7 @@
                 <textarea cols="60" rows="4" placeholder="質問内容を入力"></textarea>
             </div>           
             <div class="btn-group">
-                <a href="customer-menu.php">
+                <a href="javascript:history.back();">
                     <button type="submit" class="blueBtn btn-base">戻る</button>
                 </a>
                 <a href="#">

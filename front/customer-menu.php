@@ -41,7 +41,7 @@
             </div>
         </a>
         <br>
-        <a href="home.php">
+        <a href="javascript:history.back();">
             <button type="submit" class="blueBtn btn-base btn-wrapper">戻る</button>
         </a>
     </div>
