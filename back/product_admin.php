@@ -12,21 +12,21 @@ class ProductModel {
     private $pdo;
 
     public function __construct() {
-        // 外部の DbConnect クラスを利用して PDO インスタンスを取得
-        $db = new Dbconnect();
+        // 外部の db_connect クラスを利用して PDO インスタンスを取得
+        $db = new db_connect();
         $this->pdo = $db->connect();
     }
 
     // R (Read) - 全ての商品を取得
     public function getAllProducts() {
-        $stmt = $this->pdo->query("SELECT * FROM products ORDER BY id DESC");
+        $stmt = $this->pdo->query("SELECT * FROM item ORDER BY id DESC");
         return $stmt->fetchAll();
     }
 
     // R (Read/Search) - 検索キーワードに基づいて商品を取得
     public function searchProducts($keyword) {
         $search_term = '%' . $keyword . '%';
-        $sql = "SELECT * FROM products 
+        $sql = "SELECT * FROM item 
                 WHERE name LIKE ? OR description LIKE ?
                 ORDER BY id DESC";
         $stmt = $this->pdo->prepare($sql);
@@ -36,7 +36,7 @@ class ProductModel {
 
     // D (Delete) - 商品を削除
     public function deleteProduct($id) {
-        $stmt = $this->pdo->prepare("DELETE FROM products WHERE id = ?");
+        $stmt = $this->pdo->prepare("DELETE FROM item WHERE id = ?");
         return $stmt->execute([$id]);
     }
 }
