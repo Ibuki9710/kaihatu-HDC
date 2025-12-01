@@ -4,7 +4,7 @@ require 'list-admin.html';
 ?>
 <div class="conteiner-header">
     <h2>システム情報設定</h2>
-    <p>不用品一覧</p>
+    <p>出品一覧</p>
 </div>
 <div class="admin-main">
     <div class="conteiner-admin">
