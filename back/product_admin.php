@@ -61,7 +61,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'delete') {
         if ($model->deleteProduct($product_id)) {
             $message = '✅ 商品ID: ' . $product_id . ' が正常に削除されました。';
             // 削除後のリダイレクト（パラメータ除去とメッセージ表示のため）
-            header('Location: product_admin.php?message=' . urlencode($message));
+            header('Location: product-admin.php?message=' . urlencode($message));
             exit;
         } else {
             $error = '❌ 削除に失敗しました。';
