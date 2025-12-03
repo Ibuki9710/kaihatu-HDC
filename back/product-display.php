@@ -35,13 +35,13 @@ if (!empty($keyword) || !empty($height) || !empty($width) || !empty($quality) ||
 
     // 品質フィルター
     if (!empty($quality)) {
-        $sql .= " AND quality = ?";
+        $sql .= " AND be_solditem = ?";
         $params[] = $quality;
     }
 
     //ジャンル
     if (!empty($genre)) {
-        $sql .= " AND genre = ?";
+        $sql .= " AND brand = ?";
         $params[] = $genre;
     }
 
