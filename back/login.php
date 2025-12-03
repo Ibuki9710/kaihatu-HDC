@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
              }
                  $_SESSION['is_admin'] = false;
-            header('Location: ../front/home.php');
+            header('Location: ../front/home-sample.php');
             exit;
             
         } else {
