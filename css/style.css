@@ -453,7 +453,7 @@ main {
 
 /* 商品カード */
 .card {
-    width: 180px;
+    width: 185px;
     height: 300px;
     border: #7c7c7c solid 1px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -542,8 +542,8 @@ main {
     align-items: center;
 }
 .showProduct {
-    justify-content: flex-start; 
     gap: 25px;
+    justify-content:space-evenly;
 }
 /* 画像プレビュー */
 .drop-zone .file-icon {
@@ -816,6 +816,6 @@ main {
         flex: none;
     }
     .product-action-box { min-width: unset; }
-    .card {width:100px; height: 200px;}
+    .card {width:100px; height: 200px; font-size: 12px;}
     .panels-wrapper{ display: block;}
 }

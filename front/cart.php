@@ -49,7 +49,7 @@ require 'header.html';
             //ここまで//
         </div>
         <div class="button-area">
-            <button class="btn-back button">戻る</button>
+            <a href="javascript:history.back();"><button class="btn-back button">戻る</button></a>
             <button class="btn-order button">注文</button>
         </div>
     </div>
