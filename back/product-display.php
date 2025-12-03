@@ -5,11 +5,11 @@
 $keyword = $_POST['keyword'] ?? '';
 $height = $_POST['height'] ?? null;
 $width = $_POST['width'] ?? null;
-$quality = $_POST['quality'] ?? null;
-$genre = $_POST['genre'] ?? null;
+$be_solditem = $_POST['be_solditem'] ?? null;
+$brand = $_POST['brand'] ?? null;
 
 // 検索条件がある場合のみDB検索
-if (!empty($keyword) || !empty($height) || !empty($width) || !empty($quality) || !empty($genre)) {
+if (!empty($keyword) || !empty($height) || !empty($width) || !empty($be_solditem) || !empty($brand)) {
     require_once 'db_connect.php';
     
     $sql = "SELECT * FROM item WHERE 1=1";
@@ -34,15 +34,15 @@ if (!empty($keyword) || !empty($height) || !empty($width) || !empty($quality) ||
     }
 
     // 品質フィルター
-    if (!empty($quality)) {
-        $sql .= " AND quality = ?";
-        $params[] = $quality;
+    if (!empty($be_solditem)) {
+        $sql .= " AND be_solditem = ?";
+        $params[] = $be_solditem;
     }
 
     //ジャンル
-    if (!empty($genre)) {
-        $sql .= " AND genre = ?";
-        $params[] = $genre;
+    if (!empty($brand)) {
+        $sql .= " AND brand = ?";
+        $params[] = $brand;
     }
 
     $stmt = $pdo->prepare($sql);
@@ -62,7 +62,7 @@ if (empty($items)): ?>
 <?php else: ?>
     <?php foreach ($items as $item): ?>
     <div class="card">
-        <a href="detail.php?id=<?= htmlspecialchars($item['item_id']) ?>" class="black">
+        <a href="../front/detail.php?id=<?= htmlspecialchars($item['item_id']) ?>" class="black">
             <img src="../image/<?= htmlspecialchars($item['item_id']) ?>.png" alt="<?= htmlspecialchars($item['item_name']) ?>">
             <h3><?= htmlspecialchars($item['item_name']) ?></h3>
             <p>価格: <?= htmlspecialchars($item['price']) ?>円</p>
