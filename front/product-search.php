@@ -32,6 +32,35 @@ require 'list-admin.html';
     <div class="conteiner-admin">
         <!--ここに不用品の検索結果表示-->
             <div class="align conteiner-admin grey">
+                <div class="conteiner-admin">
+    <?php if (!empty($products)): ?>
+        <table class="admin-table">
+            <tr>
+                <th>ID</th>
+                <th>商品名</th>
+                <th>説明</th>
+                <th>操作</th>
+            </tr>
+            <?php foreach ($products as $p): ?>
+            <tr>
+                <td><?= htmlspecialchars($p['id']) ?></td>
+                <td><?= htmlspecialchars($p['name']) ?></td>
+                <td><?= htmlspecialchars($p['description']) ?></td>
+                <td>
+                    <form method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="<?= $p['id'] ?>">
+                        <input type="hidden" name="action" value="delete">
+                        <button type="submit" class="btn-base redBtn">削除</button>
+                    </form>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+    <?php else: ?>
+        <p>商品が見つかりません。</p>
+    <?php endif; ?>
+</div>
+
     </div>
 </div>
 <?php require 'footer-admin.html'; ?>
