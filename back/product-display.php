@@ -5,11 +5,11 @@
 $keyword = $_POST['keyword'] ?? '';
 $height = $_POST['height'] ?? null;
 $width = $_POST['width'] ?? null;
-$quality = $_POST['quality'] ?? null;
-$genre = $_POST['genre'] ?? null;
+$be_solditem = $_POST['be_solditem'] ?? null;
+$brand = $_POST['brand'] ?? null;
 
 // 検索条件がある場合のみDB検索
-if (!empty($keyword) || !empty($height) || !empty($width) || !empty($quality) || !empty($genre)) {
+if (!empty($keyword) || !empty($height) || !empty($width) || !empty($be_solditem) || !empty($brand)) {
     require_once 'db_connect.php';
     
     $sql = "SELECT * FROM item WHERE 1=1";
@@ -34,15 +34,15 @@ if (!empty($keyword) || !empty($height) || !empty($width) || !empty($quality) ||
     }
 
     // 品質フィルター
-    if (!empty($quality)) {
+    if (!empty($be_solditem)) {
         $sql .= " AND be_solditem = ?";
-        $params[] = $quality;
+        $params[] = $be_solditem;
     }
 
     //ジャンル
-    if (!empty($genre)) {
+    if (!empty($brand)) {
         $sql .= " AND brand = ?";
-        $params[] = $genre;
+        $params[] = $brand;
     }
 
     $stmt = $pdo->prepare($sql);
