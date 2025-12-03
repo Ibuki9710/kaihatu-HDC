@@ -7,7 +7,7 @@ require 'list-admin.html';
     <p>商品登録</p>
 </div>
 <div class="admin-main">
-    <form action="product_search.php" method="post">
+    <form action="product-search.php" method="post">
         <div class="form-container">
             <div class="input-row">
                 <input type="text" name="keyword" class="input-base-text" placeholder="商品"> 
