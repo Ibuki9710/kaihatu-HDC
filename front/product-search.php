@@ -7,7 +7,7 @@ require 'list-admin.html';
     <p>商品登録</p>
 </div>
 <div class="admin-main">
-    <form action="../back/product_search.php" method="post">
+    <form action="product_search.php" method="post">
         <div class="form-container">
             <div class="input-row">
                 <input type="text" name="keyword" class="input-base-text" placeholder="商品"> 
@@ -31,7 +31,7 @@ require 'list-admin.html';
     </div>
     <div class="conteiner-admin">
         <!--ここに不用品の検索結果表示-->
-            <div class="align conteiner-admin grey">をつけてください
+            <div class="align conteiner-admin grey">
     </div>
 </div>
 <?php require 'footer-admin.html'; ?>
