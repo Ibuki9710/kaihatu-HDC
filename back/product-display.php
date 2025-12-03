@@ -3,58 +3,49 @@
 // セッションは既に開始されている前提
 
 $keyword = $_POST['keyword'] ?? '';
-$height = $_POST['height'] ?? null;
-$width = $_POST['width'] ?? null;
-$be_solditem = $_POST['be_solditem'] ?? null;
-$brand = $_POST['brand'] ?? null;
+$height = $_POST['height'] ?? '';
+$width = $_POST['width'] ?? '';
+$be_solditem = $_POST['be_solditem'] ?? '';
+$brand = $_POST['brand'] ?? '';
 
-// 検索条件がある場合のみDB検索
-if (!empty($keyword) || !empty($height) || !empty($width) || !empty($be_solditem) || !empty($brand)) {
-    require_once 'db_connect.php';
-    
-    $sql = "SELECT * FROM item WHERE 1=1";
-    $params = [];
+require_once 'db_connect.php';
 
-    // キーワード検索
-    if (!empty($keyword)) {
-        $sql .= " AND item_name LIKE ?";
-        $params[] = '%' . $keyword . '%';
-    }
+$sql = "SELECT * FROM item WHERE 1=1";
+$params = [];
 
-    // サイズ検索（高さ）
-    if (!empty($height)) {
-        $sql .= " AND height >= ?";
-        $params[] = $height;
-    }
-
-    // サイズ検索（幅）
-    if (!empty($width)) {
-        $sql .= " AND width >= ?";
-        $params[] = $width;
-    }
-
-    // 品質フィルター
-    if (!empty($be_solditem)) {
-        $sql .= " AND be_solditem = ?";
-        $params[] = $be_solditem;
-    }
-
-    //ジャンル
-    if (!empty($brand)) {
-        $sql .= " AND brand = ?";
-        $params[] = $brand;
-    }
-
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute($params);
-    $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} else {
-    // 検索条件がない場合は全件取得
-    require_once 'db_connect.php';
-    $sql = $pdo->prepare('SELECT * FROM item');
-    $sql->execute();
-    $items = $sql->fetchAll(PDO::FETCH_ASSOC);
+// キーワード検索
+if ($keyword !== '') {
+    $sql .= " AND item_name LIKE ?";
+    $params[] = '%' . $keyword . '%';
 }
+
+// サイズ検索（高さ）
+if ($height !== '' && is_numeric($height)) {
+    $sql .= " AND height >= ?";
+    $params[] = (int)$height;
+}
+
+// サイズ検索（幅）
+if ($width !== '' && is_numeric($width)) {
+    $sql .= " AND width >= ?";
+    $params[] = (int)$width;
+}
+
+// 品質フィルター
+if ($be_solditem !== '') {
+    $sql .= " AND be_solditem = ?";
+    $params[] = $be_solditem;
+}
+
+// ジャンル
+if ($brand !== '') {
+    $sql .= " AND brand = ?";
+    $params[] = $brand;
+}
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute($params);
+$items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // HTML出力
 if (empty($items)): ?>
