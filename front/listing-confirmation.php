@@ -54,7 +54,7 @@ require 'header.html';
                     </div>
                     <div class="form-group">
                         <label>商品説明</label>
-                        <textarea name="" rows="10" placeholder="商品説明"></textarea>
+                        <textarea name="" rows="10" placeholder="商品説明" class="textarea"></textarea>
                     </div>
                     <div class="form-group">
                         <label>サイズ</label>

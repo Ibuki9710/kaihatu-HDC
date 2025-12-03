@@ -13,7 +13,7 @@ body {
     font-size: 17px; 
     position: relative;
     padding-bottom: 150px;
-    color: #555;
+    color: #333;
 }
 * {
     box-sizing: border-box; 
@@ -51,7 +51,6 @@ header {
     width: 50px;
     height: 50px;
     margin: 5px;
-    border:#000;
 }
 .navIcon {
     font-size: 15px;
@@ -327,17 +326,15 @@ main {
 /* 入力欄の統合スタイル */
 .input-base-text,
 .form-group input:not([type="checkbox"]):not([type="radio"]),
-.form-group textarea,
 .customer-text,
 .min-text,
 .size-input,
 .input-field,
 .input-field-area input:not([type="checkbox"]):not([type="radio"]),
 .input-field-area textarea,
-#zipcode { /* #zipcode を統合 */
+#zipcode {
     border: solid 1px rgb(132, 132, 132); 
     border-radius: 4px; 
-    box-sizing: border-box;
     font-size: 14px;
     padding: 8px;
     height: 35px;
@@ -345,7 +342,6 @@ main {
 }
 /* 固有プロパティの上書き */
 .customer-text {
-    width: 80%;
     height: 40px;
     border-radius: 5px; 
 }
@@ -360,9 +356,16 @@ main {
     border: 1px solid #7d7d7d;
     border-radius: 3px;
 }
+.textarea {
+    border: solid 1px rgb(132, 132, 132); 
+    border-radius: 4px; 
+    font-size: 14px;
+    padding: 8px;
+    height: 80px;
+    width: 100%; 
+}
 /* form-group の textarea 高さ */
-.form-group textarea {
-    height: 150px; 
+.form-group textarea{
     padding: 10px; /* input との padding 差分を維持 */
 }
 /* 管理者フォーム側の input/textarea の上書き */
@@ -379,16 +382,12 @@ main {
 .input-field-area input[type="number"].min-text {
     width: 100px; 
 }
-.input label {
+.input-row label {
     font-weight: bold;
     min-width: auto;
-    display: block; 
+    width: 180px;
+    display: block;
     margin-bottom: 2px;
-}
-.input {
-    text-align: left;
-    margin-bottom: 15px;
-    padding-left: 0;
 }
 #zipcode {
     font-size: 17px;
@@ -400,7 +399,9 @@ main {
     border-radius: 3px;
     font-size: 12px;
 }
-
+.radio-group{
+    display: contents;
+}
 
 /* ボックスとコンテナ */
 .box-base-container {
@@ -465,7 +466,7 @@ main {
     transform: translateY(-5px); 
 }
 .card img {
-    width: 140px;
+    width: 85%;
     height: 40%;
     display: block; 
     margin: 0 auto;
@@ -567,6 +568,9 @@ main {
     margin-bottom: 5px;
     margin-top: 25px;
 }
+.input-row input{
+    margin-right:0;
+}
 .login-container .input-row{ display: block;}
 /* ラベルエリアの統合 */
 .input-label-area, .input-label {
@@ -577,12 +581,13 @@ main {
 .input-label-area {
     width: 120px; 
     font-weight: bold;
-    color: #333;
+    color: hsl(0, 0%, 20%);
 }
 .input-label { 
     width: 160px; 
     min-width: 120px; 
     margin-right: 20%;
+    margin-left: 5%;
 }
 .input-field-area {
     margin-left: auto; 
@@ -661,6 +666,7 @@ main {
     top: 70px;
     margin-left: 200px;
     display: flex;
+    align-items: center;
 }
 .conteiner-header h2 {
     margin-right: 30px;
@@ -699,7 +705,6 @@ main {
     font-size: 22px;
     margin-bottom: 14px;
     text-align: left;
-    margin-left: 5%;
 }
 .drop-text {
     font-size: 1em;
@@ -770,12 +775,13 @@ main {
     .menu li { font-size: 14px; }
     .menu-button { top: 46px; }
     .menu-btn {
-        margin-left: 50px;
+        margin-left: 5px;
         width: 50px; 
         font-size: 10px;
     }
     .icon { width: 40px; height: 40px; margin: 3px;}
     .admin-nav, .conteiner-header { top: 46px; }
+    .input-row label{ margin-right: 50px; width: 100px;}
 }
 
 /* 画面サイズが610px以下の設定 */
@@ -810,4 +816,6 @@ main {
         flex: none;
     }
     .product-action-box { min-width: unset; }
+    .card {width:100px; height: 200px;}
+    .panels-wrapper{ display: block;}
 }
