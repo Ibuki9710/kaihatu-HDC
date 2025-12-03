@@ -12,9 +12,13 @@ require 'header2.html';
         </div>
         <div class="login-container">
             <form action="../back/login.php" method="post" class=" center">
-                <input type="email" class="customer-text" name="email" placeholder="メールアドレス">
-                <input type="password" class="customer-text" name="password" placeholder="パスワード">
-                <input type="checkbox" name="check" class="label">IDを保持する
+                <div class="input-row">
+                    <input type="email" class="customer-text" name="email" placeholder="メールアドレス">
+                </div>
+                <div class="input-row">
+                    <input type="password" class="customer-text" name="password" placeholder="パスワード">
+                </div>
+                <input type="checkbox" name="check" class="label left">IDを保持する
                 <div class="center">
                     <button type="submit" class="login-btn thinblue">ログイン</button>
                 </div>

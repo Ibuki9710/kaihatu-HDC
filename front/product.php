@@ -67,7 +67,7 @@
     </div>
 
     <div class="button-row">
-        <a href="search-admin.php">
+        <a href="javascript:history.back();">
             <button class="btn-base blueBtn btn-wrapper">戻る</button>
         </a>
     </div>
