@@ -732,7 +732,7 @@ main {
     display: flex;
     justify-content: space-between; /* 左右に要素を寄せる */
     gap: 30px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px 0;
 }
@@ -754,11 +754,9 @@ main {
     flex: 1 1 50%;
     max-width: 50%;
 }
-
-.product-detail-summary {
-    flex: 1 1 50%;
-    max-width: 50%;
-    padding-top: 10px;
+.product-explanation {
+    min-width: 400px;
+    text-align: left;
 }
 /*メディアクエリ*/
 /* 画面サイズが900px以下の設定 */
@@ -786,7 +784,7 @@ main {
 
 /* 画面サイズが610px以下の設定 */
 @media screen and (max-width: 610px) {
-    body{ font-size: 15px;}
+    body{ font-size: 14px;}
     .navImage { margin-top: 6px; }
     .navLink { width: 40px; }
     header { height: 40px; }
