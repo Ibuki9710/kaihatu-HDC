@@ -14,7 +14,7 @@
                 <label class="input-label" for="zipcode">郵便番号</label>
                 <div class="input-field-area">
                     <input type="text" name="" id="zipcode" maxlength="7" placeholder="1000001">
-                    <button type="button" id="searchButton" class="menu-btn">検索</button>
+                    <button type="button" class="menu-btn">検索</button>
                 </div>
             </div>
     

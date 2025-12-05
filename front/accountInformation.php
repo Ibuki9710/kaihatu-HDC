@@ -10,7 +10,7 @@ require 'list-admin.html';
     <div class="conteiner-admin">
         <div class="form-container">
             <h3>アカウント管理</h3>
-            <form action="login.php" method="post">
+            <form action="accountInformation.php" method="post">
                 <div class="input-row">
                     <label class="input-label">アカウント名</label>
                     <div class="input-field-area"> 
