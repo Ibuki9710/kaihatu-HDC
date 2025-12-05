@@ -30,7 +30,7 @@
                 </div>
                 <div class="input-row">
                     <label class="input-label">商品名の説明</label>
-                    <textarea class="input-base-text"></textarea>
+                    <textarea class="input-base-text textarea"></textarea>
                 </div>
                 <div class="input-row">
                     <label class="input-label">在庫数</label>

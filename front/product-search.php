@@ -8,12 +8,11 @@ require 'list-admin.html';
 </div>
 
 <div class="admin-main">
-
     <!-- 検索フォーム -->
     <form action="product-search.php" method="post">
         <div class="form-container">
             <div class="input-row">
-                <input type="text" name="keyword" class="input-base-text" placeholder="商品"> 
+                <input type="text" name="" class="input-base-text" placeholder="商品"> 
             </div>
             <div class="center">
                 <button type="submit" class="btn-base btn-wrapper blueBtn">
@@ -35,6 +34,7 @@ require 'list-admin.html';
         <a href="product-search.php" class="black">不用品</a>
         <a href="product-search.php" class="black">在庫なし</a>
     </div>
+    <div class="conteiner-admin">
 
     <!-- 検索結果テーブル -->
     <div class="conteiner-admin grey align" style="padding:20px;">
@@ -67,9 +67,7 @@ require 'list-admin.html';
         <?php else: ?>
             <p>商品が見つかりません。</p>
         <?php endif; ?>
-
     </div>
-
 </div>
 
 <?php require 'footer-admin.html'; ?>
