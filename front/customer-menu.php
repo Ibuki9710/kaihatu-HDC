@@ -1,4 +1,7 @@
-<?php require 'header.html'; ?>
+<?php 
+require '../back/customer_menu.php';
+require 'header.html'; 
+?>
 <br>
 <div class="form-container">
     <div class="center-content">
@@ -20,7 +23,7 @@
                 <h4>住所追加・変更</h4>
             </div>
         </a>
-        <a href="customer.php" class="black">
+        <a href="news.php" class="black">
             <div class="container btn-wrapper grey left">
                 <h4>お知らせ</h4>
             </div>
@@ -30,7 +33,7 @@
                 <h4>よくある質問</h4>
             </div>
         </a>
-        <a href="login.php" class="black">
+        <a href="../back/logout.php" class="black">
             <div class="container btn-wrapper grey left">
                 <h4>ログアウト</h4>
             </div>

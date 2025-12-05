@@ -32,7 +32,6 @@
                 </div>
             <a href="javascript:history.back();"><button class="blueBtn btn-base btn-wrapper">戻る</button></a>
         </div>
-        
     </div>
 <?php
     require 'footer.html';
