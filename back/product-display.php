@@ -7,12 +7,10 @@ $height = $_POST['height'] ?? '';
 $width = $_POST['width'] ?? '';
 $be_solditem = $_POST['be_solditem'] ?? '';
 $brand = $_POST['brand'] ?? '';
-
 require_once 'db_connect.php';
 
 $sql = "SELECT * FROM item WHERE 1=1";
 $params = [];
-
 // キーワード検索
 if ($keyword !== '') {
     $sql .= " AND item_name LIKE ?";
@@ -32,13 +30,13 @@ if ($width !== '' && is_numeric($width)) {
 }
 
 // 品質フィルター
-if ($be_solditem !== '') {
+if (!empty($be_solditem)) {
     $sql .= " AND be_solditem = ?";
     $params[] = $be_solditem;
 }
 
 // ジャンル
-if ($brand !== '') {
+if (!empty($brand)) {
     $sql .= " AND brand = ?";
     $params[] = $brand;
 }
