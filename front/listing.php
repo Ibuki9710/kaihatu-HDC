@@ -6,11 +6,11 @@ require 'header.html';
         <h3>出品</h3>
     </div>
     <div class="main-layout">
-        <form action="#" method="post" id="edit-form">
+        <form action="../back/product_user.php" method="post" id="edit-form">
             <div class="panels-wrapper">
                 <div class="left-panel drag-container">
                     <div class="large-box drop-zone" id="box1" draggable="true">
-                        <input type="file" id="fileInput1" class="file-input" multiple>
+                        <input type="file" id="fileInput1" name=image class="file-input" multiple>
                         <i class="fas fa-folder-open fa-2x file-icon"></i>
                     </div>
                     <div class="small-boxes-wrapper">
@@ -46,20 +46,20 @@ require 'header.html';
                     <h2>商品情報</h2>
                     <div class="form-group">
                         <label>商品名</label>
-                        <input type="text" name="" placeholder="商品名">
+                        <input type="text" name="unnecessary_items_name" placeholder="商品名">
                     </div>
                     <div class="form-group">
                         <label>価格 (円)</label>
-                        <input type="number" name="" placeholder="価格">
+                        <input type="number" name="price" placeholder="価格">
                     </div>
                     <div class="form-group">
                         <label>商品説明</label>
-                        <textarea name="" rows="10" placeholder="商品説明" class="textarea"></textarea>
+                        <textarea name="unnecessary_items_explain" rows="10" placeholder="商品説明"></textarea>
                     </div>
                     <div class="form-group">
                         <label>サイズ</label>
-                        <input type="number" class="min-text" name="" placeholder="横幅"><label>cm</label>
-                        <input type="number" class="min-text" name="" placeholder="縦幅"><label>cm</label>
+                        <input type="number" class="min-text" name="width" placeholder="横幅"><label>cm</label>
+                        <input type="number" class="min-text" name="height" placeholder="縦幅"><label>cm</label>
                     </div>
                 </div> 
             </div>   
