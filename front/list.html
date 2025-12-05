@@ -15,11 +15,15 @@
                 <li>縦　<input type="number" name="height" min="0" class="size">cm</li>
                 <li>横　<input type="number" name="width" min="0" class="size">cm</li>
             </ul>
-            <strong>品質</strong><br>
+            <strong>ジャンル１</strong><br>
             <ul class="menu-ul a">
-                <li><label class="menu-hover"><input type="radio" name="quality" value="">良品</label></li>
-                <li><label class="menu-hover"><input type="radio" name="quality" value="">並品</label></li>
-                <li><label class="menu-hover"><input type="radio" name="quality" value="">難あり</label></li>
+                <li><label class="menu-hover"><input type="radio" name="brand" value="大型製品">大型製品</label></li>
+                <li><label class="menu-hover"><input type="radio" name="brand" value="小型製品">小型製品</label></li>
+            </ul>
+            <strong>ジャンル２</strong><br>
+            <ul class="menu-ul a">
+                <li><label class="menu-hover"><input type="radio" name="be_solditem" value="1">公式商品</label></li>
+                <li><label class="menu-hover"><input type="radio" name="be_solditem" value="2">個人商品</label></li>
             </ul>
             <button type="submit" class="menu-btn">検索</button>
         </form>
