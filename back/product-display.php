@@ -36,7 +36,7 @@ if (!empty($be_solditem)) {
 }
 
 // ジャンル
-if (!empty($brand)) {
+if ($brand!=='') {
     $sql .= " AND brand = ?";
     $params[] = $brand;
 }
