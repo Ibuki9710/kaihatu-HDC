@@ -12,7 +12,7 @@ require 'list-admin.html';
     <form action="product-search.php" method="post">
         <div class="form-container">
             <div class="input-row">
-                <input type="text" name="" class="input-base-text" placeholder="商品"> 
+                <input type="text" name="keyword" class="input-base-text" placeholder="商品"> 
             </div>
             <div class="center">
                 <button type="submit" class="btn-base btn-wrapper blueBtn">
