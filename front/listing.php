@@ -14,7 +14,6 @@ require 'header.html';
                         <i class="fas fa-folder-open fa-2x file-icon"></i>
                     </div>
                     </div>
-                    <p class="drop-text">ドロップまたはクリック</p>
                 </div>
 
                 <div class="right-panel product-info-form">
