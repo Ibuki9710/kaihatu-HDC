@@ -13,33 +13,7 @@ require 'header.html';
                         <input type="file" id="fileInput1" name=image class="file-input" multiple>
                         <i class="fas fa-folder-open fa-2x file-icon"></i>
                     </div>
-                    <div class="small-boxes-wrapper">
-                        <div class="small-box drop-zone" id="box2" draggable="true">
-                            <input type="file" id="fileInput2" class="file-input">
-                            <i class="fas fa-folder-open fa-2x file-icon"></i>
-                        </div>
-                        <div class="small-box drop-zone" id="box3" draggable="true">
-                            <input type="file" id="fileInput3" class="file-input">
-                            <i class="fas fa-folder-open fa-2x file-icon"></i>
-                        </div>
-                        <div class="small-box drop-zone" id="box4" draggable="true">
-                            <input type="file" id="fileInput4" class="file-input">
-                            <i class="fas fa-folder-open fa-2x file-icon"></i>
-                        </div>
-                        <div class="small-box drop-zone" id="box5" draggable="true">
-                            <input type="file" id="fileInput5" class="file-input">
-                            <i class="fas fa-folder-open fa-2x file-icon"></i>
-                        </div>
-                        <div class="small-box drop-zone" id="box6" draggable="true">
-                            <input type="file" id="fileInput6" class="file-input">
-                            <i class="fas fa-folder-open fa-2x file-icon"></i>
-                        </div>
-                        <div class="small-box drop-zone" id="box7" draggable="true">
-                            <input type="file" id="fileInput7" class="file-input">
-                            <i class="fas fa-folder-open fa-2x file-icon"></i>
-                        </div>
                     </div>
-                    <p class="drop-text">ドロップまたはクリック</p>
                 </div>
 
                 <div class="right-panel product-info-form">

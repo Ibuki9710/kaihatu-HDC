@@ -10,10 +10,6 @@ error_reporting(E_ALL);
 // DB接続
 require_once 'db_connect.php';   // ★あなたの DB接続ファイル名に合わせて変更
 
-$db = new DbConnect();
-$pdo = $db->connect();
-
-
 // ↓ここから$pdoが使える
 $stmt = $pdo->prepare("SELECT * FROM notitem");
 $stmt->execute();
