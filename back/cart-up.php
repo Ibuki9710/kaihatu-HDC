@@ -34,7 +34,7 @@ try {
     $_SESSION['cart'] = [];
     $_SESSION['success'] = '注文が完了しました';
 
-    header('Location: cart-history.php'); // 注文履歴画面へ
+    header('Location: ../front/cart-history.php'); // 注文履歴画面へ
     exit;
 
 } catch (Exception $e) {
