@@ -1,37 +1,48 @@
 <?php
 session_start();
-require_once 'db_connect.php';
+require 'db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $item_name = $_POST['item_name'] ?? '';
+    $price = $_POST['price'] ?? 0;
+    $brand = $_POST['brand'] ?? '';
+    $item_explain = $_POST['item_explain'] ?? '';
+    $item_stock = isset($_POST['unlimited']) ? 9999 : $_POST['item_stock'];
+    $width = $_POST['width'] ?? 0;
+    $height = $_POST['height'] ?? 0;
+    $depth = $_POST['depth'] ?? 0;
+    $be_solditem = $_POST['be_solditem'] ?? 1;
 
     try {
-        // POSTデータの取得
-        $item_name = $_POST['item_name'];
-        $item_explain = $_POST['item_explain'];
-        $price = (int)$_POST['price']; // 価格を追加
-        $stock = isset($_POST['unlimited']) ? 999999 : (int)$_POST['stock'];
-        $width = (int)$_POST['width'];
-        $height = (int)$_POST['height'];
-        $public = $_POST['public'] === 'open' ? 1 : 0;
-
-        // 1. DBに商品情報を登録（画像は後で）
+        // DB登録
         $stmt = $pdo->prepare("
-            INSERT INTO item (item_name, item_explain, price, item_stock, width, height, be_solditem)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO item (item_name, price, brand, item_explain, item_stock, width, height, depth, be_solditem)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         ");
-        $stmt->execute([$item_name, $item_explain, $price, $stock, $width, $height, $public]);
+        $stmt->execute([$item_name, $price, $brand, $item_explain, $item_stock, $width, $height, $depth, $be_solditem]);
 
-        // 2. 登録した商品のIDを取得
+        // 最後に登録された item_id を取得
         $item_id = $pdo->lastInsertId();
 
-        // 3. 画像がアップロードされている場合
+        // 画像アップロード処理
         if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
-            $uploadDir = '../image/';  // 画像保存ディレクトリ
             $tmpName = $_FILES['image']['tmp_name'];
-            
-            // 商品ID.png で保存
-            $filename = $item_id . '.png';
-            move_uploaded_file($tmpName, $uploadDir . $filename);
+            $filename = "../image/{$item_id}.png";
+
+            // 画像サイズ取得
+            list($origWidth, $origHeight) = getimagesize($tmpName);
+
+            // 最大幅を500pxにリサイズ
+            $newWidth = 500;
+            $newHeight = ($origHeight / $origWidth) * $newWidth;
+
+            $srcImage = imagecreatefromstring(file_get_contents($tmpName));
+            $dstImage = imagecreatetruecolor($newWidth, $newHeight);
+            imagecopyresampled($dstImage, $srcImage, 0, 0, 0, 0, $newWidth, $newHeight, $origWidth, $origHeight);
+
+            imagepng($dstImage, $filename);
+            imagedestroy($srcImage);
+            imagedestroy($dstImage);
         }
 
         $_SESSION['success'] = "商品登録が完了しました";
@@ -39,9 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
 
     } catch (PDOException $e) {
-        $_SESSION['error'] = "商品登録中にエラーが発生しました: " . $e->getMessage();
-        header('Location: ../front/product.php');
-        exit;
+        echo "商品登録中にエラーが発生しました: " . htmlspecialchars($e->getMessage());
     }
 }
-?>

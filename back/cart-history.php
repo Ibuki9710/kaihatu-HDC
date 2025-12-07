@@ -19,7 +19,7 @@ if (!isset($_SESSION['member_id'])) {
 $member_id = $_SESSION['member_id'];
 
 // DB接続
-require_once '../back/db_connect.php'; // DB は back 側にあるまま
+require_once 'db_connect.php'; // DB は back 側にあるまま
 
 // 注文履歴を取得（cartss テーブル使用）
 $stmt = $pdo->prepare("
