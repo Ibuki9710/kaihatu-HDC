@@ -19,7 +19,7 @@ if (!isset($_SESSION['member_id'])) {
 $member_id = $_SESSION['member_id'];
 
 // DB接続
-require_once '../back/db_connect.php'; // 必要に応じてパスを修正
+require_once '../back/db_connect.php'; // DB は back 側にあるまま
 
 // 注文履歴を取得（cartss テーブル使用）
 $stmt = $pdo->prepare("
@@ -32,8 +32,8 @@ $stmt = $pdo->prepare("
 $stmt->execute([$member_id]);
 $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// HTML ヘッダー
-require '../front/header.html'; // header.html の正しいパスに修正
+// HTML ヘッダー（front 側から読み込む）
+require_once '../front/header.html';
 ?>
 
 <div class="form-container center">
@@ -75,6 +75,6 @@ require '../front/header.html'; // header.html の正しいパスに修正
 </div>
 
 <?php
-// HTML フッター
-require '../front/footer.html'; // footer.html の正しいパスに修正
+// HTML フッターも front 側から読み込む
+require_once '../front/footer.html';
 ?>

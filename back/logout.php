@@ -1,5 +1,32 @@
 <?php
 session_start();
-session_destroy();
-header('Location: ../frontend/home.php');
-exit;
+require_once 'db_connect.php'; // DB接続
+
+if (!isset($_SESSION['member_id'])) {
+    // 未ログインならログインページへ
+    header('Location: ../front/login.php');
+    exit;
+}
+
+$member_id = $_SESSION['member_id'];
+
+try {
+    // 会員情報を削除
+    $stmt = $pdo->prepare("DELETE FROM customer WHERE member_id = ?");
+    $stmt->execute([$member_id]);
+
+    // 必要に応じて、カートや注文履歴も削除
+    $stmt = $pdo->prepare("DELETE FROM cartss WHERE member_id = ?");
+    $stmt->execute([$member_id]);
+
+    // セッションを破棄してログアウト
+    $_SESSION = [];
+    session_destroy();
+
+    // ログインページにリダイレクト
+    header('Location: /login.php');
+    exit;
+
+} catch (PDOException $e) {
+    echo "退会処理中にエラーが発生しました: " . htmlspecialchars($e->getMessage());
+}
