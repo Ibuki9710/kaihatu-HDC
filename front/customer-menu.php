@@ -10,7 +10,7 @@
                 <h4>会員情報の確認・変更</h4>
             </div>
         </a>
-        <a href="address.php" class="black">
+        <a href="../back/cart-history.php" class="black">
             <div class="container btn-wrapper grey left">
                 <h4>注文履歴照会</h4>
             </div>
