@@ -42,6 +42,7 @@ require '../front/header.html';
     <?php if (empty($orders)): ?>
         <p>注文履歴はありません</p>
     <?php else: ?>
+        <div class="table-wrapper">
         <table border="1" cellpadding="5" cellspacing="0">
             <tr>
                 <th>商品名</th>
@@ -56,7 +57,7 @@ require '../front/header.html';
                     <td>
                         <img src="../image/<?= htmlspecialchars($order['item_id']) ?>.png" 
                              alt="<?= htmlspecialchars($order['item_name']) ?>" 
-                             width="50">
+                             class="product-image">
                     </td>
                     <td><?= htmlspecialchars($order['item_amount']) ?></td>
                     <td><?= htmlspecialchars($order['total_price']) ?>円</td>
@@ -64,6 +65,7 @@ require '../front/header.html';
                 </tr>
             <?php endforeach; ?>
         </table>
+            </div>
     <?php endif; ?>
 
     <!-- ホームに戻るボタン -->

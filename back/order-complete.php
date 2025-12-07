@@ -51,6 +51,6 @@ try {
     <h2>ご注文が完了しました</h2>
     <p>ご注文ありがとうございました。</p>
     <a href="../front/home-sample.php"><button class="btn-order button">ホームに戻る</button></a>
-    <a href="cart-history.php"><button class="btn-order button">注文履歴を見る</button></a>
+    <a href="../front/cart-history.php"><button class="btn-order button">注文履歴を見る</button></a>
 </div>
 <?php require '../front/footer.html'; ?>
