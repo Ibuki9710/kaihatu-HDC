@@ -6,71 +6,55 @@ require 'header.html';
         <h3>出品</h3>
     </div>
     <div class="main-layout">
-        <form action="#" method="post" id="edit-form">
+        <form action="../back/product_user.php" method="post" id="edit-form" enctype="multipart/form-data">
             <div class="panels-wrapper">
+                <!-- 左パネル：画像アップロード -->
                 <div class="left-panel drag-container">
-                    <div class="large-box drop-zone" id="box1" draggable="true">
-                        <input type="file" id="fileInput1" class="file-input" multiple>
+                    <div class="large-box drop-zone" id="box1">
+                        <input type="file" id="fileInput1" name="image" class="file-input" accept="image/*">
                         <i class="fas fa-folder-open fa-2x file-icon"></i>
+                        <p>画像を選択またはドラッグ&ドロップ</p>
+                        <div id="preview"></div>
                     </div>
-                    <div class="small-boxes-wrapper">
-                        <div class="small-box drop-zone" id="box2" draggable="true">
-                            <input type="file" id="fileInput2" class="file-input">
-                            <i class="fas fa-folder-open fa-2x file-icon"></i>
-                        </div>
-                        <div class="small-box drop-zone" id="box3" draggable="true">
-                            <input type="file" id="fileInput3" class="file-input">
-                            <i class="fas fa-folder-open fa-2x file-icon"></i>
-                        </div>
-                        <div class="small-box drop-zone" id="box4" draggable="true">
-                            <input type="file" id="fileInput4" class="file-input">
-                            <i class="fas fa-folder-open fa-2x file-icon"></i>
-                        </div>
-                        <div class="small-box drop-zone" id="box5" draggable="true">
-                            <input type="file" id="fileInput5" class="file-input">
-                            <i class="fas fa-folder-open fa-2x file-icon"></i>
-                        </div>
-                        <div class="small-box drop-zone" id="box6" draggable="true">
-                            <input type="file" id="fileInput6" class="file-input">
-                            <i class="fas fa-folder-open fa-2x file-icon"></i>
-                        </div>
-                        <div class="small-box drop-zone" id="box7" draggable="true">
-                            <input type="file" id="fileInput7" class="file-input">
-                            <i class="fas fa-folder-open fa-2x file-icon"></i>
-                        </div>
-                    </div>
-                    <p class="drop-text">ドロップまたはクリック</p>
                 </div>
 
+                <!-- 右パネル：商品情報 -->
                 <div class="right-panel product-info-form">
                     <h2>商品情報</h2>
                     <div class="form-group">
-                        <label>商品名</label>
-                        <input type="text" name="" placeholder="商品名">
+                        <label>商品名 <span style="color:red;">*</span></label>
+                        <input type="text" name="unnecessary_items_name" placeholder="商品名" required>
                     </div>
                     <div class="form-group">
-                        <label>価格 (円)</label>
-                        <input type="number" name="" placeholder="価格">
+                        <label>価格 (円) <span style="color:red;">*</span></label>
+                        <input type="number" name="price" placeholder="価格" min="0" required>
                     </div>
                     <div class="form-group">
-                        <label>商品説明</label>
-                        <textarea name="" rows="10" placeholder="商品説明" class="textarea"></textarea>
+                        <label>商品説明 <span style="color:red;">*</span></label>
+                        <textarea name="unnecessary_items_explain" rows="6" placeholder="商品説明" required></textarea>
                     </div>
                     <div class="form-group">
                         <label>サイズ</label>
-                        <input type="number" class="min-text" name="" placeholder="横幅"><label>cm</label>
-                        <input type="number" class="min-text" name="" placeholder="縦幅"><label>cm</label>
+                        <input type="number" name="width" placeholder="横幅(cm)" min="0">
+                        <input type="number" name="height" placeholder="縦幅(cm)" min="0">
                     </div>
-                </div> 
-            </div>   
+                    <div class="form-group">
+                        <label>ブランド <span style="color:red;">*</span></label><br>
+                        <label><input type="radio" name="brand" value="大型製品" required> 大型製品</label>
+                        <label><input type="radio" name="brand" value="小型製品"> 小型製品</label>
+                    </div>
+                </div> <!-- right-panel -->
+            </div> <!-- panels-wrapper -->
+
+            <div class="center">
+                <div class="btn-group">
+                    <a href="javascript:history.back();">
+                        <button type="button" class="blueBtn btn-base">戻る</button>
+                    </a>
+                    <button type="submit" class="greenBtn btn-base">出品</button>
+                </div>
+            </div>
         </form>
-        <div class="center">
-            <div class="btn-group">
-                <a href="javascript:history.back();">
-                    <button class="blueBtn btn-base">戻る</button>
-                </a>
-            <button type="submit" class="btn-base greenBtn" form="edit-form">出品</button>
-        </div>
     </div>
 </div>
 <?php require 'footer.html'; ?>
