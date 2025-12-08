@@ -8,14 +8,14 @@
         </div>
         <form action="login.php" method="post">
             <div class="center">
-                <p class="input">
+                <div class="input-row">
                     <label>メールアドレス</label>
                     <input type="text" name=""  id="email" class="customer-text" placeholder="メールアドレス"> 
-                </p>
-                <p class="input">
+                </div>
+                <div class="input-row">
                     <label class="label">パスワード</label>
                     <input type="password" name="" id="pass" class="customer-text" placeholder="パスワード"> 
-                </p>
+                </div>
                 <button class="greenBtn btn-base btn-wapper">保存</button>
             </div>
         </form>

@@ -92,6 +92,7 @@ require 'header2.html';
                 </div>
             </div>
 
+            </form>
             <div class="btn-group">
                 <button type="submit" class="greenBtn btn-base">保存</button>
                 <a href="customer-menu.php"><button type="button" class="blueBtn btn-base">戻る</button></a>
@@ -99,35 +100,6 @@ require 'header2.html';
         </form>
     </div>
 </div>
-
-<script>
-// 郵便番号から住所を自動入力
-async function searchZipcode() {
-    const zipcode = document.getElementById('zipcode').value.trim();
-    if (!zipcode.match(/^\d{7}$/)) {
-        alert("郵便番号は7桁の数字で入力してください");
-        return;
-    }
-
-    try {
-        // 日本郵便 郵便番号検索APIを利用
-        const response = await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zipcode}`);
-        const data = await response.json();
-
-        if (data.status === 200 && data.results) {
-            const result = data.results[0];
-            const address = result.address1 + result.address2 + result.address3;
-            document.getElementById('address').value = address;
-        } else {
-            alert("住所が見つかりません");
-        }
-
-    } catch (error) {
-        alert("住所検索でエラーが発生しました");
-        console.error(error);
-    }
-}
-</script>
 
 <?php
 require 'footer.html';
