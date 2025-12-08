@@ -54,8 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // 5. DB保存
-    $sql = "INSERT INTO notitem
-            (unnecessary_items_name, price, unnecessary_items_explain, width, height, image, not_brand, created_at)
+    $sql = "INSERT INTO item
+            (items_name, price, items_explain, width, height, image, brand, item_id)
             VALUES (:name, :price, :description, :width, :height, :image, :brand, NOW())";
 
     $stmt = $pdo->prepare($sql);
