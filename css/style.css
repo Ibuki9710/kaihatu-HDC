@@ -242,10 +242,10 @@ main {
     margin-left: 5px;
 }
 #searchButton {
-    font-size: 15px;
+    font-size: 12px;
     width: 80px;
     margin-left: 15px;
-    height: 30px;
+    height: 35px;
     line-height: 30px;
     padding: 0 20px;
 }
@@ -291,11 +291,12 @@ main {
     border: none; 
     margin-top: 3px;
     border-radius: 2px;
-    height: 25px;
+    height: 35px;
     line-height: 25px; 
     margin-left: 90px;
     width: 65px; 
     padding: 0 10px;
+    font-size: 12px;
 }
 .login-btn {
     text-align: center;
