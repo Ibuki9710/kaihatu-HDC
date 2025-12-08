@@ -26,10 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($price === "" || !is_numeric($price)) $errors[] = "価格は数字で入力してください。";
 
     // 3. 画像アップロード（../noimage/ フォルダに保存）
-    $upload_dir = '../noimage/';
+    $upload_dir = '../image/';
     if (!is_dir($upload_dir)) mkdir($upload_dir, 0777, true);
 
-    $image_path = 'noimage.png'; // デフォルト
+    $image_path = 'image.png'; // デフォルト
     if (!empty($_FILES['image']['name']) && $_FILES['image']['error'] === 0) {
         $ext = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
         $allowed = ['jpg', 'jpeg', 'png', 'gif'];
