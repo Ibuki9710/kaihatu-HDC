@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($height !== "" && !is_numeric($height)) $errors[] = "縦幅は数字で入力してください。";
     if ($price === "" || !is_numeric($price)) $errors[] = "価格は数字で入力してください。";
 
-    // 3. 画像アップロード（../noimage/ フォルダに保存）
+    // 3. 画像アップロード（../image/ フォルダに保存）
     $upload_dir = '../image/';
     if (!is_dir($upload_dir)) mkdir($upload_dir, 0777, true);
 
@@ -55,8 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // 5. DB保存
     $sql = "INSERT INTO item
-            (item_name, price, item_explain, width, height, image, brand, item_id)
-            VALUES (:name, :price, :description, :width, :height, :image, :brand, NOW())";
+            (item_name, price, item_explain, width, height, image, brand)
+            VALUES (:name, :price, :description, :width, :height, :image, :brand)";
 
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':name',  $name, PDO::PARAM_STR);
