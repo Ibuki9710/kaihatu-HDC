@@ -27,11 +27,9 @@
         echo '<button class="btn-base yellowBtn black">カートに追加</button>';
         echo '</div>';
         echo '</div>';
-        echo '<button class="btn-base yellowBtn login-btn" style="width: 100%; margin-top: 15px;">カートに追加</button>';
         echo '<p>在庫数:', $row['item_stock'], '</p>';
         echo '<p>幅:', $row['width'], '</p>';
         echo '<p>高さ:', $row['height'], '</p>';
-        echo '<button class="btn-base yellowBtn login-btn" style="width: 100%; margin-top: 15px;">お気に入りに追加</button>';
         echo '</form>';
         echo '</form>';
         echo '</div>';

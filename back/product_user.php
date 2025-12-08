@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $allowed = ['jpg', 'jpeg', 'png', 'gif'];
         if (!in_array($ext, $allowed)) $ext = 'png';
 
-        $filename = 'notitem_' . time() . '.' . $ext;
+        $filename = time() . '.' . $ext;
         $target = $upload_dir . $filename;
 
         if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
