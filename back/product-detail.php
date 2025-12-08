@@ -7,10 +7,9 @@
         echo '<div class="product-media-description">';
         echo '<div class="product-image-area">';
         echo '<p><img alt="image" src="../image/', $row['item_id'], '.png"></p>';
-        echo '</div>';
-        echo '</div>';
-        echo '<div class="product-explanation">';
-        echo '<h3>', $row['item_name'], '</h3>';
+        echo '<form action="../back/cart-insert.php?id=', $row['item_id'], '" method="post">';
+        echo '<form action="../back/favorite-insert.php?id=', $row['item_id'], '" method="post">';
+        echo '<h2>', $row['item_name'], '</h2>';
         echo '<p>', $row['item_explain'], '</p>';
         echo '<p>在庫数：', $row['item_stock'], '</p>';
         echo '<p>横幅：', $row['width'], '</p>';
@@ -28,9 +27,13 @@
         echo '<button class="btn-base yellowBtn black">カートに追加</button>';
         echo '</div>';
         echo '</div>';
+        echo '<button class="btn-base yellowBtn login-btn" style="width: 100%; margin-top: 15px;">カートに追加</button>';
+        echo '<p>在庫数:', $row['item_stock'], '</p>';
+        echo '<p>幅:', $row['width'], '</p>';
+        echo '<p>高さ:', $row['height'], '</p>';
+        echo '<button class="btn-base yellowBtn login-btn" style="width: 100%; margin-top: 15px;">お気に入りに追加</button>';
         echo '</form>';
-        echo '</div>';
-        echo '</div>';
+        echo '</form>';
         echo '</div>';
     }
 ?>
