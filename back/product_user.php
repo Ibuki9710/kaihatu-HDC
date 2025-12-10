@@ -25,24 +25,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($height !== "" && !is_numeric($height)) $errors[] = "縦幅は数字で入力してください。";
     if ($price === "" || !is_numeric($price)) $errors[] = "価格は数字で入力してください。";
 
-    // 3. 画像アップロード（../image/ フォルダに保存）
+    // 3. 画像アップロード準備
     $upload_dir = '../image/';
     if (!is_dir($upload_dir)) mkdir($upload_dir, 0777, true);
 
     $image_path = 'image.png'; // デフォルト
+    $temp_file = null;
+    $ext = 'png';
+    
     if (!empty($_FILES['image']['name']) && $_FILES['image']['error'] === 0) {
         $ext = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
         $allowed = ['jpg', 'jpeg', 'png', 'gif'];
         if (!in_array($ext, $allowed)) $ext = 'png';
 
-        $filename = time() . '.' . $ext;
-        $target = $upload_dir . $filename;
-
-        if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-            $image_path = $filename; // DBにはファイル名のみ保存
-        } else {
-            $errors[] = "画像のアップロードに失敗しました。";
-        }
+        // 一時的にファイルを保存
+        $temp_file = $_FILES['image']['tmp_name'];
     }
 
     // 4. エラーがあれば表示して終了
@@ -53,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // 5. DB保存
+    // 5. DB保存（画像は仮のファイル名で登録）
     $sql = "INSERT INTO item
             (item_name, price, item_explain, width, height, image, brand)
             VALUES (:name, :price, :description, :width, :height, :image, :brand)";
@@ -68,8 +65,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bindValue(':brand', $brand, PDO::PARAM_STR);
     $stmt->execute();
 
-    // 6. 完了メッセージ
-    $_SESSION['success'] = "商品を登録しました！";
+    // 6. 挿入されたitem_idを取得
+    $item_id = $pdo->lastInsertId();
+
+    // 7. item_idを使ってファイル名を確定し、画像を保存
+    if ($temp_file !== null) {
+        $filename = $item_id . '.' . $ext;
+        $target = $upload_dir . $filename;
+
+        if (move_uploaded_file($temp_file, $target)) {
+            $image_path = $filename;
+            
+            // DBのimageカラムを更新
+            $update_sql = "UPDATE item SET image = :image WHERE item_id = :item_id";
+            $update_stmt = $pdo->prepare($update_sql);
+            $update_stmt->bindValue(':image', $image_path, PDO::PARAM_STR);
+            $update_stmt->bindValue(':item_id', $item_id, PDO::PARAM_INT);
+            $update_stmt->execute();
+        } else {
+            $errors[] = "画像のアップロードに失敗しました。";
+        }
+    }
+
+    // 8. 完了メッセージ
+    $_SESSION['success'] = "商品を登録しました!";
     header('Location: ../front/home-sample.php');
     exit;
 }
