@@ -1,55 +1,22 @@
 <?php 
 session_start();
 require 'header.html';
-//require '../back/cart.php';
 ?>
 <div class="form-container">
     <div class="center-content">
-        <h1>カート一覧</h1>
+        <h2>カート一覧</h2>
     </div>
-    //デザインんが正常に動くための確認後ほど削除//
-    <div class="cart-list">
-        <section class="cart-item">
-            <button class="remove-btn" aria-label="商品を削除">×</button>
-            <img src="https://cdn.pixabay.com/photo/2016/06/14/08/31/refrigerator-1453513_1280.jpg" alt="冷蔵庫" />
-            <div class="info">
-                <strong>冷蔵庫</strong>
-                <div>販売元</div>
-                <div>価格　5900円</div>
-                <div>送料　無料</div>
-                <div>数量</div>
-                <a href="#" class="order-link">商品注文画面へ</a>
-            </div>
-        </section>
 
-        <section class="cart-item">
-            <button class="remove-btn" aria-label="商品を削除">×</button>
-            <div class="info">
-                <strong>商品名</strong>
-                <div>販売元</div>
-                <div>価格</div>
-                <div>送料</div>
-                <div>数量</div>
-                <a href="#" class="order-link">商品注文画面へ</a>
-            </div>
-        </section>
+    <?php require '../back/cart.php'; ?>
 
-        <section class="cart-item">
-            <button class="remove-btn" aria-label="商品を削除">×</button>
-            <div class="info">
-                <strong>商品名</strong>
-                <div>販売元</div>
-                <div>価格</div>
-                <div>送料</div>
-                <div>数量</div>
-                <a href="#" class="order-link">商品注文画面へ</a>
-            </div>
-        </section>
-        //ここまで//
-    </div>
-    <div class="button-area">
-        <button class="btn-back button">戻る</button>
-        <button class="btn-order button">注文</button>
+    <div class="button-area" style="margin-top:20px;">
+        <!-- 戻るボタン -->
+        <button type="button" class="btn-back button" onclick="location.href='home-sample.php'">戻る</button>
+
+        <!-- 注文確定ボタン -->
+        <form action="../back/order-complete.php" method="post" style="display:inline;">
+            <button type="submit" class="btn-order button">注文確定</button>
+        </form>
     </div>
 </div>
 </main>    

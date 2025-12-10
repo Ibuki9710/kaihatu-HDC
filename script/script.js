@@ -60,63 +60,32 @@ function navigateToUrl(selectElement) {
 }
 
 // APIを呼び出し、郵便番号に基づく住所を取得
-document.addEventListener('DOMContentLoaded', () => {
-    const zipcodeInput = document.getElementById('zipcode');
-    const searchButton = document.getElementById('searchButton');
-    const addressInput = document.getElementById('address');
-
-    function clearAddressFields() {
-        if (addressInput) addressInput.value = '';
+// 郵便番号から住所を自動入力
+async function searchZipcode() {
+    const zipcode = document.getElementById('zipcode').value.trim();
+    if (!zipcode.match(/^\d{7}$/)) {
+        alert("郵便番号は7桁の数字で入力してください");
+        return;
     }
 
-    if (zipcodeInput) {
-        // Enterキーが押された場合
-        zipcodeInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                fetchAddress();
-            }
-        });
-    }
+    try {
+        // 日本郵便 郵便番号検索APIを利用
+        const response = await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zipcode}`);
+        const data = await response.json();
 
-    // 検索ボタンがクリックされた場合
-    if (searchButton) {
-        searchButton.addEventListener('click', fetchAddress);
-    }
-    
-    // 住所検索を実行する関数
-    function fetchAddress() {
-        const zipcodeValue = zipcodeInput.value.replace(/[^0-9]/g, '');
-
-        if (zipcodeValue.length !== 7) { 
-            alert('郵便番号は7桁で入力してください。');
-            clearAddressFields(); // 桁数エラー時にもクリア
-            return;
+        if (data.status === 200 && data.results) {
+            const result = data.results[0];
+            const address = result.address1 + result.address2 + result.address3;
+            document.getElementById('address').value = address;
+        } else {
+            alert("住所が見つかりません");
         }
 
-        fetch(`https://api.zipaddress.net/?zipcode=${zipcodeValue}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTPエラー: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                if(data.code === 200) {
-                    addressInput.value = data.data.pref + data.data.city + data.data.town; 
-                } else {
-                    alert('住所を取得できませんでした。郵便番号を確認してください。');
-                    clearAddressFields();
-                }
-            })
-            .catch(error => {
-                console.error('通信中にエラーが発生しました:', error);
-                alert('住所の取得中にエラーが発生しました。コンソールを確認してください。');
-                clearAddressFields();
-            });
+    } catch (error) {
+        alert("住所検索でエラーが発生しました");
+        console.error(error);
     }
-
-});
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const dropZones = document.querySelectorAll('.drop-zone');
@@ -145,8 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             fileInput.click();
         });
-
-        
 
         // ドラッグイベント
         zone.addEventListener('dragenter', (e) => { e.preventDefault(); zone.classList.add('dragover-file'); });

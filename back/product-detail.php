@@ -1,30 +1,37 @@
-<?php session_start(); ?>
-<?php require 'db-connect.php'; ?>
+<?php require 'db_connect.php'; ?>
 <?php
-    $pdo=new PDO($connect, USER, PASS);
-    $sql=$pdo->prepare('select * from item where id=?');
+    $sql=$pdo->prepare('select * from item where item_id=?');
     $sql->execute([$_GET['id']]);
     foreach($sql as $row){
-        echo '<p><img alt="image" src="./image/', $row['id'], '.jpg"></p>';
-        echo '<form action="cart-insert.php?id=', $row['id'], '" method="post">';
-        echo '<p>', $row['item_name'], '</p>';
+        echo '<div class="product-header-row">';
+        echo '<div class="product-media-description">';
+        echo '<div class="product-image-area">';
+        echo '<p><img alt="image" src="../image/', $row['item_id'], '.png"></p>';
+        echo '<form action="../back/cart-insert.php?id=', $row['item_id'], '" method="post">';
+        echo '<form action="../back/favorite-insert.php?id=', $row['item_id'], '" method="post">';
+        echo '<h2>', $row['item_name'], '</h2>';
         echo '<p>', $row['item_explain'], '</p>';
+        echo '<p>在庫数：', $row['item_stock'], '</p>';
+        echo '<p>横幅：', $row['width'], '</p>';
+        echo '<p>縦幅：', $row['height'], '</p>';
+        echo '</div>';
+        echo '<div class="product-action-box">';
+        echo '<div class="form-group">';
+        echo '<form action="../back/cart-insert.php?id=', $row['item_id'], '" method="post">';
         echo '<p>￥', $row['price'], '</p>';
         echo '<p>送料無料</p>';
-        echo '数量<input type="number" name="count">';
-        echo '<p><input type="submit" value="カートに追加"></p>';
-        echo '<p>', $row['item_stock'], '</p>';
-        echo '<p>', $row['width'], '</p>';
-        echo '<p>', $row['height'], '</p>';
-        echo '<input type="hidden" name="id" value="', $row['item_id'], '">';
-        echo '<input type="hidden" name="name" value="', $row['item_name'], '">';
-        echo '<input type="hidden" name="price" value="', $row['price'], '">';
-        echo '<input type="hidden" name="genre" value="', $row['genre'], '">';
-        echo '<input type="hidden" name="width" value="', $row['width'], '">';
-        echo '<input type="hidden" name="height" value="', $row['height'], '">';
-        echo '<input type="hidden" name="be_solditem" value="', $row['be_solditem'], '">';
-        echo '<input type="hidden" name="item_explain" value="', $row['item_explain'], '">';
-        echo '<input type="hidden" name="brand" value="', $row['brand'], '">';
+        echo '<div class="input-row">';
+        echo '<label>数量</label><input type="number" name="count" value="1" min="1" class="size">';
+        echo '</div>';
+        echo '<div class="center">';
+        echo '<button class="btn-base yellowBtn black">カートに追加</button>';
+        echo '</div>';
+        echo '</div>';
+        echo '<p>在庫数:', $row['item_stock'], '</p>';
+        echo '<p>幅:', $row['width'], '</p>';
+        echo '<p>高さ:', $row['height'], '</p>';
         echo '</form>';
+        echo '</form>';
+        echo '</div>';
     }
 ?>

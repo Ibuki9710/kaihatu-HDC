@@ -7,25 +7,17 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     echo '<p>無効な商品IDです。</p>';
     exit;
 }
-
-if (!isset($_POST['count']) || !is_numeric($_POST['count']) || $_POST['count'] < 1) {
-    echo '<p>無効な数量です。</p>';
-    exit;
-}
-
 $id = (int)$_GET['id'];
-$count = (int)$_POST['count']; // この行を追加
 
 // カートの初期化
-if (!isset($_SESSION['cart'])) {
-    $_SESSION['cart'] = [];
+if (!isset($_SESSION['favorite'])) {
+    $_SESSION['favorite'] = [];
 }
 
 // 既存のカート内容を確認
 $found = false;
-foreach ($_SESSION['cart'] as &$item) {
-    if ($item['item_id'] == $id) {
-        $item['count'] += $count;
+foreach ($_SESSION['favorite'] as &$favorite) {
+    if ($favorite['item_id'] == $id) {
         $found = true;
         break;
     }
@@ -39,12 +31,11 @@ if (!$found) {
         $product = $stmt->fetch(PDO::FETCH_ASSOC);
         
         if ($product) {
-            $_SESSION['cart'][] = [
+            $_SESSION['favorite'][] = [
                 'item_id' => $id,
                 'item_name' => $product['item_name'],
                 'price' => $product['price'],
                 'img_path' => $product['img_path'],
-                'count' => $count
             ];
         }
     } catch (PDOException $e) {
@@ -52,7 +43,7 @@ if (!$found) {
     }
 }
 
-$_SESSION['success'] = 'カートに追加しました';
-header('Location: ../front/cart.php');
+$_SESSION['success'] = 'お気に入りに追加しました';
+header('Location: ../front/favorite.php');
 exit;
 ?>

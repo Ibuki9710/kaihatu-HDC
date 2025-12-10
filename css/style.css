@@ -13,7 +13,7 @@ body {
     font-size: 17px; 
     position: relative;
     padding-bottom: 150px;
-    color: #555;
+    color: #333;
 }
 * {
     box-sizing: border-box; 
@@ -51,7 +51,6 @@ header {
     width: 50px;
     height: 50px;
     margin: 5px;
-    border:#000;
 }
 .navIcon {
     font-size: 15px;
@@ -115,10 +114,10 @@ main {
     flex-grow: 1;
     min-height: 0;
     height: auto;
-    padding: 15px;
+    margin: 15px;
+    margin-top: 25px;
 }
 .main {
-    margin-top: 30px;
     transition: margin-left 0.4s ease;
     margin: 0 auto;
 }
@@ -243,10 +242,10 @@ main {
     margin-left: 5px;
 }
 #searchButton {
-    font-size: 15px;
+    font-size: 12px;
     width: 80px;
     margin-left: 15px;
-    height: 30px;
+    height: 35px;
     line-height: 30px;
     padding: 0 20px;
 }
@@ -292,11 +291,12 @@ main {
     border: none; 
     margin-top: 3px;
     border-radius: 2px;
-    height: 25px;
+    height: 35px;
     line-height: 25px; 
     margin-left: 90px;
     width: 65px; 
     padding: 0 10px;
+    font-size: 12px;
 }
 .login-btn {
     text-align: center;
@@ -327,17 +327,15 @@ main {
 /* 入力欄の統合スタイル */
 .input-base-text,
 .form-group input:not([type="checkbox"]):not([type="radio"]),
-.form-group textarea,
 .customer-text,
 .min-text,
 .size-input,
 .input-field,
 .input-field-area input:not([type="checkbox"]):not([type="radio"]),
 .input-field-area textarea,
-#zipcode { /* #zipcode を統合 */
+#zipcode {
     border: solid 1px rgb(132, 132, 132); 
     border-radius: 4px; 
-    box-sizing: border-box;
     font-size: 14px;
     padding: 8px;
     height: 35px;
@@ -345,7 +343,6 @@ main {
 }
 /* 固有プロパティの上書き */
 .customer-text {
-    width: 80%;
     height: 40px;
     border-radius: 5px; 
 }
@@ -360,9 +357,16 @@ main {
     border: 1px solid #7d7d7d;
     border-radius: 3px;
 }
+.textarea {
+    border: solid 1px rgb(132, 132, 132); 
+    border-radius: 4px; 
+    font-size: 14px;
+    padding: 8px;
+    height: 80px;
+    width: 100%; 
+}
 /* form-group の textarea 高さ */
-.form-group textarea {
-    height: 150px; 
+.form-group textarea{
     padding: 10px; /* input との padding 差分を維持 */
 }
 /* 管理者フォーム側の input/textarea の上書き */
@@ -379,16 +383,12 @@ main {
 .input-field-area input[type="number"].min-text {
     width: 100px; 
 }
-.input label {
+.input-row label {
     font-weight: bold;
     min-width: auto;
-    display: block; 
+    width: 180px;
+    display: block;
     margin-bottom: 2px;
-}
-.input {
-    text-align: left;
-    margin-bottom: 15px;
-    padding-left: 0;
 }
 #zipcode {
     font-size: 17px;
@@ -400,7 +400,9 @@ main {
     border-radius: 3px;
     font-size: 12px;
 }
-
+.radio-group{
+    display: contents;
+}
 
 /* ボックスとコンテナ */
 .box-base-container {
@@ -452,7 +454,7 @@ main {
 
 /* 商品カード */
 .card {
-    width: 180px;
+    width: 185px;
     height: 300px;
     border: #7c7c7c solid 1px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -465,7 +467,7 @@ main {
     transform: translateY(-5px); 
 }
 .card img {
-    width: 140px;
+    width: 85%;
     height: 40%;
     display: block; 
     margin: 0 auto;
@@ -541,8 +543,8 @@ main {
     align-items: center;
 }
 .showProduct {
-    justify-content: flex-start; 
     gap: 25px;
+    justify-content:space-evenly;
 }
 /* 画像プレビュー */
 .drop-zone .file-icon {
@@ -567,6 +569,9 @@ main {
     margin-bottom: 5px;
     margin-top: 25px;
 }
+.input-row input{
+    margin-right:0;
+}
 .login-container .input-row{ display: block;}
 /* ラベルエリアの統合 */
 .input-label-area, .input-label {
@@ -577,12 +582,13 @@ main {
 .input-label-area {
     width: 120px; 
     font-weight: bold;
-    color: #333;
+    color: hsl(0, 0%, 20%);
 }
 .input-label { 
     width: 160px; 
     min-width: 120px; 
     margin-right: 20%;
+    margin-left: 5%;
 }
 .input-field-area {
     margin-left: auto; 
@@ -661,6 +667,7 @@ main {
     top: 70px;
     margin-left: 200px;
     display: flex;
+    align-items: center;
 }
 .conteiner-header h2 {
     margin-right: 30px;
@@ -683,7 +690,6 @@ main {
 .form-container {
     width: 80%;
     margin: 0 auto; 
-    padding: 30px 30px;
 }
 .form-container label {
     text-align: left;
@@ -694,7 +700,6 @@ main {
 .center-content h1,
 .center-content h2,
 .center-content h3 {
-    margin: 0 0 10px 0; 
     max-width: none;
     padding-left: 0;
     font-weight: normal;
@@ -718,11 +723,42 @@ main {
     font-size: 50px;
     line-height: 50px;
     text-align: center;
+    z-index: 2;
 }
 .listing a{
     width: 100%;
 }
-
+/*商品詳細*/
+.product-header-row {
+    display: flex;
+    justify-content: space-between; /* 左右に要素を寄せる */
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+.product-media-description {
+    display: flex; 
+    flex-direction: row;
+    flex: 2;
+    gap: 20px;
+}
+.product-action-box {
+    flex: 1; 
+    min-width: 300px; 
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.product-image-area {
+    flex: 1 1 50%;
+    max-width: 50%;
+}
+.product-explanation {
+    min-width: 400px;
+    text-align: left;
+}
 /*メディアクエリ*/
 /* 画面サイズが900px以下の設定 */
 @media screen and (max-width: 900px) {
@@ -738,17 +774,18 @@ main {
     .menu li { font-size: 14px; }
     .menu-button { top: 46px; }
     .menu-btn {
-        margin-left: 50px;
+        margin-left: 5px;
         width: 50px; 
         font-size: 10px;
     }
     .icon { width: 40px; height: 40px; margin: 3px;}
     .admin-nav, .conteiner-header { top: 46px; }
+    .input-row label{ margin-right: 50px; width: 100px;}
 }
 
 /* 画面サイズが610px以下の設定 */
 @media screen and (max-width: 610px) {
-    body{ font-size: 15px;}
+    body{ font-size: 14px;}
     .navImage { margin-top: 6px; }
     .navLink { width: 40px; }
     header { height: 40px; }
@@ -766,4 +803,18 @@ main {
     .form-container{ width: 100%; }
     .input-label-area, .input-label{ padding-right: 5px;}
     .min-text{ width: 70px; }
+    .product-header-row { flex-direction: column; gap: 20px; }
+    .product-media-description {
+        flex-direction: column;
+        gap: 20px;
+        flex: none;
+    }
+    .product-image-area,
+    .product-detail-summary {
+        max-width: 100%;
+        flex: none;
+    }
+    .product-action-box { min-width: unset; }
+    .card {width:100px; height: 200px; font-size: 12px;}
+    .panels-wrapper{ display: block;}
 }

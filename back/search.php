@@ -1,12 +1,12 @@
 <?php
+ini_set("display_errors",1);
+error_reporting(E_ALL);
 session_start();
 require 'db_connect.php';
-
-try {
-    $pdo = new PDO($connect, USER, PASS);
+/*try {
 } catch (PDOException $e) {
     die("データベース接続エラー: " . $e->getMessage());
-}
+}*/
 
 // ======== POST 取得 ========
 $category = $_POST['category'] ?? '';
@@ -49,7 +49,7 @@ if (!empty($width)) {
 }
 
 // ======== SQL 生成 ========
-$sql = "SELECT * FROM product";
+$sql = "SELECT * FROM item";
 if (!empty($where)) {
     $sql .= " WHERE " . implode(" AND ", $where);
 }
@@ -63,9 +63,10 @@ echo "<h1>検索結果</h1>";
 
 if ($results) {
     foreach ($results as $row) {
+        $imgPath='../'.$row['image'];
         echo '<div style="margin:10px 0;">';
-        echo '<a href="">';
-        echo '<img src="'.htmlspecialchars($row['image']).'" style="width:150px;">';
+        echo '<a href="../front/detail.php?id='.$row['item_id'].'">';
+        echo '<img src="'.htmlspecialchars($imgPath).'" style="width:150px;">';
         echo '<br>';
         echo htmlspecialchars($row['item_name']);
         echo '<br>横: '.htmlspecialchars($row['width']).'cm / 縦: '.htmlspecialchars($row['height']).'cm';

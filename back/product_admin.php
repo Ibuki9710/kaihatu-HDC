@@ -1,90 +1,76 @@
 <?php
-// ===============================================
-// 1. 外部ファイルの読み込み (DbConnect.php)
-// ===============================================
-// 既存の DbConnect.php が存在し、DB接続ロジックを持っていることを前提とします。
-require_once 'db_connect.php'; 
+session_start();
 
-// ===============================================
-// 2. 商品操作クラス (ProductModel)
-// ===============================================
+require_once __DIR__ . '/db_connect.php';
+
 class ProductModel {
     private $pdo;
 
-    public function __construct() {
-        // 外部の db_connect クラスを利用して PDO インスタンスを取得
-        $db = new db_connect();
-        $this->pdo = $db->connect();
+    public function __construct($pdo) {
+        $this->pdo = $pdo;
     }
 
-    // R (Read) - 全ての商品を取得
     public function getAllProducts() {
-        $stmt = $this->pdo->query("SELECT * FROM item ORDER BY id DESC");
-        return $stmt->fetchAll();
+        $sql = "SELECT item_id AS id, item_name AS name, item_explain AS description
+                FROM item ORDER BY item_id DESC";
+        return $this->pdo->query($sql)->fetchAll();
     }
 
-    // R (Read/Search) - 検索キーワードに基づいて商品を取得
     public function searchProducts($keyword) {
-        $search_term = '%' . $keyword . '%';
-        $sql = "SELECT * FROM item 
-                WHERE name LIKE ? OR description LIKE ?
-                ORDER BY id DESC";
+        $search = '%' . $keyword . '%';
+        $sql = "SELECT item_id AS id, item_name AS name, item_explain AS description
+                FROM item 
+                WHERE item_name LIKE ? OR item_explain LIKE ?
+                ORDER BY item_id DESC";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$search_term, $search_term]);
+        $stmt->execute([$search, $search]);
         return $stmt->fetchAll();
     }
 
-    // D (Delete) - 商品を削除
     public function deleteProduct($id) {
-        $stmt = $this->pdo->prepare("DELETE FROM item WHERE id = ?");
+        $sql = "DELETE FROM item WHERE item_id = ?";
+        $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([$id]);
     }
 }
 
-// ===============================================
-// 3. メイン処理 (削除とデータ取得)
-// ===============================================
+$model = new ProductModel($pdo);
 
-$model = new ProductModel();
-$products = [];
-$search_keyword = '';
-$message = '';
-$error = '';
 
-// ----------------------------------------
-// 3-1. 削除処理 (Delete)
-// ----------------------------------------
-if (isset($_GET['action']) && $_GET['action'] === 'delete') {
-    $product_id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+// =============================
+// POST（検索 or 削除）
+// =============================
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    if ($product_id !== false && $product_id !== null) {
-        if ($model->deleteProduct($product_id)) {
-            $message = '✅ 商品ID: ' . $product_id . ' が正常に削除されました。';
-            // 削除後のリダイレクト（パラメータ除去とメッセージ表示のため）
-            header('Location: product_admin.php?message=' . urlencode($message));
-            exit;
-        } else {
-            $error = '❌ 削除に失敗しました。';
+    // 削除
+    if (!empty($_POST['action']) && $_POST['action'] === 'delete') {
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+
+        if ($id && $model->deleteProduct($id)) {
+            $_SESSION['message'] = "商品 ID {$id} を削除しました。";
         }
-    } else {
-        $error = '❌ 削除対象のIDが無効です。';
+        header("Location: ../front/product-search.php");
+        exit;
+    }
+
+    // 検索
+    if (isset($_POST['keyword'])) {
+        $keyword = trim($_POST['keyword']);
+
+        if ($keyword === "") {
+            $products = $model->getAllProducts();   // 空検索→全件表示
+        } else {
+            $products = $model->searchProducts($keyword);
+        }
+
+        $_SESSION['products'] = $products;
+        header("Location: ../front/product-search.php");
+        exit;
     }
 }
 
-// ----------------------------------------
-// 3-2. メッセージの受け取り
-// ----------------------------------------
-if (isset($_GET['message'])) {
-    $message = htmlspecialchars($_GET['message']);
-}
-
-// ----------------------------------------
-// 3-3. 商品一覧・検索データ取得処理 (Read/Search)
-// ----------------------------------------
-if (isset($_GET['keyword']) && $_GET['keyword'] !== '') {
-    $search_keyword = filter_input(INPUT_GET, 'keyword', FILTER_SANITIZE_STRING);
-    $products = $model->searchProducts($search_keyword); 
-} else {
-    $products = $model->getAllProducts();
-}
-?>
+// =============================
+// ここまで来たら 「アクセス不正」
+// front から直接 require された可能性がある
+// =============================
+exit("直接アクセスはできません");
