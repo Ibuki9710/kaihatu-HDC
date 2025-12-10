@@ -35,7 +35,7 @@ require 'list-admin.html';
                 <div class="input-row">
                     <label class="input-label">ブランド</label>
                     <select name="brand" required>
-                        <option value="">選択してください</option>
+                        <option value="" select disabled>選択してください</option>
                         <option value="大型製品">大型製品</option>
                         <option value="小型製品">小型製品</option>
                     </select>
@@ -44,9 +44,10 @@ require 'list-admin.html';
                 <!-- 商品画像 -->
                 <div class="input-row">
                     <label class="input-label">商品画像</label>
-                    <input type="file" name="image" accept="image/*" id="image-input" required>
-                    <div style="margin-top:10px;">
-                        <img id="image-preview" src="#" alt="画像プレビュー" style="max-width:200px; display:none;">
+                    <div class="small-box drop-zone">
+                        <input type="file" name="image" accept="image/*" id="image-input" class="file-input" required>
+                            <i class="fas fa-folder-open fa-1x file-icon"></i>
+                            <p>画像を選択またはドラッグ&ドロップ</p>
                     </div>
                 </div>
 

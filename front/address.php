@@ -94,7 +94,7 @@ require 'header2.html';
 
             </form>
             <div class="btn-group">
-                <button type="submit" class="greenBtn btn-base">保存</button>
+                <button type="submit" class="greenBtn btn-base" form="address-form">保存</button>
                 <a href="customer-menu.php"><button type="button" class="blueBtn btn-base">戻る</button></a>
             </div>
         </form>

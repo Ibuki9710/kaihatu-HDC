@@ -47,7 +47,7 @@ try {
 <?php require 'header-admin.html'; ?>
 <?php require 'list-admin.html'; ?>
 
-<div class="container-admin">
+<div class="conteiner-header">
     <h2>不用品管理</h2>
 
     <?php if ($message !== ''): ?>
