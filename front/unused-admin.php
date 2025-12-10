@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['id'])) {
 
     if ($id) {
         try {
-            $stmt = $pdo->prepare("DELETE FROM notitem WHERE unnecessary_items_id = ?");
+            $stmt = $pdo->prepare("DELETE FROM item WHERE item_id = ?");
             $stmt->execute([$id]);
             $_SESSION['message'] = "商品 ID {$id} を削除しました。";
         } catch (PDOException $e) {
@@ -35,10 +35,10 @@ if (!empty($_SESSION['message'])) {
 // 不用品データ取得
 // -----------------------------
 try {
-    $stmt = $pdo->query("SELECT * FROM notitem ORDER BY unnecessary_items_id DESC");
+    $stmt = $pdo->query("SELECT * FROM item ORDER BY item_id DESC");
     $notitems = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-    $notitems = [];
+    $items = [];
     $error_message = "商品取得中にエラーが発生しました: " . htmlspecialchars($e->getMessage());
 }
 
@@ -47,7 +47,7 @@ try {
 <?php require 'header-admin.html'; ?>
 <?php require 'list-admin.html'; ?>
 
-<div class="container-admin">
+<div class="conteiner-header">
     <h2>不用品管理</h2>
 
     <?php if ($message !== ''): ?>
@@ -58,16 +58,16 @@ try {
         <p style="color:red;"><?= $error_message ?></p>
     <?php endif; ?>
 
-    <?php if (!empty($notitems)): ?>
-        <?php foreach ($notitems as $item): ?>
+    <?php if (!empty($items)): ?>
+        <?php foreach ($items as $item): ?>
             <div class="product-box">
-                <img src="../image/noimage.png" alt="<?= htmlspecialchars($item['unnecessary_items_name']) ?>" class="product-img">
+                <img src="../image/mage.png" alt="<?= htmlspecialchars($item['item_name']) ?>" class="product-img">
 
                 <div class="product-info">
-                    <p><strong>ID：</strong><?= htmlspecialchars($item['unnecessary_items_id']) ?></p>
-                    <p><strong>商品名：</strong><?= htmlspecialchars($item['unnecessary_items_name']) ?></p>
+                    <p><strong>ID：</strong><?= htmlspecialchars($item['item_id']) ?></p>
+                    <p><strong>商品名：</strong><?= htmlspecialchars($item['item_name']) ?></p>
                     <p><strong>価格：</strong><?= htmlspecialchars($item['price']) ?>円</p>
-                    <p><strong>説明：</strong><?= htmlspecialchars($item['unnecessary_items_explain']) ?></p>
+                    <p><strong>説明：</strong><?= htmlspecialchars($item['items_explain']) ?></p>
                     <?php if (!empty($item['width']) && !empty($item['height'])): ?>
                         <p><strong>サイズ：</strong><?= htmlspecialchars($item['width']) ?>cm × <?= htmlspecialchars($item['height']) ?>cm</p>
                     <?php endif; ?>
@@ -75,7 +75,7 @@ try {
                 </div>
 
                 <form action="unused-admin.php" method="post" onsubmit="return confirm('本当に削除しますか？');">
-                    <input type="hidden" name="id" value="<?= htmlspecialchars($item['unnecessary_items_id']); ?>">
+                    <input type="hidden" name="id" value="<?= htmlspecialchars($item['item_id']); ?>">
                     <button type="submit" class="btn-base redBtn">削除</button>
                 </form>
             </div>

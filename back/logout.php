@@ -11,20 +11,13 @@ if (!isset($_SESSION['member_id'])) {
 $member_id = $_SESSION['member_id'];
 
 try {
-    // 会員情報を削除
-    $stmt = $pdo->prepare("DELETE FROM customer WHERE member_id = ?");
-    $stmt->execute([$member_id]);
-
-    // 必要に応じて、カートや注文履歴も削除
-    $stmt = $pdo->prepare("DELETE FROM cartss WHERE member_id = ?");
-    $stmt->execute([$member_id]);
 
     // セッションを破棄してログアウト
     $_SESSION = [];
     session_destroy();
 
     // ログインページにリダイレクト
-    header('Location: /login.php');
+    header('Location: /2025/kaihatu-HDC/front/login.php');
     exit;
 
 } catch (PDOException $e) {

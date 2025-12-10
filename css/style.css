@@ -10,9 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-size: 17px; 
-    position: relative;
-    padding-bottom: 150px;
+    font-size: 17px;
     color: #333;
 }
 * {
@@ -33,7 +31,10 @@ header {
     background-color: rgb(215, 220, 255);
     display: flex;
     align-items: center;
+    position: fixed;
     height: 60px;
+    width: 100%;
+    z-index: 2;
 }
 .nav {
     width: 100%;
@@ -114,8 +115,9 @@ main {
     flex-grow: 1;
     min-height: 0;
     height: auto;
-    margin: 15px;
-    margin-top: 25px;
+    margin:0;
+    padding:0;
+    margin-top:90px;
 }
 .main {
     transition: margin-left 0.4s ease;
@@ -125,7 +127,6 @@ main {
 .footer {
     background-color: rgb(197, 197, 197);
     display: block;
-    position: absolute;
     width: 100%;
     height: 150px;
     margin: 0;
@@ -143,7 +144,7 @@ main {
     width: 30px;
     height: 30px;
     cursor: pointer;
-    position: absolute;
+    position: fixed;
     left: 3px; 
     top: 60px;
     z-index: 100;
@@ -162,11 +163,12 @@ main {
     position: fixed;
     left: -250px; 
     width: 160px;
-    height: 100vh; 
+    bottom: 0;
     transition: left 0.4s ease; 
     z-index: 99;
     background-color: rgb(249, 249, 249);
     top: 60px;
+    height: calc(100vh - 60px);
     padding: 0;
     margin: 0;
 }
@@ -324,23 +326,6 @@ main {
     display: inline-block;
 }
 
-/* 入力欄の統合スタイル */
-.input-base-text,
-.form-group input:not([type="checkbox"]):not([type="radio"]),
-.customer-text,
-.min-text,
-.size-input,
-.input-field,
-.input-field-area input:not([type="checkbox"]):not([type="radio"]),
-.input-field-area textarea,
-#zipcode {
-    border: solid 1px rgb(132, 132, 132); 
-    border-radius: 4px; 
-    font-size: 14px;
-    padding: 8px;
-    height: 35px;
-    width: 100%; 
-}
 /* 固有プロパティの上書き */
 .customer-text {
     height: 40px;
@@ -402,6 +387,24 @@ main {
 }
 .radio-group{
     display: contents;
+}
+
+/* 入力欄の統合スタイル */
+.input-base-text,
+.form-group input:not([type="checkbox"]):not([type="radio"]),
+.customer-text,
+.min-text,
+.input-field,
+.input-field-area input:not([type="checkbox"]):not([type="radio"]),
+.input-field-area textarea,
+#zipcode {
+    border: solid 1px rgb(132, 132, 132); 
+    border-radius: 4px; 
+    font-size: 14px;
+    padding: 8px;
+    height: 35px;
+    width: 100%;
+    margin-bottom: 5px; 
 }
 
 /* ボックスとコンテナ */
@@ -486,7 +489,7 @@ main {
     height: 100%;
     width: 200px;
     top: 60px;
-    position: absolute;
+    position: fixed;
 }
 .list-admin {
     height: 50px;
@@ -518,6 +521,7 @@ main {
     position: relative; 
     overflow: hidden;
     border-radius: 5px;
+    z-index: 1;
 }
 .large-box {
     height: 200px; 
@@ -664,10 +668,10 @@ main {
     width: 95%;
     background-color: white;
     border: 1px solid black;
-    top: 70px;
     margin-left: 200px;
     display: flex;
     align-items: center;
+    margin-top: 60px;
 }
 .conteiner-header h2 {
     margin-right: 30px;
@@ -711,7 +715,7 @@ main {
     font-size: 1em;
     color: #555;
     pointer-events: none; 
-    z-index: 10;
+    z-index: 2;
 }
 .listing{
     position: fixed;
@@ -760,29 +764,6 @@ main {
     text-align: left;
 }
 /*メディアクエリ*/
-/* 画面サイズが900px以下の設定 */
-@media screen and (max-width: 900px) {
-    .navImage { margin-top: 3px; }
-    header { height: 46px; }
-    .navIcon { font-size: 11px; }
-    .navLink { width: 55px; }
-    .searchIcon { width: 20px; }
-    .search-inner form { height: 22px; }
-    .search-inner form input { margin-top: 11px; }
-    .menu { top: 46px; width: 120px; }
-    #menu-toggle.is-active ~ .main { margin-left: 130px; }
-    .menu li { font-size: 14px; }
-    .menu-button { top: 46px; }
-    .menu-btn {
-        margin-left: 5px;
-        width: 50px; 
-        font-size: 10px;
-    }
-    .icon { width: 40px; height: 40px; margin: 3px;}
-    .admin-nav, .conteiner-header { top: 46px; }
-    .input-row label{ margin-right: 50px; width: 100px;}
-}
-
 /* 画面サイズが610px以下の設定 */
 @media screen and (max-width: 610px) {
     body{ font-size: 14px;}
@@ -791,9 +772,10 @@ main {
     header { height: 40px; }
     .navIcon { font-size: 8px; }
     .searchIcon { width: 17px; }
+    main{ margin-top: 80px;}
     .search-inner form { height: 20px; }
     .search-inner form input { margin-top: 10px; }
-    .menu { top: 40px; width: 110px; }
+    .menu { top: 40px; width: 110px; height: calc(100vh - 40px);}
     #menu-toggle.is-active ~ .main { margin-left: 120px; }
     .menu li { font-size: 12px; }
     .menu-button { top: 40px; }
@@ -817,4 +799,27 @@ main {
     .product-action-box { min-width: unset; }
     .card {width:100px; height: 200px; font-size: 12px;}
     .panels-wrapper{ display: block;}
+}
+/* 画面サイズが900px以下の設定 */
+@media screen and (max-width: 900px) {
+    .navImage { margin-top: 3px; }
+    main{ margin-top: 85px; }
+    header { height: 46px; }
+    .navIcon { font-size: 11px; }
+    .navLink { width: 55px; }
+    .searchIcon { width: 20px; }
+    .search-inner form { height: 22px; }
+    .search-inner form input { margin-top: 11px; }
+    .menu { top: 46px; width: 120px; }
+    #menu-toggle.is-active ~ .main { margin-left: 130px; }
+    .menu li { font-size: 14px; }
+    .menu-button { top: 46px; }
+    .menu-btn {
+        margin-left: 5px;
+        width: 50px; 
+        font-size: 10px;
+    }
+    .icon { width: 40px; height: 40px; margin: 3px;}
+    .admin-nav, .conteiner-header { top: 46px; }
+    .input-row label{ margin-right: 50px; width: 100px;}
 }
