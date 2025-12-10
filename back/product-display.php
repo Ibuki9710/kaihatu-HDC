@@ -68,8 +68,9 @@ if (empty($items)) {
             ? '../front/product-detail-syu.php?id=' . htmlspecialchars($item['unnecessary_items_id'])
             : '../front/detail.php?id=' . htmlspecialchars($item['item_id']);
 
+        // item_idベースのファイル名を使用
         $imagePath = $notitem === 2
-            ? '../noimage/' . htmlspecialchars($item['image']) // ←DBに保存されたファイル名を使用
+            ? '../noimage/' . htmlspecialchars($item['image'])
             : '../image/' . htmlspecialchars($item['item_id']) . '.png';
 
         $name = $item['unnecessary_items_name'] ?? $item['item_name'];
