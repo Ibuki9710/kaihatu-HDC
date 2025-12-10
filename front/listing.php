@@ -31,7 +31,7 @@ require 'header.html';
                     </div>
                     <div class="form-group">
                         <label>商品説明 <span style="color:red;">*</span></label>
-                        <textarea name="unnecessary_items_explain" rows="6" placeholder="商品説明" required></textarea>
+                        <textarea name="unnecessary_items_explain" rows="6" placeholder="商品説明" required class="textarea"></textarea>
                     </div>
                     <div class="form-group">
                         <label>サイズ</label>

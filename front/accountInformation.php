@@ -14,25 +14,25 @@ require 'list-admin.html';
                 <div class="input-row">
                     <label class="input-label">アカウント名</label>
                     <div class="input-field-area"> 
-                        <input type="text" name="user" class="input-base-text" value="admin"> 
+                        <input type="text" name="user" class="input-base-text" placeholder="admin"> 
                     </div>
                 </div>
                 <div class="input-row">
                     <label class="input-label">メールアドレス</label>
                     <div class="input-field-area"> 
-                        <input type="email" name="adress" class="input-base-text" value="admin@gmail.com"> 
+                        <input type="email" name="adress" class="input-base-text" placeholder="admin@gmail.com"> 
                     </div>
                 </div>
                 <div class="input-row">
                     <label class="input-label">電話番号</label>
                     <div class="input-field-area"> 
-                        <input type="text" name="tere" class="input-base-text" value="123-456-789"> 
+                        <input type="text" name="tere" class="input-base-text" placeholder="123-456-789"> 
                     </div>
                 </div>
                 <div class="empty"></div>
                 <div class="center">
-                    <a href="login.php">    <bnutton class="btn-base blueBtn btn-wrapper">ログアウト</button></a>
-
+                    <a href="login.php">    
+                        <bnutton class="btn-base blueBtn btn-wrapper">ログアウト</button></a>
                 </div>
                 <p>バージョン確認　　　　2-2.2.2.0</p>
             </form>
