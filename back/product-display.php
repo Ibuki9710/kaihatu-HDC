@@ -64,14 +64,17 @@ if (empty($items)) {
     echo "<p>商品データがありません。</p>";
 } else {
     foreach ($items as $item) {
-        $detailLink = $notitem === 2 
-            ? '../front/product-detail-syu.php?id=' . htmlspecialchars($item['unnecessary_items_id'])
-            : '../front/detail.php?id=' . htmlspecialchars($item['item_id']);
+        // notitemによって分岐（unnecessary_items_idまたはitem_idを使用）
+        if ($notitem === 2) {
+            $detailLink = '../front/product-detail-syu.php?id=' . htmlspecialchars($item['unnecessary_items_id']);
+            $itemId = $item['unnecessary_items_id'];
+        } else {
+            $detailLink = '../front/detail.php?id=' . htmlspecialchars($item['item_id']);
+            $itemId = $item['item_id'];
+        }
 
-        // item_idベースのファイル名を使用
-        $imagePath = $notitem === 2
-            ? '../noimage/' . htmlspecialchars($item['image'])
-            : '../image/' . htmlspecialchars($item['item_id']) . '.png';
+        // 画像パス: すべて../image/フォルダからitem_id.png形式で取得
+        $imagePath = '../image/' . htmlspecialchars($itemId) . '.png';
 
         $name = $item['unnecessary_items_name'] ?? $item['item_name'];
         $price = $item['price'];
