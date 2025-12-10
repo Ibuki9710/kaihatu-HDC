@@ -35,7 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $allowed = ['jpg', 'jpeg', 'png', 'gif'];
         if (!in_array($ext, $allowed)) $ext = 'png';
 
-        $filename = time() . '.' . $ext;
+        // ファイル名を事前に生成（DBとファイル保存で統一）
+        $timestamp = time();
+        $filename = $timestamp . '.' . $ext;
         $target = $upload_dir . $filename;
 
         if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
@@ -69,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
 
     // 6. 完了メッセージ
-    $_SESSION['success'] = "商品を登録しました！";
+    $_SESSION['success'] = "商品を登録しました!";
     header('Location: ../front/home-sample.php');
     exit;
 }
