@@ -1,0 +1,96 @@
+.center {
+    max-width: 1000px; 
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* コンテンツを中央に */
+.center-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.h2-center {
+    text-align: center;
+    margin: 0;
+}
+
+/* ------------------------------------- */
+/* コンテナ幅の固定 */
+/* ------------------------------------- */
+.form-container {
+    width: 100%; 
+    max-width: 500px;
+    margin: 0 auto; 
+}
+
+/* ------------------------------------- */
+/* お知らせリスト（スクロールつき） */
+/* ------------------------------------- */
+.notification-list-boxed {
+    display: flex; 
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+
+    max-height: 500px;   /* ★高さ決定 → スクロールできる */
+    overflow-y: auto;    /* 内容が多い時スクロール */
+    padding-right: 15px;
+}
+
+/* スクロールバー（Chrome / Edge / Safari） */
+.notification-list-boxed::-webkit-scrollbar {
+    width: 8px;
+}
+
+.notification-list-boxed::-webkit-scrollbar-track {
+    background: #eee;
+    border-radius: 4px;
+}
+
+.notification-list-boxed::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 4px;
+}
+
+.notification-list-boxed::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* ------------------------------------- */
+/* 各お知らせボックス */
+/* ------------------------------------- */
+.notification-box {
+    display: block;
+    padding: 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+
+    transition: background-color 0.3s;
+}
+
+.notification-box:hover {
+    background-color: #f7f7f7; 
+    border-color: #999;
+}
+
+/* 日付とタイトル */
+.news-date {
+    font-size: 0.9em;
+    color: #666; 
+    margin-bottom: 5px;
+}
+
+.news-title {
+    font-size: 1.1em;
+    color: #5d2590;
+    margin: 0;
+}
