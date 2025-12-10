@@ -29,17 +29,22 @@ if ($width !== '' && is_numeric($width)) {
     $params[] = (int)$width;
 }
 
-// 品質フィルター
-if (!empty($be_solditem)) {
-    $sql .= " AND be_solditem = ?";
-    $params[] = $be_solditem;
-}
+// 出力
+if (empty($items)) {
+    echo "<p>商品データがありません。</p>";
+} else {
+    foreach ($items as $item) {
+        // notitemによって分岐（unnecessary_items_idまたはitem_idを使用）
+        if ($notitem === 2) {
+            $detailLink = '../front/product-detail-syu.php?id=' . htmlspecialchars($item['unnecessary_items_id']);
+            $itemId = $item['unnecessary_items_id'];
+        } else {
+            $detailLink = '../front/detail.php?id=' . htmlspecialchars($item['item_id']);
+            $itemId = $item['item_id'];
+        }
 
-// ジャンル
-if ($brand!=='') {
-    $sql .= " AND brand = ?";
-    $params[] = $brand;
-}
+        // 画像パス: すべて../image/フォルダからitem_id.png形式で取得
+        $imagePath = '../image/' . htmlspecialchars($itemId) . '.png';
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
