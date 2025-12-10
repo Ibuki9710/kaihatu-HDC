@@ -25,17 +25,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($height !== "" && !is_numeric($height)) $errors[] = "縦幅は数字で入力してください。";
     if ($price === "" || !is_numeric($price)) $errors[] = "価格は数字で入力してください。";
 
-    // 3. 画像アップロード（../noimage/ フォルダに保存）
-    $upload_dir = '../noimage/';
+    // 3. 画像アップロード（../image/ フォルダに保存）
+    $upload_dir = '../image/';
     if (!is_dir($upload_dir)) mkdir($upload_dir, 0777, true);
 
-    $image_path = 'noimage.png'; // デフォルト
+    $image_path = 'image.png'; // デフォルト
     if (!empty($_FILES['image']['name']) && $_FILES['image']['error'] === 0) {
         $ext = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
         $allowed = ['jpg', 'jpeg', 'png', 'gif'];
         if (!in_array($ext, $allowed)) $ext = 'png';
 
-        $filename = 'notitem_' . time() . '.' . $ext;
+        $filename = time() . '.' . $ext;
         $target = $upload_dir . $filename;
 
         if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
@@ -54,9 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // 5. DB保存
-    $sql = "INSERT INTO notitem
-            (unnecessary_items_name, price, unnecessary_items_explain, width, height, image, not_brand, created_at)
-            VALUES (:name, :price, :description, :width, :height, :image, :brand, NOW())";
+    $sql = "INSERT INTO item
+            (item_name, price, item_explain, width, height, image, brand)
+            VALUES (:name, :price, :description, :width, :height, :image, :brand)";
 
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':name',  $name, PDO::PARAM_STR);
