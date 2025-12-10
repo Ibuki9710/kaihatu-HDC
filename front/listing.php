@@ -35,8 +35,8 @@ require 'header.html';
                     </div>
                     <div class="form-group">
                         <label>サイズ</label>
-                        <input type="number" name="width" placeholder="横幅(cm)" min="0">
-                        <input type="number" name="height" placeholder="縦幅(cm)" min="0">
+                        <input type="number" name="width" placeholder="横幅(cm)" min="0" class="size">
+                        <input type="number" name="height" placeholder="縦幅(cm)" min="0" class="size">
                     </div>
                     <div class="form-group">
                         <label>ブランド <span style="color:red;">*</span></label><br>
@@ -51,7 +51,7 @@ require 'header.html';
                     <a href="javascript:history.back();">
                         <button type="button" class="blueBtn btn-base">戻る</button>
                     </a>
-                    <button type="submit" class="greenBtn btn-base">出品</button>
+                    <button type="submit" class="greenBtn btn-base" form="edit-form">出品</button>
                 </div>
             </div>
         </form>

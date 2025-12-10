@@ -326,24 +326,6 @@ main {
     display: inline-block;
 }
 
-/* 入力欄の統合スタイル */
-.input-base-text,
-.form-group input:not([type="checkbox"]):not([type="radio"]),
-.customer-text,
-.min-text,
-.size-input,
-.input-field,
-.input-field-area input:not([type="checkbox"]):not([type="radio"]),
-.input-field-area textarea,
-#zipcode {
-    border: solid 1px rgb(132, 132, 132); 
-    border-radius: 4px; 
-    font-size: 14px;
-    padding: 8px;
-    height: 35px;
-    width: 100%;
-    margin-bottom: 5px; 
-}
 /* 固有プロパティの上書き */
 .customer-text {
     height: 40px;
@@ -405,6 +387,24 @@ main {
 }
 .radio-group{
     display: contents;
+}
+
+/* 入力欄の統合スタイル */
+.input-base-text,
+.form-group input:not([type="checkbox"]):not([type="radio"]),
+.customer-text,
+.min-text,
+.input-field,
+.input-field-area input:not([type="checkbox"]):not([type="radio"]),
+.input-field-area textarea,
+#zipcode {
+    border: solid 1px rgb(132, 132, 132); 
+    border-radius: 4px; 
+    font-size: 14px;
+    padding: 8px;
+    height: 35px;
+    width: 100%;
+    margin-bottom: 5px; 
 }
 
 /* ボックスとコンテナ */

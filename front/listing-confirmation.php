@@ -32,8 +32,8 @@ require 'header.html';
                     </div>
                     <div class="form-group">
                         <label>サイズ</label>
-                        <input type="number" class="min-text" name="" placeholder="横幅"><label>cm</label>
-                        <input type="number" class="min-text" name="" placeholder="縦幅"><label>cm</label>
+                        <input type="number" class="min-text" name="" placeholder="横幅" class="size"><label>cm</label>
+                        <input type="number" class="min-text" name="" placeholder="縦幅" class="size"><label>cm</label>
                     </div>
                 </div> 
             </div>

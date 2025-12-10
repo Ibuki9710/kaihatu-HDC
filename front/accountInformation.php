@@ -32,7 +32,8 @@ require 'list-admin.html';
                 <div class="empty"></div>
                 <div class="center">
                     <a href="login.php">    
-                        <bnutton class="btn-base blueBtn btn-wrapper">ログアウト</button></a>
+                        <bnutton class="btn-base blueBtn btn-wrapper">ログアウト</button>
+                    </a>
                 </div>
                 <p>バージョン確認　　　　2-2.2.2.0</p>
             </form>
