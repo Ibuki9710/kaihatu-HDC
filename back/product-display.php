@@ -10,7 +10,7 @@ $brand = $_POST['brand'] ?? '';
 $items = [];
 
 if ($notitem === 2) {
-    $sql = "SELECT * FROM notitem WHERE 1=1";
+    $sql = "SELECT * FROM item WHERE 1=1";
     $params = [];
 
     if ($keyword !== '') {
@@ -69,6 +69,7 @@ if (empty($items)) {
             : '../front/detail.php?id=' . htmlspecialchars($item['item_id']);
 
         $imagePath = $notitem === 2
+            ? '../noimage/' . htmlspecialchars($item['image']) // ←DBに保存されたファイル名を使用
             : '../image/' . htmlspecialchars($item['item_id']) . '.png';
 
         $name = $item['unnecessary_items_name'] ?? $item['item_name'];
