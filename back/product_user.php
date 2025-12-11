@@ -52,8 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // 5. DB保存（画像は仮のファイル名で登録）
     $sql = "INSERT INTO item
-            (item_name, price, item_explain, width, height, image, brand)
-            VALUES (:name, :price, :description, :width, :height, :image, :brand)";
+            (item_name, price, item_explain, width, height, image, brand, item_stock)
+            VALUES (:name, :price, :description, :width, :height, :image, :brand, 1)";
 
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':name',  $name, PDO::PARAM_STR);
