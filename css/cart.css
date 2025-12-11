@@ -7,27 +7,24 @@ body {
 .cart-list {
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 
 /* カートアイテム */
 .cart-item {
   position: relative;
   border: 1px solid #999;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 16px;
   display: flex;
   gap: 16px;
   background-color: #fff;
-  box-shadow: #999;
-  width: 80%;
-  margin:0 auto;
-  margin-bottom: 10px;
 }
 
 /* 商品画像 */
 .cart-item img {
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
   border-radius: 6px;
   border: 1px solid #ccc;
@@ -36,8 +33,9 @@ body {
 
 /* 商品詳細テキスト */
 .cart-info {
+  flex-grow: 1;
   font-size: 16px;
-  margin-left: 20px;
+  line-height: 1.6;
 }
 
 .cart-info strong {
@@ -74,7 +72,6 @@ body {
   cursor: pointer;
   color: #555;
   user-select: none;
-  height: 20px;
 }
 
 .remove-btn:hover {
