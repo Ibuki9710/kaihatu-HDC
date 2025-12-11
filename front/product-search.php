@@ -75,11 +75,14 @@ if (!empty($_SESSION['products'])) {
                         <input type="hidden" name="action" value="delete">
                     </form>
                     <button type="submit" class="btn-base redBtn">削除</button>
-                </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>商品が見つかりません。</p>
-        <?php endif; ?>
+                    
+                </form>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>商品が見つかりません。</p>
+    <?php endif; ?>
+
 </div>
 </body>
 </html>
