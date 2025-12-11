@@ -7,8 +7,6 @@ body {
 .cart-list {
   display: flex;
   flex-direction: column;
-  height: 135px;
-  line-height: 135px;
 }
 
 /* カートアイテム */
@@ -23,6 +21,7 @@ body {
   box-shadow: #999;
   width: 80%;
   margin:0 auto;
+  margin-bottom: 10px;
 }
 
 /* 商品画像 */

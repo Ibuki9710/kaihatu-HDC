@@ -81,7 +81,7 @@ require 'header2.html';
                 <label class="input-label" for="zipcode">郵便番号</label>
                 <div class="input-field-area">
                     <input type="text" name="Post_code" id="zipcode" class="input-base-text" maxlength="7" value="<?php echo htmlspecialchars($Post_code); ?>" placeholder="1000001" required>
-                    <button type="button" class="menu-btn" onclick="searchZipcode()">検索</button>
+                    <button type="button" class="blueBtn white menu-btn" style="margin-left:10px; margin-top: 0;" onclick="searchZipcode()">検索</button>
                 </div>
             </div>
 

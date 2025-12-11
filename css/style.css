@@ -661,6 +661,7 @@ main {
 .left { text-align: left; padding: 10px; }
 .border { border: solid 1px #000; }
 .empty { height: 250px; }
+.white{ color:white};
 
 
 /* --- 管理者ヘッダーの調整 --- */

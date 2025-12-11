@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             ?>
 
-            <form action="customer-update.php" method="post">
+            <form action="customer-update.php" method="post" id="editFrom">
                 <div class="input-row">
                     <label>メールアドレス（必須）</label>
                     <input type="email" name="member_email" class="customer-text" value="<?php echo htmlspecialchars($member['member_email']); ?>" required>
@@ -123,19 +123,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="input-row">
                     <label>生年月日（必須）</label>
-                    <select name="birth_year" required class="customer-text">
+                    <select name="birth_year" required class="min-text" style="margin-right: 5px;>
                         <option value="">年</option>
                         <?php for($y=date('Y'); $y>=1900; $y--): ?>
                             <option value="<?php echo $y; ?>" <?php if($y==$year) echo 'selected'; ?>><?php echo $y; ?></option>
                         <?php endfor; ?>
                     </select>
-                    <select name="birth_month" required class="customer-text">
+                    <select name="birth_month" required class="min-text" style="margin-right: 5px;>
                         <option value="">月</option>
                         <?php for($m=1; $m<=12; $m++): ?>
                             <option value="<?php echo $m; ?>" <?php if($m==$month) echo 'selected'; ?>><?php echo $m; ?></option>
                         <?php endfor; ?>
                     </select>
-                    <select name="birth_day" required class="customer-text">
+                    <select name="birth_day" required class="min-text">
                         <option value="">日</option>
                         <?php for($d=1; $d<=31; $d++): ?>
                             <option value="<?php echo $d; ?>" <?php if($d==$day) echo 'selected'; ?>><?php echo $d; ?></option>
@@ -151,11 +151,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <option value="credit" <?php if($member['BuySelect']=='credit') echo 'selected'; ?>>クレジットカード</option>
                     </select>
                 </div>
-                <div class="btn-group">
-                    <button type="submit" class="base-btn greenBtn">変更</button>
-                    <button class="base-btn blueBtn"><a href="home-sample.php">ホームに戻る</button></a>
-                </div>
             </form>
+            <div class="btn-group">
+                <button type="submit" class="btn-base greenBtn" form="editFrom">変更</button>
+                <button class="btn-base blueBtn"><a href="home-sample.php" class="white">ホームに戻る</button></a>
+            </div>
         </div>
     </div>
 
