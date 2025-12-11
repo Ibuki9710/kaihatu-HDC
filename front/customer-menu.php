@@ -38,7 +38,7 @@ require 'header.html';
                 <h4>ログアウト</h4>
             </div>
         </a>
-       <a href="../back/logout.php" class="black" onclick="return confirmDelete();">
+       <a href="../back/logout-rost.php" class="black" onclick="return confirmDelete();">
     <div class="container btn-wrapper grey left">
         <h4>退会</h4>
     </div>
