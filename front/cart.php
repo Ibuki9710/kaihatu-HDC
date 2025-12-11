@@ -6,6 +6,7 @@ require 'header.html';
     <div class="center-content">
         <h2>カート一覧</h2>
     </div>
+
     <?php require '../back/cart.php'; ?>
 
     <div class="button-area" style="margin-top:20px;">

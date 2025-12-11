@@ -105,37 +105,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             ?>
 
-            <form action="customer-update.php" method="post" id="editFrom">
+            <form action="customer-update.php" method="post">
                 <div class="input-row">
                     <label>メールアドレス（必須）</label>
-                    <input type="email" name="member_email" class="customer-text" value="<?php echo htmlspecialchars($member['member_email']); ?>" required>
+                    <input type="email" name="member_email" value="<?php echo htmlspecialchars($member['member_email']); ?>" required>
                 </div>
 
                 <div class="input-row">
                     <label>パスワード（任意）</label>
-                    <input type="password" name="password" class="customer-text" placeholder="変更する場合のみ入力">
+                    <input type="password" name="password" placeholder="変更する場合のみ入力">
                 </div>
 
                 <div class="input-row">
                     <label>氏名（必須）</label>
-                    <input type="text" name="name" class="customer-text" value="<?php echo htmlspecialchars($member['name']); ?>" required>
+                    <input type="text" name="name" value="<?php echo htmlspecialchars($member['name']); ?>" required>
                 </div>
 
                 <div class="input-row">
                     <label>生年月日（必須）</label>
-                    <select name="birth_year" required class="min-text" style="margin-right: 5px;>
+                    <select name="birth_year" required>
                         <option value="">年</option>
                         <?php for($y=date('Y'); $y>=1900; $y--): ?>
                             <option value="<?php echo $y; ?>" <?php if($y==$year) echo 'selected'; ?>><?php echo $y; ?></option>
                         <?php endfor; ?>
                     </select>
-                    <select name="birth_month" required class="min-text" style="margin-right: 5px;>
+                    <select name="birth_month" required>
                         <option value="">月</option>
                         <?php for($m=1; $m<=12; $m++): ?>
                             <option value="<?php echo $m; ?>" <?php if($m==$month) echo 'selected'; ?>><?php echo $m; ?></option>
                         <?php endfor; ?>
                     </select>
-                    <select name="birth_day" required class="min-text">
+                    <select name="birth_day" required>
                         <option value="">日</option>
                         <?php for($d=1; $d<=31; $d++): ?>
                             <option value="<?php echo $d; ?>" <?php if($d==$day) echo 'selected'; ?>><?php echo $d; ?></option>
@@ -145,17 +145,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="input-row">
                     <label>支払方法（必須）</label>
-                    <select name="BuySelect" required class="customer-text">
+                    <select name="BuySelect" required>
                         <option value="" disabled <?php if(empty($member['BuySelect'])) echo 'selected'; ?>>選択してください</option>
                         <option value="paypay" <?php if($member['BuySelect']=='paypay') echo 'selected'; ?>>PayPay</option>
                         <option value="credit" <?php if($member['BuySelect']=='credit') echo 'selected'; ?>>クレジットカード</option>
                     </select>
                 </div>
+
+                <button type="submit">変更</button>
+                <a href="javascript:history.back();">
+                    <button class="btn-base blueBtn">戻る</button>
+                </a>
             </form>
-            <div class="btn-group">
-                <button type="submit" class="btn-base greenBtn" form="editFrom">変更</button>
-                <button class="btn-base blueBtn"><a href="home-sample.php" class="white">ホームに戻る</button></a>
-            </div>
         </div>
     </div>
 
