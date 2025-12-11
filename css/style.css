@@ -335,6 +335,7 @@ main {
     width: 100px;
     border-radius: 3px;
     border: solid 1px rgb(106, 106, 106); 
+    height: 35px;
 }
 .size-input {
     width: 100px;
@@ -393,7 +394,6 @@ main {
 .input-base-text,
 .form-group input:not([type="checkbox"]):not([type="radio"]),
 .customer-text,
-.min-text,
 .input-field,
 .input-field-area input:not([type="checkbox"]):not([type="radio"]),
 .input-field-area textarea,
@@ -661,6 +661,7 @@ main {
 .left { text-align: left; padding: 10px; }
 .border { border: solid 1px #000; }
 .empty { height: 250px; }
+.white{ color:white};
 
 
 /* --- 管理者ヘッダーの調整 --- */

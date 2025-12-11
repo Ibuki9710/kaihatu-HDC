@@ -5,7 +5,7 @@
         echo '<div class="cart-list">';
         foreach($_SESSION['cart'] as $id=>$product){
             echo '<section class="cart-item">';
-            echo '<a href="../back/cart-delete.php?id=', $id, '" class="remove-btn">×</a>';
+            echo '<a href="../back/cart-delete.php?id=', $id, '" class="remove-btn"><i class="fas fa-times fa-lg"></i></a>';
             echo '<img src="../image/', $product['item_id'], '.png">';
             echo '<div class="info">';
             echo '<h3>', $product['item_name'], '</h3>';
