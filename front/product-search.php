@@ -71,6 +71,7 @@ if (!empty($_SESSION['products'])) {
                     <input type="hidden" name="id" value="<?= $p['id'] ?>">
                     <input type="hidden" name="action" value="delete">
                     <button type="submit" class="btn-base redBtn">削除</button>
+                    
                 </form>
             </div>
         <?php endforeach; ?>
