@@ -70,7 +70,7 @@ if (!empty($_SESSION['products'])) {
                         <p><strong>説明：</strong><?= htmlspecialchars($p['description']) ?></p>
                     </div>
 
-                    <form action="../back/product_admin.php" method="post" id="edit-form">
+                    <form action="../back/product_admin.php" method="post">
                         <input type="hidden" name="id" value="<?= $p['id'] ?>">
                         <input type="hidden" name="action" value="delete">
                     </form>
