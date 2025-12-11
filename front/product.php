@@ -69,7 +69,6 @@ require 'list-admin.html';
                     <div class="size-group">
                         <label>横幅　：<input type="number" name="width" min="0" class="size-input"></label>
                         <label>高さ　：<input type="number" name="height" min="0" class="size-input"></label>
-                        <label>奥行き：<input type="number" name="depth" min="0" class="size-input"></label>
                     </div>
                 </div>
 
