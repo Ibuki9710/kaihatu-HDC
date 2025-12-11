@@ -29,8 +29,6 @@ require_once __DIR__ . '/../back/db_connect.php';
                         <?= htmlspecialchars($news['date'], ENT_QUOTES, 'UTF-8'); ?>
                     </p>
                     <!-- タイトル -->
-                    <a href="news_detail.php?id=<?= htmlspecialchars($news['news_id'], ENT_QUOTES, 'UTF-8'); ?>">
-                        <?= htmlspecialchars($news['title'], ENT_QUOTES, 'UTF-8'); ?>
                     </h3>
                     <!-- 本文 -->
                     <p class="news-text">
