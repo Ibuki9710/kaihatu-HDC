@@ -80,7 +80,7 @@ require 'header2.html';
             <div class="input-row">
                 <label class="input-label" for="zipcode">郵便番号</label>
                 <div class="input-field-area">
-                    <input type="text" name="Post_code" id="zipcode" maxlength="7" value="<?php echo htmlspecialchars($Post_code); ?>" placeholder="1000001" required>
+                    <input type="text" name="Post_code" id="zipcode" class="input-base-text" maxlength="7" value="<?php echo htmlspecialchars($Post_code); ?>" placeholder="1000001" required>
                     <button type="button" class="menu-btn" onclick="searchZipcode()">検索</button>
                 </div>
             </div>
@@ -91,13 +91,11 @@ require 'header2.html';
                     <input type="text" id="address" name="address" class="input-base-text" value="<?php echo htmlspecialchars($address); ?>" placeholder="市町村番地" required>
                 </div>
             </div>
-
-            </form>
-            <div class="btn-group">
-                <button type="submit" class="greenBtn btn-base" form="address-form">保存</button>
-                <a href="customer-menu.php"><button type="button" class="blueBtn btn-base">戻る</button></a>
-            </div>
         </form>
+        <div class="btn-group">
+            <button type="submit" class="greenBtn btn-base" form="address-form">保存</button>
+            <a href="customer-menu.php"><button type="button" class="blueBtn btn-base">戻る</button></a>
+        </div>
     </div>
 </div>
 

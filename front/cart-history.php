@@ -33,24 +33,17 @@ $stmt->execute([$member_id]);
 $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // front 側のヘッダーを読み込む
-require '../front/header.html';
+require 'header.html';
 ?>
 
-<div class="form-container center">
-    <h2>注文履歴</h2>
+<div class="form-container">
+    <div class="center-content">
+        <h2>注文履歴</h2>
+    </div>
 
     <?php if (empty($orders)): ?>
         <p>注文履歴はありません</p>
     <?php else: ?>
-        <div class="table-wrapper">
-        <table border="1" cellpadding="5" cellspacing="0">
-            <tr>
-                <th>商品名</th>
-                <th>画像</th>
-                <th>数量</th>
-                <th>合計金額</th>
-                <th>注文日</th>
-            </tr>
             <?php foreach ($orders as $order): ?>
                 <tr>
                     <td><?= htmlspecialchars($order['item_name']) ?></td>
