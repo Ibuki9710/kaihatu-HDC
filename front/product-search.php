@@ -73,7 +73,6 @@ if (!empty($_SESSION['products'])) {
                     <form action="../back/product_admin.php" method="post" id="edit-form">
                         <input type="hidden" name="id" value="<?= $p['id'] ?>">
                         <input type="hidden" name="action" value="delete">
-                    </form>
                     <button type="submit" class="btn-base redBtn">削除</button>
                     
                 </form>
