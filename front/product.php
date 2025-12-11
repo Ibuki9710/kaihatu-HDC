@@ -20,22 +20,20 @@ require 'list-admin.html';
                 <!-- 商品名 -->
                 <div class="input-row">
                     <label class="input-label">商品名</label>
-                    <div class="input-field-area"> 
                         <input type="text" name="item_name" class="input-base-text" required> 
-                    </div>
                 </div>
 
                 <!-- 価格 -->
                 <div class="input-row">
                     <label class="input-label">価格</label>
-                    <input type="number" name="price" min="0" class="size-input" required>
+                    <input type="number" name="price" min="0" class="input-base-text" required>
                 </div>
 
                 <!-- ブランド -->
                 <div class="input-row">
                     <label class="input-label">ブランド</label>
-                    <select name="brand" required>
-                        <option value="">選択してください</option>
+                    <select name="brand" required class="input-base-text">
+                        <option value="" select disabled>選択してください</option>
                         <option value="大型製品">大型製品</option>
                         <option value="小型製品">小型製品</option>
                     </select>
@@ -44,16 +42,17 @@ require 'list-admin.html';
                 <!-- 商品画像 -->
                 <div class="input-row">
                     <label class="input-label">商品画像</label>
-                    <input type="file" name="image" accept="image/*" id="image-input" required>
-                    <div style="margin-top:10px;">
-                        <img id="image-preview" src="#" alt="画像プレビュー" style="max-width:200px; display:none;">
+                    <div class="small-box drop-zone">
+                        <input type="file" name="image" accept="image/*" id="image-input" class="file-input" required>
+                            <i class="fas fa-folder-open fa-2x file-icon"></i>
+                            <p>画像を選択またはドラッグ&ドロップ</p>
                     </div>
                 </div>
 
                 <!-- 商品説明 -->
                 <div class="input-row">
                     <label class="input-label">商品説明</label>
-                    <textarea name="item_explain" class="input-base-text textarea"></textarea>
+                    <textarea name="item_explain" class="textarea"></textarea>
                 </div>
 
                 <!-- 在庫 -->
@@ -68,8 +67,8 @@ require 'list-admin.html';
                 <div class="input-row">
                     <label class="input-label">サイズ登録</label>
                     <div class="size-group">
-                        <label>横幅：<input type="number" name="width" min="0" class="size-input"></label>
-                        <label>高さ：<input type="number" name="height" min="0" class="size-input"></label>
+                        <label>横幅　：<input type="number" name="width" min="0" class="size-input"></label>
+                        <label>高さ　：<input type="number" name="height" min="0" class="size-input"></label>
                         <label>奥行き：<input type="number" name="depth" min="0" class="size-input"></label>
                     </div>
                 </div>

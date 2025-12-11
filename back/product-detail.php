@@ -6,7 +6,7 @@
         echo '<div class="product-header-row">';
         echo '<div class="product-media-description">';
         echo '<div class="product-image-area">';
-        echo '<p><img alt="image" src="../image/', $row['item_id'], '.png"></p>';
+        echo '<p><img alt="image" src="../image/', $row['item_id'], '.png" width="228" height="228"></p>';
         echo '<form action="../back/cart-insert.php?id=', $row['item_id'], '" method="post">';
         echo '<form action="../back/favorite-insert.php?id=', $row['item_id'], '" method="post">';
         echo '<h2>', $row['item_name'], '</h2>';
@@ -32,6 +32,8 @@
         echo '<p>高さ:', $row['height'], '</p>';
         echo '</form>';
         echo '</form>';
+        echo '</div>';
+        echo '</div>';
         echo '</div>';
     }
 ?>

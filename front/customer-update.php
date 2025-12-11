@@ -153,7 +153,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <button type="submit">変更</button>
-                <button><a href="home-sample.php">ホームに戻る</button></a>
+                <a href="javascript:history.back();">
+                    <button class="btn-base blueBtn">戻る</button>
+                </a>
             </form>
         </div>
     </div>

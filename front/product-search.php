@@ -37,39 +37,43 @@ if (!empty($_SESSION['products'])) {
 
 <?php require_once __DIR__ . "/header-admin.html"; ?>
 <?php require_once __DIR__ . "/list-admin.html"; ?>
-
-<div class="container-admin">
-
+<div class="conteiner-header">
     <h2>商品管理</h2>
+</div>
+<div class="admin-main">
+    <div class="conteiner-admin">
+        <?php if (!empty($message)) : ?>
+            <p style="color: green;"><?= $message ?></p>
+        <?php endif; ?>
 
-    <?php if (!empty($message)) : ?>
-        <p style="color: green;"><?= $message ?></p>
-    <?php endif; ?>
+        <!-- 🔍 検索フォーム -->
+        <form action="../back/product_admin.php" method="post" id="edit-form">
+            <input type="text" name="keyword" class="input-base-text" placeholder="商品名・説明">
+        </form>
+        <div class="center">
+            <button type="submit" class="btn-base blueBtn" form="edit-form">検索</button>
+        </div>
+    </div>
+    <div class="conteiner-admin">
+        <h2>検索結果</h2>
 
-    <!-- 🔍 検索フォーム -->
-    <form action="../back/product_admin.php" method="post">
-        <input type="text" name="keyword" class="input-base-text" placeholder="商品名・説明">
-        <button type="submit" class="btn-base blueBtn">検索</button>
-    </form>
+        <?php if (!empty($products)) : ?>
+            <?php foreach ($products as $p): ?>
+                <div class="product-box">
 
-    <h2>検索結果</h2>
+                    <img src="../image/<?= htmlspecialchars($p['id']); ?>.png"
+                         alt="商品画像" class="product-img">
 
-    <?php if (!empty($products)) : ?>
-        <?php foreach ($products as $p): ?>
-            <div class="product-box">
+                    <div class="product-info">
+                        <p><strong>ID：</strong><?= htmlspecialchars($p['id']) ?></p>
+                        <p><strong>商品名：</strong><?= htmlspecialchars($p['name']) ?></p>
+                        <p><strong>説明：</strong><?= htmlspecialchars($p['description']) ?></p>
+                    </div>
 
-                <img src="../image/<?= htmlspecialchars($p['id']); ?>.png"
-                     alt="商品画像" class="product-img">
-
-                <div class="product-info">
-                    <p><strong>ID：</strong><?= htmlspecialchars($p['id']) ?></p>
-                    <p><strong>商品名：</strong><?= htmlspecialchars($p['name']) ?></p>
-                    <p><strong>説明：</strong><?= htmlspecialchars($p['description']) ?></p>
-                </div>
-
-                <form action="../back/product_admin.php" method="post">
-                    <input type="hidden" name="id" value="<?= $p['id'] ?>">
-                    <input type="hidden" name="action" value="delete">
+                    <form action="../back/product_admin.php" method="post" id="edit-form">
+                        <input type="hidden" name="id" value="<?= $p['id'] ?>">
+                        <input type="hidden" name="action" value="delete">
+                    </form>
                     <button type="submit" class="btn-base redBtn">削除</button>
                     
                 </form>
@@ -80,6 +84,5 @@ if (!empty($_SESSION['products'])) {
     <?php endif; ?>
 
 </div>
-
 </body>
 </html>
