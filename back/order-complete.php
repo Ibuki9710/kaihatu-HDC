@@ -5,7 +5,7 @@ require 'db_connect.php'; // DB接続ファイル
 // ログインチェック
 if (!isset($_SESSION['member_id'])) {
     $_SESSION['error'] = "ログインしてください";
-    header('Location: login.php');
+    header('Location: ../front/login.php');
     exit;
 }
 
